@@ -14,7 +14,9 @@ using UnityEngine;
 
 public class SeguimientoCamara: MonoBehaviour
 {
-    public Transform target;
+    public Transform flautistTarget;
+    public Transform dogTarget;
+    private Transform target;
     public float smoothSpeed = 0.125f;
     public Vector3 offset;
     public bool lookAt = true; // si esta fija o no
@@ -22,6 +24,11 @@ public class SeguimientoCamara: MonoBehaviour
     Vector3 fixedPosition; // posicion para la camara fija
     [SerializeField]
     Transform fixedCenter; // posicion centro
+
+    private void Awake()
+    {
+        target = flautistTarget;
+    }
 
     // Update is called once per frame
     void FixedUpdate()
@@ -43,5 +50,10 @@ public class SeguimientoCamara: MonoBehaviour
 
         transform.position = smoothPos;
         transform.LookAt(target);
+    }
+
+    public void SetTarget(Transform t)
+    {
+        target = t;
     }
 }

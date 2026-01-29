@@ -17,6 +17,12 @@ using UnityEngine.UI;
 
 namespace UCM.IAV.Movimiento
 {
+    enum CameraPosition
+    {
+        FLAUTIST,
+        FIXED,
+        DOG
+    }
 
     public class GestorJuego : MonoBehaviour
     {
@@ -45,7 +51,8 @@ namespace UCM.IAV.Movimiento
 
         private int numRats;
 
-        private bool cameraPerspective = true;
+        private CameraPosition cameraPerspective = CameraPosition.FLAUTIST;
+
         private void Awake()
         {
             //Cosa que viene en los apuntes para que el gestor del juego no se destruya entre escenas
@@ -201,15 +208,24 @@ namespace UCM.IAV.Movimiento
         private void ChangeCameraView()
         {
             SeguimientoCamara cam = Camera.main.GetComponent<SeguimientoCamara>();
-            if (cameraPerspective){ // camara fija
-                cam.offset = new Vector3(0, 15, -2);
-                cam.lookAt = false;
-                cameraPerspective = false;
-            }
-            else { // camara seguimiento
-                cam.offset = new Vector3(0, 7, -10);
-                cam.lookAt = true;
-                cameraPerspective = true;
+            cameraPerspective = (CameraPosition) (((int) cameraPerspective + 1.0f) % 3);
+
+            switch (cameraPerspective)
+            {
+                case CameraPosition.FLAUTIST:
+                    cam.offset = new Vector3(0, 7, -10);
+                    cam.lookAt = true;
+                    cam.SetTarget(cam.flautistTarget);
+                    break;
+                case CameraPosition.FIXED:
+                    cam.offset = new Vector3(0, 15, -2);
+                    cam.lookAt = false;
+                    break;
+                case CameraPosition.DOG:
+                    cam.offset = new Vector3(0, 7, -10);
+                    cam.lookAt = true;
+                    cam.SetTarget(cam.dogTarget);
+                    break;
             }
         }
     }
