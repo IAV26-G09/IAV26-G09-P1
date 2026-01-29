@@ -200,12 +200,15 @@ namespace UCM.IAV.Movimiento
 
         private void ChangeCameraView()
         {
-            if (cameraPerspective){
-                Camera.main.GetComponent<SeguimientoCamara>().offset = new Vector3(0, 15, -2);
+            SeguimientoCamara cam = Camera.main.GetComponent<SeguimientoCamara>();
+            if (cameraPerspective){ // camara fija
+                cam.offset = new Vector3(0, 15, -2);
+                cam.lookAt = false;
                 cameraPerspective = false;
             }
-            else{
-                Camera.main.GetComponent<SeguimientoCamara>().offset = new Vector3(0, 7, -10);
+            else { // camara seguimiento
+                cam.offset = new Vector3(0, 7, -10);
+                cam.lookAt = true;
                 cameraPerspective = true;
             }
         }
