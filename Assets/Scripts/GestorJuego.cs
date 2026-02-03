@@ -51,6 +51,11 @@ namespace UCM.IAV.Movimiento
 
         private int numRats;
 
+        public int getNumRats()
+        {
+            return numRats;
+        }
+
         private CameraPosition cameraPerspective = CameraPosition.FLAUTIST;
 
         private void Awake()
@@ -158,12 +163,14 @@ namespace UCM.IAV.Movimiento
                 scenario.SetActive(true);
         }
 
-        private void SpawnRata()
+        public void SpawnRata()
         {
             if (rataPrefab == null || rataGO == null)
                 return;
 
  
+            Debug.Log("adios spawn");
+
             GameObject nuevaRata = Instantiate(rataPrefab, rataGO.transform);
             Separacion separacion = nuevaRata.GetComponent<Separacion>();
 
@@ -180,7 +187,7 @@ namespace UCM.IAV.Movimiento
             ratText.text = numRats.ToString();
         }
 
-        private void DespawnRata()
+        public void DespawnRata()
         {
             if (rataGO == null || rataGO.transform.childCount < 1)
                 return;
@@ -189,6 +196,9 @@ namespace UCM.IAV.Movimiento
 
             numRats--;
             ratText.text = numRats.ToString();
+
+            Debug.Log("adios despawn");
+
         }
 
         private void ChangeFrameRate()
