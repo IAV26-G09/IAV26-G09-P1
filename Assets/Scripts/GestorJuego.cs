@@ -169,8 +169,6 @@ namespace UCM.IAV.Movimiento
                 return;
 
  
-            Debug.Log("adios spawn");
-
             GameObject nuevaRata = Instantiate(rataPrefab, rataGO.transform);
             Separacion separacion = nuevaRata.GetComponent<Separacion>();
 
@@ -197,7 +195,7 @@ namespace UCM.IAV.Movimiento
             numRats--;
             ratText.text = numRats.ToString();
 
-            Debug.Log("adios despawn");
+            Debug.Log("Despawn");
 
         }
 
