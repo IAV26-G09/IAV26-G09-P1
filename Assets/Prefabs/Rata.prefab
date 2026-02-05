@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 6833427840778598065}
   - component: {fileID: 2129874214364473491}
   - component: {fileID: 6537174158311488314}
-  - component: {fileID: 2890227307740488764}
   m_Layer: 0
   m_Name: Rata
   m_TagString: Untagged
@@ -125,23 +124,6 @@ MonoBehaviour:
   targEmpty: {fileID: 0}
   umbral: 0
   decayCoefficient: 0
---- !u!114 &2890227307740488764
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4131845400584305642}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ff165d9358587c146b7cc6e66cbdba1c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  peso: 1
-  prioridad: 1
-  objetivo: {fileID: 0}
-  tiempoMaximo: 2
-  tiempoMinimo: 1
 --- !u!1 &8741895683886266571
 GameObject:
   m_ObjectHideFlags: 0
@@ -202,9 +184,6 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 2
   m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -232,7 +211,7 @@ MeshRenderer:
   m_AdditionalVertexStreams: {fileID: 0}
 --- !u!95 &6821907370595639009
 Animator:
-  serializedVersion: 7
+  serializedVersion: 5
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -246,7 +225,6 @@ Animator:
   m_ApplyRootMotion: 0
   m_LinearVelocityBlending: 0
   m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
