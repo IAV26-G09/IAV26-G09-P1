@@ -2424,6 +2424,7 @@ MonoBehaviour:
   peso: 1
   prioridad: 1
   objetivo: {fileID: 0}
+  transform: {fileID: 543450652711980488}
 --- !u!114 &751997938
 MonoBehaviour:
   m_ObjectHideFlags: 0
