@@ -11,12 +11,22 @@
 namespace UCM.IAV.Movimiento
 {
     using UnityEngine;
+    using UnityEngine.Playables;
 
     /// <summary>
     /// El comportamiento de agente que consiste en ser el jugador
     /// </summary>
     public class ControlJugador: ComportamientoAgente
     {
+
+        [SerializeField]
+        Transform transform;
+
+        private void Start()
+        {
+            transform = GetComponent<Transform>();
+        }
+
         /// <summary>
         /// Obtiene la dirección
         /// </summary>
@@ -27,8 +37,21 @@ namespace UCM.IAV.Movimiento
             ComportamientoDireccion direccion = new ComportamientoDireccion();
             
             //Direccion actual
+            // Control por teclado
             direccion.lineal.x = Input.GetAxis("Horizontal");
             direccion.lineal.z = Input.GetAxis("Vertical");
+
+            // Control por raton
+            if (Input.GetKey((KeyCode.Mouse0)))
+            {
+                RaycastHit hit;
+                var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                if (Physics.Raycast(ray, out hit))
+                {
+                    direccion.lineal = hit.point - transform.position;
+                }
+            }
 
             //Resto de cálculo de movimiento
             direccion.lineal.Normalize();
