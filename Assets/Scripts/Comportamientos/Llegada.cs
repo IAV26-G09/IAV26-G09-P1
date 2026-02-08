@@ -52,7 +52,7 @@ namespace UCM.IAV.Movimiento
             // hemos llegado -> paramos
             if (distancia < rObjetivo)
             {
-                return null; // intencion de detenerse
+                return result; // intencion de detenerse
             }
 
             // no hemos llegado y fuera del radio de realentizado -> avanzamos a maxima velocidad

@@ -6154,7 +6154,12 @@ PrefabInstance:
     - target: {fileID: 6212659157140617999, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
       propertyPath: rObjetivo
-      value: 10
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212659157140617999, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: rRalentizado
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
