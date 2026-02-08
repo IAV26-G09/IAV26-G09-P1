@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3861295050334874258}
   - component: {fileID: 6022587051812246147}
   - component: {fileID: 6212659157140617999}
-  - component: {fileID: 7982239899320112803}
   m_Layer: 0
   m_Name: Perro
   m_TagString: Untagged
@@ -138,32 +137,10 @@ MonoBehaviour:
   peso: 1
   prioridad: 1
   objetivo: {fileID: 0}
-  rObjetivo: 0
-  rRalentizado: 0
+  rObjetivo: 5
+  rRalentizado: 10
   distancia: 7
   fRalentizado: 0
---- !u!95 &7982239899320112803
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3861295050334874256}
-  m_Enabled: 1
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: c0f329b259ce091459f553c7f01a04a8, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &5977170053187502081
 GameObject:
   m_ObjectHideFlags: 0
