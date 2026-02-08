@@ -303,8 +303,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Animator\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 237
-    y: 79
+    x: 238
+    y: 24
     width: 1251
     height: 569
   m_SerializedDataModeController:
@@ -396,7 +396,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 79
+    y: 24
     width: 236
     height: 569
   m_SerializedDataModeController:
@@ -412,8 +412,8 @@ MonoBehaviour:
     m_OverlaysVisible: 1
   m_SceneHierarchy:
     m_TreeViewState:
-      scrollPos: {x: 0, y: 96}
-      m_SelectedIDs: d6650000
+      scrollPos: {x: 0, y: 0}
+      m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: 28edfffff6f7ffff94faffffae660000d46600006867000088670000d6670000e8670000
       m_RenameOverlay:
@@ -944,7 +944,7 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: 0.34778517, y: -0.003942321, z: 0.0014626672, w: 0.93757045}
     speed: 2
-    m_Value: {x: 0.34778336, y: -0.0039423006, z: 0.0014626596, w: 0.9375655}
+    m_Value: {x: -0.34778517, y: 0.003942321, z: -0.0014626671, w: -0.93757045}
   m_Size:
     m_Target: 12.105524
     speed: 2
@@ -1107,7 +1107,7 @@ MonoBehaviour:
   m_Pos:
     serializedVersion: 2
     x: 0
-    y: 674
+    y: 619
     width: 1489
     height: 312
   m_SerializedDataModeController:
@@ -1152,7 +1152,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 5e660000
     m_LastClickedID: 26206
-    m_ExpandedIDs: 000000000066000000ca9a3b
+    m_ExpandedIDs: 000000005c690000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1181,7 +1181,7 @@ MonoBehaviour:
     scrollPos: {x: 0, y: 0}
     m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 000000000066000000ca9a3b
+    m_ExpandedIDs: 000000005c690000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -1484,8 +1484,8 @@ MonoBehaviour:
     m_TextWithWhitespace: "Inspector\u200B"
   m_Pos:
     serializedVersion: 2
-    x: 1490
-    y: 79
+    x: 1491
+    y: 24
     width: 429
     height: 907
   m_SerializedDataModeController:

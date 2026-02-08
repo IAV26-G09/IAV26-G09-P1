@@ -39,15 +39,17 @@ namespace UCM.IAV.Movimiento
 
         ComportamientoDireccion lastDir = new ComportamientoDireccion(); // current orientation of wanderer
 
-        private Transform transform;
+        //private Transform transform;
         private void Start()
         {
-            transform = GetComponent<Transform>();
+            if (objetivo == null)
+            {
+                objetivo = new GameObject();
+            }
         }
 
         public override ComportamientoDireccion GetComportamientoDireccion()
         {
-            ComportamientoDireccion direccion = new ComportamientoDireccion();
 
             // IMPLEMENTAR merodear
             tiempoMinimo = 1.0f; // por ejemplo
@@ -69,10 +71,25 @@ namespace UCM.IAV.Movimiento
 
             direccion.lineal = agente.aceleracionMax * (direccion.angular);*/
 
+            // --- 1
+            // actualiza la direccion de merodeo
+            wanderOrientation += Random.Range(.0f, 360f) * tiempoMaximo;
+
+            // calcula targetOrientation
+            float targetOrientation = wanderOrientation + agente.orientacion;
+
+            // calcula el centro del wander circle
+            objetivo.transform.position = agente.transform.position + wanderOffset * agente.OriToVec(agente.orientacion);
+
+            // posicion del target
+            objetivo.transform.position += wanderRadius * agente.OriToVec(targetOrientation);
+
+            // --- 2
+            ComportamientoDireccion result = new ComportamientoDireccion();
 
 
 
-            return direccion;
+            return result;
         }
 
     }

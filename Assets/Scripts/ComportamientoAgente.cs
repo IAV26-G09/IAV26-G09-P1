@@ -8,6 +8,9 @@
    Autor: Federico Peinado 
    Contacto: email@federicopeinado.com
 */
+
+using System;
+
 namespace UCM.IAV.Movimiento
 {
 
@@ -102,7 +105,8 @@ namespace UCM.IAV.Movimiento
             return vector.normalized;
         }
 
-        public virtual ComportamientoDireccion GetSteering()
+        
+        public ComportamientoDireccion GetSteeringSeek()
         {
             ComportamientoDireccion result = new ComportamientoDireccion();
 
@@ -114,6 +118,37 @@ namespace UCM.IAV.Movimiento
             result.lineal *= agente.aceleracionMax;
 
             result.angular = 0;
+
+            return result;
+        }
+
+        public ComportamientoDireccion GetSteeringAlign()
+        {
+            ComportamientoDireccion result = new ComportamientoDireccion();
+
+            // El radio para llegar al objetivo
+            float rObjetivo;
+
+            // El radio en el que se empieza a ralentizarse
+            float rRalentizado;
+
+            // El tiempo en el que conseguir la aceleracion objetivo
+            float timeToTarget = 0.1f;
+
+            agente.rotacion = objetivo.transform.eulerAngles.y - agente.orientacion;
+
+            agente.rotacion = (float)((Math.PI / 180) * objetivo.transform.rotation.eulerAngles.y);
+
+
+
+            return result;
+        }
+
+        public ComportamientoDireccion GetSteeringFace()
+        {
+            ComportamientoDireccion result = new ComportamientoDireccion();
+
+
 
             return result;
         }
