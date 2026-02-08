@@ -8,8 +8,8 @@ Prototipo de videojuego actualizado a la versión LTS de Unity llamada **Unity 6
 Consiste en un entorno virtual 3D que representa el pueblo de Hamelín, un personaje controlable por el jugador que es el flautista de Hamelín, un perro compañero y un montón de ratas preparadas para controlarse con IA.
 
 ## Autores
-- Nieves Alonso Gilsanz @nievesag
-- Cynthia Tristán Álvarez @cyntrist
+- Nieves Alonso Gilsanz [@nievesag](https://github.com/nievesag)
+- Cynthia Tristán Álvarez [@cyntrist](https://github.com/cyntrist)
 
 ## Resumen
 Se trata de un prototipo básico del clásico puzle de los bloques deslizantes que incorpora un resolutor automático. Este es el [enunciado completo](https://narratech.com/es/inteligencia-artificial-para-videojuegos/introduccion/bloques-deslizantes/) en la web de Narratech. 
