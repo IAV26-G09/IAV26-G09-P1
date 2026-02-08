@@ -86,8 +86,12 @@ namespace UCM.IAV.Movimiento
 
             // --- 2
             ComportamientoDireccion result = new ComportamientoDireccion();
+            result = GetSteeringFace();
 
-
+            // --- 3
+            // ahora la aceleracion lineal es toda
+            // aceleracion en la direccion de la orientacion
+            result.lineal = agente.aceleracionMax * agente.OriToVec(agente.orientacion);
 
             return result;
         }

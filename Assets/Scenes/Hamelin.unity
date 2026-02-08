@@ -5290,6 +5290,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rata
       objectReference: {fileID: 0}
+    - target: {fileID: 6537174158311488314, guid: 5175d5736886518439bf9a2956a122b4,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -6154,6 +6159,11 @@ PrefabInstance:
     - target: {fileID: 6212659157140617999, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
       propertyPath: rObjetivo
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6212659157140617999, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: rRalentizado
       value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7982239899320112803, guid: 5ff744207c6a5044ab297c8fc4814fc0,
@@ -6163,6 +6173,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
+    - {fileID: 7982239899320112803, guid: 5ff744207c6a5044ab297c8fc4814fc0, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

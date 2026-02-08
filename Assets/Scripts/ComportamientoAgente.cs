@@ -15,6 +15,7 @@ namespace UCM.IAV.Movimiento
 {
 
     using UnityEngine;
+    using static UnityEditor.FilePathAttribute;
 
     /// <summary>
     /// Clase abstracta que funciona como plantilla para todos los comportamientos de agente
@@ -79,7 +80,7 @@ namespace UCM.IAV.Movimiento
         /// </summary>
         /// <param name="rotacion"></param>
         /// <returns></returns>
-        public float RadianesAGrados(float rotacion)
+        public float MapToRange(float rotacion)
         {
             rotacion %= 360.0f;
             if (Mathf.Abs(rotacion) > 180.0f)
@@ -127,20 +128,55 @@ namespace UCM.IAV.Movimiento
             ComportamientoDireccion result = new ComportamientoDireccion();
 
             // El radio para llegar al objetivo
-            float rObjetivo;
+            float rObjetivo = 1.0f;
 
             // El radio en el que se empieza a ralentizarse
-            float rRalentizado;
+            float rRalentizado = 30.0f;
 
             // El tiempo en el que conseguir la aceleracion objetivo
             float timeToTarget = 0.1f;
 
-            agente.rotacion = objetivo.transform.eulerAngles.y - agente.orientacion;
+            float rotacion = objetivo.transform.eulerAngles.y - agente.orientacion;
 
-            agente.rotacion = (float)((Math.PI / 180) * objetivo.transform.rotation.eulerAngles.y);
+            // mapear el resultado al rango de -180 a 180
+            //agente.rotacion = (float)((Math.PI / 180) * objetivo.transform.rotation.eulerAngles.y);
+            rotacion = MapToRange(rotacion);
+            float rotationSize = Mathf.Abs(rotacion);
 
+            // comprobar si estamos ahi, devolver ninguna rotacion
+            if (rotationSize < rObjetivo)
+            {
+                return result;
+            }
 
+            // si estamos fuera del radio de ralentizado, entonces usamos la maxima rotacion
+            float targetRotation = 0;
+            if (rotationSize > rRalentizado)
+            {
+                targetRotation = agente.rotacionMax;
+                //objetivo.
+            }
+            else // si no calculamos la escalada
+            {
+                targetRotation = agente.rotacionMax * rotationSize / rRalentizado;
+            }
 
+            // la rotacion deseada final combina velocidad y direccion
+            targetRotation *= rotacion / rotationSize;
+
+            // la aceleracion intenta llegar a la rotacion deseada
+            result.angular = targetRotation - agente.rotacion;
+            result.angular /= timeToTarget;
+
+            // comprobar si la aceleracion es demasiada
+            float angularAcceleration = Mathf.Abs(result.angular);
+            if (angularAcceleration > agente.aceleracionAngularMax)
+            {
+                result.angular /= angularAcceleration;
+                result.angular *= agente.aceleracionAngularMax;
+            }
+
+            result.lineal = Vector3.zero;
             return result;
         }
 
@@ -148,9 +184,16 @@ namespace UCM.IAV.Movimiento
         {
             ComportamientoDireccion result = new ComportamientoDireccion();
 
+            // 1. calcular el objetivo al que delegar el anieamiento
+            // deducir la direccion al target
+            Vector3 direccion = objetivo.transform.position - agente.transform.position;
 
+            // comprobar direccion 0
+            if (direccion.magnitude == 0)
+                return result;
 
-            return result;
+            // 2. delegar a align
+            return GetSteeringAlign();
         }
     }
 }
