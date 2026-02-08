@@ -63,9 +63,10 @@ namespace UCM.IAV.Movimiento
 
             target += wanderRadius * agente.OriToVec(targetOrientation);
 
+            /*
             result = 
 
-            direccion.lineal = agente.aceleracionMax * (direccion.angular);
+            direccion.lineal = agente.aceleracionMax * (direccion.angular);*/
 
             return direccion;
         }

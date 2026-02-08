@@ -151,7 +151,7 @@ namespace UCM.IAV.Movimiento
             
         }
 
-        private void Restart()
+        public void Restart()
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
