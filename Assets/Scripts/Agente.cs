@@ -115,12 +115,12 @@ namespace UCM.IAV.Movimiento {
         /// </summary>
         void Start()
         {
-            // Descomentar estas l�neas si queremos ignorar los valores iniciales de velocidad y rotaci�n
+            // Descomentar estas lineas si queremos ignorar los valores iniciales de velocidad y rotacion
             //velocidad = Vector3.zero; 
             //rotacion = 0.0f
             direccion = new ComportamientoDireccion();
             grupos = new Dictionary<int, List<ComportamientoDireccion>>();
-            orientacion = transform.eulerAngles.y; // La orientaci�n inicial es la real
+            orientacion = transform.eulerAngles.y; // La orientacion inicial es la real
 
             cuerpoRigido = GetComponent<Rigidbody>();
         }
@@ -333,5 +333,7 @@ namespace UCM.IAV.Movimiento {
                 transform.rotation = Quaternion.Euler(0f, anguloSuave, 0f);
             }
         }
+
+        
     }
 }

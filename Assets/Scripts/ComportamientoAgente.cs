@@ -101,5 +101,21 @@ namespace UCM.IAV.Movimiento
             vector.z = Mathf.Cos(orientacion * Mathf.Deg2Rad) * 1.0f;
             return vector.normalized;
         }
+
+        public virtual ComportamientoDireccion GetSteering()
+        {
+            ComportamientoDireccion result = new ComportamientoDireccion();
+
+            // direccion hacia el objetivo
+            result.lineal = objetivo.transform.position - agente.transform.position;
+
+            // maxima aceleracion en esa direccion
+            result.lineal.Normalize();
+            result.lineal *= agente.aceleracionMax;
+
+            result.angular = 0;
+
+            return result;
+        }
     }
 }

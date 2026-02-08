@@ -55,6 +55,7 @@ namespace UCM.IAV.Movimiento
             actualT = 2.0f; // por ejemplo
             t = 3.0f; // por ejemplo
 
+            /*
             wanderOrientation += Random.Range(0.0f, 360.0f) * tiempoMaximo;
 
             float targetOrientation = wanderOrientation;
@@ -67,6 +68,9 @@ namespace UCM.IAV.Movimiento
             result = 
 
             direccion.lineal = agente.aceleracionMax * (direccion.angular);*/
+
+
+
 
             return direccion;
         }

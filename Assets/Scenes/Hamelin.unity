@@ -6141,6 +6141,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.y
       value: -149.631
       objectReference: {fileID: 0}
+    - target: {fileID: 6022587051812246147, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: objetivo
+      value: 
+      objectReference: {fileID: 919132148976998258}
+    - target: {fileID: 6212659157140617999, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: objetivo
+      value: 
+      objectReference: {fileID: 919132148976998258}
+    - target: {fileID: 6212659157140617999, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: rObjetivo
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 0}
     m_RemovedGameObjects: []
