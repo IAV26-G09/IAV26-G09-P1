@@ -1,48 +1,50 @@
 # Inteligencia Artificial para Videojuegos - Práctica 1: Plaga de Ratas
 
 > [!NOTE]
-> Incluir un aviso como este si se han realizado cambios significativos en la documentación con respecto a la revisión anterior.
-
-Prototipo de videojuego actualizado a la versión LTS de Unity llamada **Unity 6000.0.62f2** , diseñado para servir como punto de partida en algunas prácticas.
-
-Consiste en un entorno virtual 3D que representa el pueblo de Hamelín, un personaje controlable por el jugador que es el flautista de Hamelín, un perro compañero y un montón de ratas preparadas para controlarse con IA.
+> Versión: 1
 
 ## Autores
 - Nieves Alonso Gilsanz [@nievesag](https://github.com/nievesag)
 - Cynthia Tristán Álvarez [@cyntrist](https://github.com/cyntrist)
 
 ## Resumen
-Se trata de un prototipo básico del clásico puzle de los bloques deslizantes que incorpora un resolutor automático. Este es el [enunciado completo](https://narratech.com/es/inteligencia-artificial-para-videojuegos/introduccion/bloques-deslizantes/) en la web de Narratech. 
+El proyecto consiste en prototipo de videojuego actualizado a la versión LTS de Unity que sirve de demostración técnica de algoritmos básicos de inteligencia artificial en NPCs. 
 
-La versión original del prototipo proviene del repositorio de libro Artificial Intelligence: A Modern Approach, aunque el prototipo fue revisado y completado por Federico Peinado. El código se distribuye bajo la licencia LGPL.
-
-El propósito es servir como ejemplo a los alumnos para las demás prácticas de la asignatura.
+Consiste en un entorno virtual 3D que representa el pueblo de Hamelín, un personaje controlable por el jugador que es el flautista de Hamelín, un perro compañero y un montón de ratas preparadas para controlarse con IA.
 
 ## Instalación y uso
-Todo el contenido del proyecto está disponible aquí en el repositorio, pues **Unity 2022.3.55f1** o posterior debería ser capaz de bajar todos los paquetes necesarios.
-De cara al curso 2025-2026 necesitaremos **Unity 6 (6000.0.53f1 LTS)**
+Todo el contenido del proyecto está disponible en este repositorio, con **Unity 6000.0.66f2** o posterior siendo capaces de bajar todos los paquetes necesarios.
 
 Al no estar publicada todavía ninguna versión ejecutable del prototipo, ni enlazado ningún video con las pruebas realizadas, es necesario abrir el proyecto en Unity y usarlo desde allí.
 
+Próximamente se publicará un release con la etiqueta `release-x`, siendo x la versión del proyecto.
+
 ## Introducción  
-Este proyecto es una práctica de la asignatura de Inteligencia Artificial para Videojuegos del Grado en Desarrollo de Videojuegos de la UCM, cuyo enunciado original es este: [Título del Enunciado](https://narratech.com/es/inteligencia-artificial-para-videojuegos/tema/enunciado/).
+Este proyecto es una práctica de la asignatura de Inteligencia Artificial para Videojuegos del Grado en Desarrollo de Videojuegos de la UCM, cuyo enunciado original es este: [Plaga de Ratas](https://narratech.com/es/inteligencia-artificial-para-videojuegos/percepcion-y-movimiento/plaga-de-ratas/).
 
-Esta práctica consiste en... (dar explicación breve de la propuesta, como la que ponemos a continuación)
+Se parte de la leyenda alemana del siglo XIII para plantear un escenario donde el jugador controla al flautista de Hamelin y todas las demás criaturas son controladas mediante IA: una de ellas es un **perro**, fiel compañero que seguirá al avatar del jugador a todas partes, aunque también hay **ratas** que merodean por todo el pueblo. El **flautista** puede tocar la flauta, y mientras lo hace, las ratas que le oigan comenzarán a seguirle. Estas pueden molestar al perro hasta el punto de hacerlo ladrar y huir, si tiene demasiadas ratas cerca.
 
-Aunque en un videojuego lo habitual es que sea el jugador (humano) el que resuelva los puzles, a menudo es útil disponer de una IA capaz de hacerlo automáticamente. Esto puede servir para ayudar al jugador a superarlo o para darle cierta información (como los pasos que faltan por dar). También puede ayudar al diseñador a realizar pruebas más rápida y eficazmente, verificando que es posible superar el puzle y que este no tiene excesiva dificultad, e incluso a generar nuevos puzles, ya que es una tarea muy relacionada con el hecho de resolverlos. 
+Esta práctica consiste en desarrollar el prototipo de un entorno virtual con obstáculos y un avatar controlado por el jugador, donde representamos el movimiento de un perro y una manada de ratas. El perro persigue al flautista con control de llegada. Cada rata, si el flautista no toca su flauta, merodea por el escenario, y si la toca y esta lo escucha, se dirige hacia él, en formación con las demás ratas y controlando la llegada, hasta quedar como "hipnotizadas” a su alrededor.
 
-El puzle de bloques deslizantes, sliding puzzle o n-puzzle,  es un clásico dentro de los llamados “problemas de juguete”, una serie de problemas de combinatoria utilizados a menudo para teorizar o explicar conceptos lógico-matemáticos en Inteligencia Artificial. La variante de 8 bloques los tiene distribuidos en un tablero de 3x3 casillas, dejando habitualmente la esquina inferior derecha libre.
+Lo que se pretende con esta práctica es implementar **algoritmos de movimiento estándar** comúnmente utilizados en la industria del entretenimiento para dar vida a toda clase de seres que se mueven tanto en solitario como “en bandada”.
 
-La mecánica consiste en deslizar piezas, generalmente planas, sobre ciertas rutas predefinidas, básicamente a una casilla vecina que esté libre en un tablero bidimensional). El objetivo es llegar a una cierta configuración final, partiendo de una configuración inicial diferente. A menudo estas piezas van numeradas o llevan impreso partes de un dibujo que podremos ver completo cuando hayamos resuelto el puzle. 
+La versión original del prototipo proviene del repositorio de libro *Artificial Intelligence: A Modern Approach*, aunque el prototipo fue revisado y completado por Federico Peinado. El código se distribuye bajo la licencia LGPL. La versión actual y finalización del código a través del enunciado propuesto ha sido realizada por las autoras Nieves Alonso Gilsanz y Cynthia Tristán Álvarez.
 
 ## Punto de partida
-Aunque en este caso no hay algo que sirva como punto de partida, expresamos por aquí lo que se podría reflejar:
+Hemos partido de un proyecto base proporcionado por el profesor y disponible en este repositorio: [Hamelin - Base](https://github.com/narratech/hamelin-base)
 
-Se parte de un proyecto base proporcionado por el profesor y disponible en este repositorio: [Hamelin - Base](https://github.com/narratech/hamelin-base)
-
-Consiste en... (dar explicación detallada de las clases y los métodos ya implementados)
+Consiste en el entorno del pueblo ya preparado para desarrollar la IA, con cada prefab de los tres tipos de agentes ya instanciados y componentes de agentes y de animaciones configurados pero sin el código de cada tipo de movimiento implementado. Cuenta con una interfaz básica meramente informativa: 
+- FPS
+- Controles:
+    - Crear o destruir ratas (O / P).
+    - Activar o desactivar obstáculos (T).
+    - Cambiar cámara (N).
+    - Cambiar ratio de FPS entre 30 y 60 (F).
+    - Reiniciar juego (R).
+También cuenta con movimiento del avatar del jugador con WASD y dos modos de cámara que siguen al jugador, aérea y en tercera persona.
 
 ## Planteamiento del problema
+<!-- 
 Tenemos el clásico puzle de bloques deslizantes, de NxM dimensiones, que podemos reordenar manualmente e incluso desorganizar de manera aleatoria. Queremos probar y comparar dos resolutores automáticos para este problema de búsqueda no informada, uno basado en el algoritmo Primero en anchura y otro en Primero en profundidad.  
 
 Desarrolla un prototipo de IA que permita resolver, tanto manual como automáticamente, el puzle deslizante de dimensiones N x N, es decir con (N x N) -1 piezas distribuidas, donde N > 1. El tablero con números de un 8-puzle será fácilmente manipulable y la solución automática se alcanzará mediante pura “fuerza bruta”. 
@@ -55,28 +57,30 @@ El prototipo permitirá:
 * E. Tras la resolución automática, se mostrarán medidas del éxito conseguido, como el número de pasos de la solución o el tiempo empleado en ella.
 
 En cuanto a interfaz, arriba se mostrarán mensajes sobre la ordenación del puzle y métricas de resolución (pasos, nodos empleados, etc.) una vez que se utilizan los resolutores, y siempre se buscará una buena usabilidad con ratón, clicando sobre botones y directamente sobre las piezas en una ventana cuadrada de 640x480 píxeles o superior. 
+-->
 
 ## Estados de los agentes
 
 - Ratas:
 ```mermaid
 graph TD;
-  MERODEO<-->HIPNOSIS;
+  MERODEANDO<-->HIPNOTIZADA;
 ```
 
 - Perro:
 ```mermaid
 graph TD;
-  SEGUIR_FLAUTISTA<-->HUIR_RATAS;
+  SIGUIENDO_FLAUTISTA<-->HUYENDO_RATAS;
 ```
 
 - Flautista:
 ```mermaid
 graph TD;
-  TOCAR_FLAUTA<-->NO_TOCAR_FLAUTA;
+  TOCANDO_FLAUTA<-->OCIOSO;
 ```
 
 ## Diseño de la solución
+<!-- 
 Para empezar se puede detallar algo sobre cómo es el escenario de juego, e incluso indicar los controles en un panel de la ventana, incluyendo cualquier atajo de teclado, etc. El botón Reset reinicia el tablero a la posición original, ajustando también filas y columnas según lo indicado en los recuadros. El botón Random actúa como Reset si hemos cambiado el tamaño de filas y columnas, y además reordena el puzle probando movimientos pseudoaleatorios. Los botones Solve BFS y Solve DFS llaman a los resolutores automáticos. Exit es para salir.
 
 A continuación se puede añadir la representación utilizada para los datos y las estructuras intermedias (grafo de nodos) así como el pseudocódigo más preciso posible que se ha seguido para implementar el BFS y el DFS. Aquí todavía NO debemos entrar en detalles de la implementación, como el código C# del prototipo.
@@ -172,8 +176,10 @@ stateDiagram
     Victoria --> Inicio
 ```
 Para dibujar espacios de coordenadas 2D con puntos y vectores, se podría incrustar una imagen de Google Draw, o intentar incrustarlo en el repositorio también con Mermaid. 
+-->
 
 ## Implementación
+<!-- 
 Las tareas se han realizado y el esfuerzo ha sido repartido entre los autoresha (en mi caso ha sido asumido por el único autor, claro).
 
 Esto se podrá documentar en una tabla como esta o usando la [pestaña de Proyectos](https://github.com/orgs/narratech/projects/4/views/1) de GitHub.
@@ -277,26 +283,31 @@ classDiagram
       BreadthFirstSearch <|--  Search : implements
       DepthFirstSearch <|--  Search : implements
 ```
+-->
 
+<!-- 
 ## Ampliaciones
-
 Si se han realizado ampliaciones explicarlo: se han realizado las siguientes ampliaciones
 
 - Los obstáculos del escenario se colocan...
+-->
 
 ## Pruebas y métricas
+<!-- 
 Detallar la serie más corta y rápida posible de pruebas que pueden realizarse para verificar que se cumple todo lo que piden el enunciado:
+-->
+Serie corta y rápida posible de pruebas que pueden realizarse para verificar que se cumplen las características requeridas:
 
-* Arranca la aplicación y haz un par de Reset para mostrar el puzle en su configuración inicial, y ver que se indica cuando el puzle está ordenado.  
-* Clica tres veces en piezas vecinas del espacio libre o “hueco” (y en algunas que no lo sean) para ver que se pueden mover las piezas manualmente.  
-* Usa el botón Reset para reiniciar el puzle a su configuración inicial y luego Random para ver que efectivamente se desordena aleatoriamente.  
-* Usa el botón Solve BFS primero, y Solve DFS después (sobre un puzle de tamaño pequeño y no demasiado desordenando) para ver que se puede resolver automáticamente el puzle con esas dos estrategias no informadas.
-* Observa la resolución paso a paso, no sólo su configuración final.  
-* Observa las medidas del éxito (pasos, tiempo...) al terminar.
+1. Arranca la aplicación y haz un par de Reset para mostrar el puzle en su configuración inicial, y ver que se indica cuando el puzle está ordenado.  
+2. Clica tres veces en piezas vecinas del espacio libre o “hueco” (y en algunas que no lo sean) para ver que se pueden mover las piezas manualmente.  
+3. Usa el botón Reset para reiniciar el puzle a su configuración inicial y luego Random para ver que efectivamente se desordena aleatoriamente.  
+4. Usa el botón Solve BFS primero, y Solve DFS después (sobre un puzle de tamaño pequeño y no demasiado desordenando) para ver que se puede resolver automáticamente el puzle con esas dos estrategias no informadas.
+5. Observa la resolución paso a paso, no sólo su configuración final.  
+6. Observa las medidas del éxito (pasos, tiempo...) al terminar.
 
-En general, elaborar un plan de pruebas dividido por características (C1, C2 y C3 serían las 3 pruebas que se han realizado de la característica C)
-- [Vídeo con la batería de pruebas](https://www.youtube.com/watch?v=wdlJquAlGWI)
+- [Vídeo demostración](https://www.youtube.com/watch?v=wdlJquAlGWI)
 
+<!--
 ## Conclusiones
 Queda toda la posproducción por hacer: el pulido y la distribución del ejecutable del juego, así como la publicación del video-documental con las pruebas.
 
@@ -307,10 +318,11 @@ Para ir más allá en el aprendizaje, para el futuro consideramos estas posibles
 * Usar otros algoritmos, otros tipos de búsqueda (informada) o un resolutor interactivo. 
 * Generalizar el problema a puzles NxM.
 * Generalizar el problema a puzles con piezas que ocupan más de una casilla.
-  
+-->
 
 ## Licencia
-Federico Peinado, autor de la documentación, código y recursos de este trabajo, concedo permiso permanente a los alumnos de la Facultad de Informática de la Universidad Complutense de Madrid para utilizar este material, con sus comentarios y evaluaciones, con fines educativos o de investigación; ya sea para obtener datos agregados de forma anónima como para utilizarlo total o parcialmente reconociendo expresamente mi autoría.
+Nieves Alonso Gilsanz y Cynthia Tristán Álvarez, con el permiso de Federico Peinado, autores de la documentación, código y recursos de este trabajo, concedemos permiso permanente para utilizar este m aterial, con sus comentarios y evaluaciones, con fines educativos o de investigación; ya sea para obtener datos agregados de forma anónima como para utilizarlo total o parcialmente reconociendo expresamente nuestra autoría. 
+
 
 ## Referencias
 A continuación se detallan todas las referencias bibliográficas, lúdicas o de otro tipo utilizdas para realizar este prototipo. Los recursos de terceros que se han utilizados son de uso público.
