@@ -50,6 +50,7 @@ namespace UCM.IAV.Movimiento
         public override ComportamientoDireccion GetComportamientoDireccion()
         {
             ComportamientoDireccion result = new ComportamientoDireccion();
+
             current += Time.deltaTime;
 
             if (current >= limit)
