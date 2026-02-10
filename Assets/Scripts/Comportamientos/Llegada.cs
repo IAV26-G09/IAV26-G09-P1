@@ -40,8 +40,6 @@ namespace UCM.IAV.Movimiento
 
         public override ComportamientoDireccion GetComportamientoDireccion()
         {
-            // IMPLEMENTAR llegada
-
             ComportamientoDireccion result =  new ComportamientoDireccion();
 
             // direccion hacia el objetivo
