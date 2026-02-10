@@ -37,7 +37,8 @@ namespace UCM.IAV.Movimiento
 
         private float wanderOrientation = 0.0f; 
 
-        ComportamientoDireccion lastDir = new ComportamientoDireccion(); // current orientation of wanderer
+        float current = 0.0f;
+        float limit = 0.0f;
 
         //private Transform transform;
         private void Start()
@@ -50,51 +51,38 @@ namespace UCM.IAV.Movimiento
 
         public override ComportamientoDireccion GetComportamientoDireccion()
         {
-
-            // IMPLEMENTAR merodear
-            tiempoMinimo = 1.0f; // por ejemplo
-            tiempoMaximo = 2.0f; // por ejemplo
-            actualT = 2.0f; // por ejemplo
-            t = 3.0f; // por ejemplo
-
-            /*
-            wanderOrientation += Random.Range(0.0f, 360.0f) * tiempoMaximo;
-
-            float targetOrientation = wanderOrientation;
-
-            Vector3 target = transform.position + wanderOffset * agente.OriToVec(lastDir.angular);
-
-            target += wanderRadius * agente.OriToVec(targetOrientation);
-
-            /*
-            result = 
-
-            direccion.lineal = agente.aceleracionMax * (direccion.angular);*/
-
-            // --- 1
-            // actualiza la direccion de merodeo
-            wanderOrientation += Random.Range(.0f, 360f) * tiempoMaximo;
-
-            // calcula targetOrientation
-            float targetOrientation = wanderOrientation + agente.orientacion;
-
-            // calcula el centro del wander circle
-            objetivo.transform.position = agente.transform.position + wanderOffset * agente.OriToVec(agente.orientacion);
-
-            // posicion del target
-            objetivo.transform.position += wanderRadius * agente.OriToVec(targetOrientation);
-
-            // --- 2
             ComportamientoDireccion result = new ComportamientoDireccion();
-            result = GetSteeringFace();
 
-            // --- 3
-            // ahora la aceleracion lineal es toda
-            // aceleracion en la direccion de la orientacion
-            result.lineal = agente.aceleracionMax * agente.OriToVec(agente.orientacion);
+            current += Time.deltaTime;
+
+            if (current >= limit)
+            {
+                current = 0;
+                limit = Random.Range(tiempoMinimo, tiempoMaximo);
+
+                // --- 1
+                // actualiza la direccion de merodeo
+                wanderOrientation += Random.Range(.0f, 360f) * tiempoMaximo;
+
+                // calcula targetOrientation
+                float targetOrientation = wanderOrientation + agente.orientacion;
+
+                // calcula el centro del wander circle
+                objetivo.transform.position = agente.transform.position + wanderOffset * agente.OriToVec(agente.orientacion);
+
+                // posicion del target
+                objetivo.transform.position += wanderRadius * agente.OriToVec(targetOrientation);
+
+                // --- 2
+                result = GetSteeringFace();
+
+                // --- 3
+                // ahora la aceleracion lineal es toda
+                // aceleracion en la direccion de la orientacion
+                result.lineal = agente.aceleracionMax * agente.OriToVec(targetOrientation);
+            }
 
             return result;
         }
-
     }
 }
