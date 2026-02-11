@@ -2395,7 +2395,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.4152793
+  m_Radius: 0.53
   m_Center: {x: 0, y: 0.40730175, z: -0}
 --- !u!114 &751997936
 MonoBehaviour:
@@ -5363,7 +5363,7 @@ GameObject:
   - component: {fileID: 751997938}
   m_Layer: 0
   m_Name: Flautista
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

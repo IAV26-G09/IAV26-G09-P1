@@ -10,7 +10,6 @@
 */
 namespace UCM.IAV.Movimiento
 {
-
     /// <summary>
     /// Clase para modelar el comportamiento de HUIR a otro agente
     /// </summary>

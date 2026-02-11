@@ -24,7 +24,6 @@ namespace UCM.IAV.Movimiento
         /// </summary>
         /// <returns></returns>
 
-
         // El radio para llegar al objetivo
         public float rObjetivo;
 
@@ -59,7 +58,7 @@ namespace UCM.IAV.Movimiento
             {
                 targetSpeed = agente.velocidadMax;
             }
-            // calcular velocidad escalada 
+            // calcular velocidad escalada
             else
             {
                 targetSpeed = agente.velocidadMax * distancia / rRalentizado;
