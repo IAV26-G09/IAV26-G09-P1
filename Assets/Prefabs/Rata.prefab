@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 2890227307740488764}
   m_Layer: 0
   m_Name: Rata
-  m_TagString: Untagged
+  m_TagString: Rat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ SphereCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Radius: 0.57483834
+  m_Radius: 0.91
   m_Center: {x: 0, y: 0.5344781, z: 0.15000002}
 --- !u!54 &2129874214364473491
 Rigidbody:
