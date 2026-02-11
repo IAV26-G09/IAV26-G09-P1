@@ -2443,7 +2443,7 @@ MonoBehaviour:
   umbralPrioridad: 0.2
   velocidadMax: 20
   rotacionMax: 10
-  aceleracionMax: 13
+  aceleracionMax: 10
   aceleracionAngularMax: 10
   velocidad: {x: 0, y: 0, z: 0}
   rotacion: 0

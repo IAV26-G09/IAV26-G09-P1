@@ -25,15 +25,20 @@ namespace UCM.IAV.Movimiento
         [SerializeField]
         float minimuRadius = 3.0f; // radio alrededor del jugador en el que no moverse
 
-        private float velocidadNormal;
-        private float velocidadRapida;
+        private float velocidadMaxNormal;
+        private float velocidadMaxRapida;
+        private float aceleracionNormal;
+        private float aceleracionRapida;
 
         private bool sprinting = false;
         private void Start()
         {
             transform = GetComponent<Transform>();
-            velocidadNormal = agente.velocidadMax;
-            velocidadRapida = velocidadNormal * 2;
+            velocidadMaxNormal = agente.velocidadMax;
+            velocidadMaxRapida = velocidadMaxNormal * 2;
+
+            aceleracionNormal = agente.aceleracionMax;
+            aceleracionRapida = aceleracionNormal * 2;
         }
 
         /// <summary>
@@ -70,14 +75,20 @@ namespace UCM.IAV.Movimiento
             // Comprobamos si estamos corriendo
             sprinting = Input.GetKey(KeyCode.Mouse0);
 
+            if (sprinting)
+            {
+                agente.aceleracionMax = aceleracionRapida;
+                agente.velocidadMax = velocidadMaxRapida;
+            }
+            else
+            {
+                agente.aceleracionMax = aceleracionNormal;
+                agente.velocidadMax = velocidadMaxNormal;
+            }
+
             //Resto de cálculo de movimiento
             direccion.lineal.Normalize();
             direccion.lineal *= agente.aceleracionMax;
-
-            if (sprinting)
-                agente.velocidadMax = velocidadNormal;
-            else 
-                agente.velocidadMax = velocidadRapida;
 
             // Podríamos meter una rotación automática en la dirección del movimiento, si quisiéramos
 
