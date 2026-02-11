@@ -22,9 +22,18 @@ namespace UCM.IAV.Movimiento
         [SerializeField]
         Transform transform;
 
+        [SerializeField]
+        float minimuRadius = 3.0f; // radio alrededor del jugador en el que no moverse
+
+        private float velocidadNormal;
+        private float velocidadRapida;
+
+        private bool sprinting = false;
         private void Start()
         {
             transform = GetComponent<Transform>();
+            velocidadNormal = agente.velocidadMax;
+            velocidadRapida = velocidadNormal * 2;
         }
 
         /// <summary>
@@ -42,20 +51,33 @@ namespace UCM.IAV.Movimiento
             direccion.lineal.z = Input.GetAxis("Vertical");
 
             // Control por raton
-            if (Input.GetKey((KeyCode.Mouse0)))
-            {
-                RaycastHit hit;
-                var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            RaycastHit hit;
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-                if (Physics.Raycast(ray, out hit))
-                {
-                    direccion.lineal = hit.point - transform.position;
-                }
+            // Si apuntamos a un sitio valido
+            if (Physics.Raycast(ray, out hit))
+            { // Cogemos la direccion y nos congelamos en altura
+                direccion.lineal = hit.point - transform.position;
+                direccion.lineal.y = 0;
             }
+
+            // Si la colisión, aunque válida está en un radio cercano al jugador
+            if (direccion.lineal.magnitude < minimuRadius)
+            {
+                return new ComportamientoDireccion()    ;
+            }
+
+            // Comprobamos si estamos corriendo
+            sprinting = Input.GetKey(KeyCode.Mouse0);
 
             //Resto de cálculo de movimiento
             direccion.lineal.Normalize();
             direccion.lineal *= agente.aceleracionMax;
+
+            if (sprinting)
+                agente.velocidadMax = velocidadNormal;
+            else 
+                agente.velocidadMax = velocidadRapida;
 
             // Podríamos meter una rotación automática en la dirección del movimiento, si quisiéramos
 

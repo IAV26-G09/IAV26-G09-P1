@@ -2425,6 +2425,7 @@ MonoBehaviour:
   prioridad: 1
   objetivo: {fileID: 0}
   transform: {fileID: 543450652711980488}
+  minimuRadius: 3
 --- !u!114 &751997938
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2442,7 +2443,7 @@ MonoBehaviour:
   umbralPrioridad: 0.2
   velocidadMax: 20
   rotacionMax: 10
-  aceleracionMax: 15
+  aceleracionMax: 13
   aceleracionAngularMax: 10
   velocidad: {x: 0, y: 0, z: 0}
   rotacion: 0
