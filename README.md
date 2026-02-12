@@ -395,6 +395,7 @@ classDiagram
       GestorJuego <|-- MonoBehaviour
       RatNumberInput <|-- MonoBehaviour
       ReiniciarButton <|-- MonoBehaviour
+      DogTriggerArea <|-- MonoBehaviour
       
       class ComportamientoDireccion
 
