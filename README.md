@@ -116,6 +116,43 @@ Lo distintos algoritmos usados han sido para cada agente de IA:
     * Seguimiento con llegada dentro
     * Separación
 
+### Persecución y evasión 
+```
+class Pursue extends Seek:
+    # The maximum prediction time.
+    maxPrediction: float
+
+    # OVERRIDES the target data in seek (in other words this class has
+    # two bits of data called target: Seek.target is the superclass
+    # target which will be automatically calculated and shouldn't be set,
+    # and Pursue.target is the target we're pursuing).
+    target: Kinematic
+
+    # ... Other data is derived from the superclass...
+
+    function getSteering()-> SteeringOutput:
+        # 1. Calculate the target to delegate to seek
+        # Work out the distance to target.
+        direction = target.position - character.position
+        distance = direction.length()
+
+        # Work out our current speed.
+        speed = character.velocity.length()
+
+        # Check if speed gives a reasonable prediction time.
+        if speed <= distance / maxPrediction:
+            prediction maxPrediction
+        # Otherwise calculate the prediction time.
+        else:
+            prediction = distance / speed
+
+        # Put the target together.
+        Seek.target = explicitTarget
+        Seek.target.position += target.velocity * prediction
+
+        # 2. Delegate to seek.
+        return Seek.getSteering()
+```
 
 ### Seguimiento y huida con llegada dentro 
 ```
