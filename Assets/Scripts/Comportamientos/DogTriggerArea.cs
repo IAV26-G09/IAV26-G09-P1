@@ -10,6 +10,9 @@ public class DogTriggerArea : MonoBehaviour
     private SphereCollider triggerArea;
     private PerroState perroState;
 
+    private Llegada llegada;
+    private Huir huir;
+
     List<Collider> collidedRats = new List<Collider>();
 
     void FixedUpdate()
@@ -21,6 +24,12 @@ public class DogTriggerArea : MonoBehaviour
     void Start()
     {
         perroState = GetComponentInParent<PerroState>();
+
+        llegada = GetComponentInParent<Llegada>();
+        huir = GetComponentInParent<Huir>();
+
+        huir.enabled = false;
+        llegada.enabled = true;
 
         triggerArea = GetComponent<SphereCollider>();
         triggerArea.radius = TriggerRadius; // valor dado a la que las ratas triggerean la huida del perro
@@ -50,10 +59,16 @@ public class DogTriggerArea : MonoBehaviour
         if (rats >= 1)
         {
             perroState.SetState((int)PerroState.State.HUYENDO);
+
+            huir.enabled = true;
+            llegada.enabled = false;
         }
         else
         {
             perroState.SetState((int)PerroState.State.SIGUIENDO);
+
+            huir.enabled = false;
+            llegada.enabled = true;
         }
     }
 }
