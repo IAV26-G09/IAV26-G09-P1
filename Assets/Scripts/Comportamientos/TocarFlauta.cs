@@ -62,6 +62,7 @@ namespace UCM.IAV.Movimiento
                 trigger.enabled = true;
 
                 audioSource.Play(); // activamos sonido de flauta
+                Debug.Log("Tocar flauta");
             }
             else if (Input.GetKeyUp(KeyCode.Space)) // si dejamos de tocar la flauta
             {

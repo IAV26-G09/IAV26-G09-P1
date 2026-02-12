@@ -144,11 +144,6 @@ namespace UCM.IAV.Movimiento
                 ChangeFrameRate();
             if (Input.GetKeyDown(KeyCode.N))
                 ChangeCameraView();
-
-            if(Input.GetKey((KeyCode.Mouse1))) // mantener pulsado clic derecho para tocar la flauta
-               Debug.Log("Tocar flauta");
-
-            
         }
 
         public void Restart()
