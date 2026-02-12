@@ -19,11 +19,6 @@ namespace UCM.IAV.Movimiento
     /// </summary>
     public class Llegada : ComportamientoAgente
     {
-        /// <summary>
-        /// Obtiene la dirección
-        /// </summary>
-        /// <returns></returns>
-
         // El radio para llegar al objetivo
         public float rObjetivo;
 
@@ -37,6 +32,10 @@ namespace UCM.IAV.Movimiento
 
         public float fRalentizado;
 
+        /// <summary>
+        /// Obtiene la dirección
+        /// </summary>
+        /// <returns></returns>
         public override ComportamientoDireccion GetComportamientoDireccion()
         {
             ComportamientoDireccion result =  new ComportamientoDireccion();

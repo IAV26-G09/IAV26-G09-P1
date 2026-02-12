@@ -38,7 +38,6 @@ namespace UCM.IAV.Movimiento
 
         private float wanderOrientation = 0.0f; 
 
-        //private Transform transform;
         private void Start()
         {
             if (objetivo == null)

@@ -10,7 +10,7 @@ public class DogTriggerArea : MonoBehaviour
     private SphereCollider triggerArea;
     private PerroState perroState;
 
-    private Llegada llegada;
+    private Persecucion llegada;
     private Huir huir;
 
     List<Collider> collidedRats = new List<Collider>();
@@ -25,7 +25,7 @@ public class DogTriggerArea : MonoBehaviour
     {
         perroState = GetComponentInParent<PerroState>();
 
-        llegada = GetComponentInParent<Llegada>();
+        llegada = GetComponentInParent<Persecucion>();
         huir = GetComponentInParent<Huir>();
 
         huir.enabled = false;
