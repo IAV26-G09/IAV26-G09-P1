@@ -105,7 +105,9 @@ graph TD;
 
 Lo distintos algoritmos usados han sido para cada agente de IA:
 * **Perro**: 
-    * Seguimiento con llegada dentro
+    * Persecución y evasión, que hereda de:
+        * Seguimiento
+    * Llegada dentro
     * Huida
 * **Ratas**: 
     * Merodeo, que hereda de:
