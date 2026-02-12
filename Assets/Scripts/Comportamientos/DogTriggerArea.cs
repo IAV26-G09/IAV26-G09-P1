@@ -44,7 +44,7 @@ public class DogTriggerArea : MonoBehaviour
     {
         // si ese collider no ha sido registrado
         if (!collidedRats.Contains(other) && 
-            other.gameObject.tag.Equals("Player")) // solo registrar las ratas
+            other.gameObject.tag.Equals("Rat")) // solo registrar las ratas
         {
             collidedRats.Add(other);
         }
@@ -56,7 +56,7 @@ public class DogTriggerArea : MonoBehaviour
         var rats = collidedRats.Count;
         Debug.Log(rats);
 
-        if (rats >= 1)
+        if (rats >= 3)
         {
             perroState.SetState((int)PerroState.State.HUYENDO);
 
