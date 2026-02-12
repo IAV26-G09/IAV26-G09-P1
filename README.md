@@ -407,6 +407,8 @@ classDiagram
       Llegada <|-- ComportamientoAgente
       Llegada <|-- ComportamientoDireccion : implements
 
+      Persecucion <|-- Llegada
+
       Merodear <|-- ComportamientoAgente
       Merodear <|-- ComportamientoDireccion : implements
 
