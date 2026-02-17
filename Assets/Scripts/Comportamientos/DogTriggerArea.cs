@@ -54,7 +54,6 @@ public class DogTriggerArea : MonoBehaviour
     void Update()
     {
         var rats = collidedRats.Count;
-        //Debug.Log(rats);
 
         if (rats >= 3)
         {
