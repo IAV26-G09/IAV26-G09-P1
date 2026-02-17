@@ -75,6 +75,10 @@ En la interfaz destacan los controles previamente descritos en [Punto de Partida
 El jugador se controla:
 - Moviendo el ratón hacia la posición deseada y manteniendo el **clic izquierdo** para que vaya más rápido. 
 - Manteniendo el **clic derecho** hará que toque la flauta.
+- Con **N** podrá cambiar el tipo de cámara entre:
+    - Cámara aérea fija sobre el pueblo.
+    - Cámara en tercera persona sobre el avatar.
+    - Cámara en tercera persona sobre el acompañante.
 
 A continuación se detallan los estados de cada agente así como el pseudocódigo que se ha seguido para implementar a cada uno. 
 
