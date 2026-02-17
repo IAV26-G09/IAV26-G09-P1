@@ -15,6 +15,7 @@ namespace UCM.IAV.Movimiento
     /// </summary>
     public class Huir : ComportamientoAgente
     {
+        public bool isFleeing = false;
         /// <summary>
         /// Obtiene la dirección
         /// </summary>
@@ -23,13 +24,16 @@ namespace UCM.IAV.Movimiento
         {
             ComportamientoDireccion result = new ComportamientoDireccion();
 
-            // direccion en sentido contrario al target
-            result.lineal = agente.transform.position - objetivo.transform.position;
+            if (isFleeing)
+            {
+                // direccion en sentido contrario al target
+                result.lineal = agente.transform.position - objetivo.transform.position;
 
-            result.lineal.Normalize();
-            result.lineal *= agente.aceleracionMax;
+                result.lineal.Normalize();
+                result.lineal *= agente.aceleracionMax;
 
-            result.angular = 0;
+                result.angular = 0;
+            }
 
             return result;
         }

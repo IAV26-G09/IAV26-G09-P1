@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 3861295050334874258}
   - component: {fileID: 6022587051812246147}
   - component: {fileID: 6212659157140617999}
-  - component: {fileID: 858785723658916414}
   - component: {fileID: 3234765255228976112}
   m_Layer: 0
   m_Name: Perro
@@ -100,8 +99,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e27b1398245256a4aa176c4cad05e629, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  combinarPorPeso: 1
-  combinarPorPrioridad: 0
+  combinarPorPeso: 0
+  combinarPorPrioridad: 1
   umbralPrioridad: 0.2
   velocidadMax: 15
   rotacionMax: 5
@@ -125,6 +124,7 @@ MonoBehaviour:
   peso: 1
   prioridad: 1
   objetivo: {fileID: 0}
+  isFleeing: 0
 --- !u!114 &6212659157140617999
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -140,23 +140,10 @@ MonoBehaviour:
   peso: 1
   prioridad: 1
   objetivo: {fileID: 0}
-  rObjetivo: 5
+  rObjetivo: 2
   rRalentizado: 10
   distancia: 7
   fRalentizado: 0
---- !u!114 &858785723658916414
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3861295050334874256}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ffa670ddf4709ab488f4977215fa3f51, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentState: 0
 --- !u!114 &3234765255228976112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   peso: 1
-  prioridad: 1
+  prioridad: 2
   objetivo: {fileID: 0}
   rObjetivo: 5
   rRalentizado: 10
@@ -369,3 +356,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   TriggerRadius: 1.5
+  ratsToFlee: 3

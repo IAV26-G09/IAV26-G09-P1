@@ -6,48 +6,46 @@ using UnityEngine;
 public class DogTriggerArea : MonoBehaviour
 {
     [SerializeField] private float TriggerRadius = 1.5f;
+    [SerializeField] private int ratsToFlee = 3; // n ratas para huir
 
     private SphereCollider triggerArea;
-    private PerroState perroState;
-
-    private Persecucion llegada;
+    private Persecucion persecucion;
     private Huir huir;
 
     List<Collider> collidedRats = new List<Collider>();
 
-    void FixedUpdate()
-    {
-        collidedRats.Clear();
-    }
-
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        perroState = GetComponentInParent<PerroState>();
-
-        llegada = GetComponentInParent<Persecucion>();
+        persecucion = GetComponentInParent<Persecucion>();
         huir = GetComponentInParent<Huir>();
 
-        huir.enabled = false;
-        llegada.enabled = true;
+        huir.enabled = true;
+        persecucion.enabled = true;
 
         triggerArea = GetComponent<SphereCollider>();
         triggerArea.radius = TriggerRadius; // valor dado a la que las ratas triggerean la huida del perro
     }
 
-    void OnTriggerStay(Collider other)
-    {
-        OnTriggerEnter(other);
-    }
+    //void OnTriggerStay(Collider other)
+    //{
+    //    OnTriggerEnter(other);
+    //}
 
     void OnTriggerEnter(Collider other)
     {
         // si ese collider no ha sido registrado
-        if (!collidedRats.Contains(other) && 
-            other.gameObject.tag.Equals("Rat")) // solo registrar las ratas
+        if (!collidedRats.Contains(other) &&
+            other.CompareTag("Rat")) // solo registrar las ratas
         {
             collidedRats.Add(other);
         }
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Rat"))
+            collidedRats.Remove(other);
     }
 
     // Update is called once per frame
@@ -55,19 +53,17 @@ public class DogTriggerArea : MonoBehaviour
     {
         var rats = collidedRats.Count;
 
-        if (rats >= 3)
+        if (rats >= ratsToFlee)
         {
-            perroState.SetState((int)PerroState.State.HUYENDO);
-
-            huir.enabled = true;
-            llegada.enabled = false;
+            //huir.enabled = true;
+            //persecucion.enabled = false;
+            huir.isFleeing = true;
         }
         else
         {
-            perroState.SetState((int)PerroState.State.SIGUIENDO);
-
-            huir.enabled = false;
-            llegada.enabled = true;
+            //huir.enabled = false;
+            //persecucion.enabled = true;
+            huir.isFleeing = false;
         }
     }
 }
