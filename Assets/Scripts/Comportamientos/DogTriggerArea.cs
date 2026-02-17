@@ -14,6 +14,11 @@ public class DogTriggerArea : MonoBehaviour
 
     List<Collider> collidedRats = new List<Collider>();
 
+    void FixedUpdate()
+    {
+        collidedRats.Clear();
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -27,16 +32,16 @@ public class DogTriggerArea : MonoBehaviour
         triggerArea.radius = TriggerRadius; // valor dado a la que las ratas triggerean la huida del perro
     }
 
-    //void OnTriggerStay(Collider other)
-    //{
-    //    OnTriggerEnter(other);
-    //}
+    void OnTriggerStay(Collider other)
+    {
+        OnTriggerEnter(other);
+    }
 
     void OnTriggerEnter(Collider other)
     {
         // si ese collider no ha sido registrado
         if (!collidedRats.Contains(other) &&
-            other.CompareTag("Rat")) // solo registrar las ratas
+            other.gameObject.tag.Equals("Rat")) // solo registrar las ratas
         {
             collidedRats.Add(other);
         }
@@ -55,14 +60,10 @@ public class DogTriggerArea : MonoBehaviour
 
         if (rats >= ratsToFlee)
         {
-            //huir.enabled = true;
-            //persecucion.enabled = false;
             huir.isFleeing = true;
         }
         else
         {
-            //huir.enabled = false;
-            //persecucion.enabled = true;
             huir.isFleeing = false;
         }
     }
