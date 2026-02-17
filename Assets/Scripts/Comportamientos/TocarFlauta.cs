@@ -78,7 +78,6 @@ namespace UCM.IAV.Movimiento
                 {
                     if (rat != null)
                     {
-                        Debug.Log("HOLA " + transform.position);
                         deactivateFollowing(rat);
                     }
                 }
@@ -119,8 +118,6 @@ namespace UCM.IAV.Movimiento
 
             Llegada l = rat.GetComponent<Llegada>();
 
-            Debug.Log(rat.transform.position);
-
             if (l.objetivo == null && l != null)
             {
                 l.objetivo = transform.gameObject;
@@ -133,8 +130,16 @@ namespace UCM.IAV.Movimiento
             // Activamos o desactivamos los comportamientos que ocurren si no se toca la flauta
             rat.GetComponent<Merodear>().enabled = true;
 
-            rat.GetComponent<Llegada>().enabled = false;
+            //rat.GetComponent<Llegada>().enabled = false;
             rat.GetComponent<Separacion>().enabled = false;
+
+            Llegada l = rat.GetComponent<Llegada>();
+
+            if (l != null)
+            {
+                l.objetivo = null;
+                l.enabled = false;
+            }
         }
 
         private void activateParticle(ref GameObject particle, ref GameObject efecto)
