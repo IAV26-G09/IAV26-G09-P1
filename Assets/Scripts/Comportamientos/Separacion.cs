@@ -35,7 +35,6 @@ namespace UCM.IAV.Movimiento
 
         private GameObject[] targets;
 
-
         public override ComportamientoDireccion GetComportamientoDireccion()
         {
             // IMPLEMENTAR separación

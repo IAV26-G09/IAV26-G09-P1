@@ -47,7 +47,7 @@ namespace UCM.IAV.Movimiento
 
         void Update()
         {
-            // si tocamos la flauta
+            // --- si tocamos la flauta
             if (Input.GetKeyDown(KeyCode.Mouse1) && !isActive)
             {
                 // activamos particulas
@@ -64,7 +64,8 @@ namespace UCM.IAV.Movimiento
                 audioSource.Play(); // activamos sonido de flauta
                 Debug.Log("Tocar flauta");
             }
-            else if (Input.GetKeyUp(KeyCode.Mouse1)) // si dejamos de tocar la flauta
+            // --- si dejamos de tocar la flauta
+            else if (Input.GetKeyUp(KeyCode.Mouse1)) 
             {
                 isActive = false; // activamos el trigger
                 trigger.enabled = false;
@@ -74,8 +75,14 @@ namespace UCM.IAV.Movimiento
 
                 // limpiamos la lista de ratas a las que le afecta el seguir al flautista
                 foreach (GameObject rat in rats)
+                {
                     if (rat != null)
+                    {
+                        Debug.Log("HOLA " + transform.position);
                         deactivateFollowing(rat);
+                    }
+                }
+                    
                 rats.Clear();
 
                 audioSource.Pause(); // paramos sonido de flauta
@@ -108,11 +115,11 @@ namespace UCM.IAV.Movimiento
         {
             // Activamos o desactivamos los comportamientos que ocurren si se toca la flauta
             rat.GetComponent<Merodear>().enabled = false;
-
             rat.GetComponent<Separacion>().enabled = true;
-            //perroSepar.enabled = true;
 
             Llegada l = rat.GetComponent<Llegada>();
+
+            Debug.Log(rat.transform.position);
 
             if (l.objetivo == null && l != null)
             {
@@ -125,9 +132,9 @@ namespace UCM.IAV.Movimiento
         {
             // Activamos o desactivamos los comportamientos que ocurren si no se toca la flauta
             rat.GetComponent<Merodear>().enabled = true;
+
             rat.GetComponent<Llegada>().enabled = false;
             rat.GetComponent<Separacion>().enabled = false;
-            //perroSepar.enabled = false;
         }
 
         private void activateParticle(ref GameObject particle, ref GameObject efecto)
