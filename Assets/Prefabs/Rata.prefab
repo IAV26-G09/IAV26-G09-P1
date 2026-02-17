@@ -124,7 +124,7 @@ MonoBehaviour:
   prioridad: 1
   objetivo: {fileID: 0}
   targEmpty: {fileID: 0}
-  umbral: 20
+  umbral: 1
   decayCoefficient: 5
 --- !u!114 &2890227307740488764
 MonoBehaviour:
@@ -141,6 +141,8 @@ MonoBehaviour:
   peso: 1
   prioridad: 1
   objetivo: {fileID: 0}
+  wanderOffset: 1
+  wanderRadius: 2
   tiempoMaximo: 2
   tiempoMinimo: 1
 --- !u!114 &5847726514314529056
@@ -155,13 +157,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc0c5073ef546042b3ba1dd5b02498a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  peso: 1
+  peso: 3
   prioridad: 1
   objetivo: {fileID: 0}
-  rObjetivo: 0
-  rRalentizado: 0
+  rObjetivo: 1
+  rRalentizado: 2
   distancia: 7
-  fRalentizado: 0
+  fRalentizado: 1
 --- !u!1 &8741895683886266571
 GameObject:
   m_ObjectHideFlags: 0

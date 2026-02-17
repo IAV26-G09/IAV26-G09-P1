@@ -5246,16 +5246,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 870761177}
     m_Modifications:
-    - target: {fileID: 2890227307740488764, guid: 5175d5736886518439bf9a2956a122b4,
-        type: 3}
-      propertyPath: wanderOffset
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2890227307740488764, guid: 5175d5736886518439bf9a2956a122b4,
-        type: 3}
-      propertyPath: wanderRadius
-      value: 2
-      objectReference: {fileID: 0}
     - target: {fileID: 3610922820614807888, guid: 5175d5736886518439bf9a2956a122b4,
         type: 3}
       propertyPath: m_RootOrder

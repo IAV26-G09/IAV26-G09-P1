@@ -55,15 +55,22 @@ namespace UCM.IAV.Movimiento
 
             foreach(Transform target in targEmpty.transform)
             {
-                UnityEngine.Vector3 direction = target.position - agente.transform.position;
+                if (target == this.transform)
+                    continue;
 
+                UnityEngine.Vector3 direction = agente.transform.position - target.position;
                 float distance = direction.magnitude;
+
+                if (distance < 0.0001f)
+                    continue;
 
                 // si el target esta suficientemente cerca
                 if (distance < umbral)
                 {
                     // Calcula la fuerza de la repulsion -> INVERSE SQUARE LAW
-                    float strength = Mathf.Min(decayCoefficient / (Mathf.Pow(distance, 2)), agente.aceleracionMax);
+                    float strength = Mathf.Min(
+                        decayCoefficient / (Mathf.Pow(distance, 2)), 
+                        agente.aceleracionMax);
 
                     direction.Normalize();
                     result.lineal += strength * direction;
