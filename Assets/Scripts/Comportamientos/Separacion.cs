@@ -24,28 +24,42 @@ namespace UCM.IAV.Movimiento
         /// <returns></returns>
 
         // Entidades potenciales de las que huir
-        public GameObject targEmpty;
+        public GameObject targEmpty; // se inicializa con el gameobject contenedor que contiene todas las ratas
 
         // Umbral en el que se activa
         [SerializeField]
         float umbral;
 
         // Coeficiente de reducción de la fuerza de repulsión
+        // Indica lo rápido que decae la separación con la distancia
         [SerializeField]
         float decayCoefficient;
 
-        private GameObject[] targets;
+        List<GameObject> targets = new List<GameObject>(); // lista de vecinos cercanos
+
+
+        void SetVecinosProximos()
+        {
+            // en cada update tenemos que comprobar cuales son los vecinos cercanos
+
+            // resetear 
+            targets.Clear();
+
+        }
 
         public override ComportamientoDireccion GetComportamientoDireccion()
         {
             ComportamientoDireccion result = new ComportamientoDireccion();
 
-            foreach(var target in targets)
+            SetVecinosProximos();
+
+            foreach(Transform target in targEmpty.transform)
             {
-                UnityEngine.Vector3 direction = target.transform.position - agente.transform.position;
+                UnityEngine.Vector3 direction = target.position - agente.transform.position;
 
                 float distance = direction.magnitude;
 
+                // si el target esta suficientemente cerca
                 if (distance < umbral)
                 {
                     // Calcula la fuerza de la repulsion -> INVERSE SQUARE LAW

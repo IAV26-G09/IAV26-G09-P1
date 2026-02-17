@@ -124,8 +124,8 @@ MonoBehaviour:
   prioridad: 1
   objetivo: {fileID: 0}
   targEmpty: {fileID: 0}
-  umbral: 0
-  decayCoefficient: 0
+  umbral: 20
+  decayCoefficient: 5
 --- !u!114 &2890227307740488764
 MonoBehaviour:
   m_ObjectHideFlags: 0
