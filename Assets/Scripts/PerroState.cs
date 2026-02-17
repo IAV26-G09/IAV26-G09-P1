@@ -22,11 +22,11 @@ public class PerroState : MonoBehaviour
 
         if (currentState == (int)State.SIGUIENDO)
         {
-            Debug.Log("Current state: siguiendo");
+            //Debug.Log("Current state: siguiendo");
         }
         else if(currentState == (int)State.HUYENDO)
         {
-            Debug.Log("Current state: huyendo");
+            //Debug.Log("Current state: huyendo");
         }
     }
 }

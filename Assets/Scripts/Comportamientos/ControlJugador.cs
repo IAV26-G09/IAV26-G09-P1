@@ -58,12 +58,14 @@ namespace UCM.IAV.Movimiento
             // Control por raton
             RaycastHit hit;
             var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            int layerMask = 1 << 7;
 
             // Si apuntamos a un sitio valido
-            if (Physics.Raycast(ray, out hit))
+            if (Physics.Raycast(ray, out hit, 100, layerMask))
             { // Cogemos la direccion y nos congelamos en altura
                 direccion.lineal = hit.point - transform.position;
                 direccion.lineal.y = 0;
+                Debug.Log(hit.collider.name);   
             }
 
             // Si la colisión, aunque válida está en un radio cercano al jugador
