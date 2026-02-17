@@ -24,7 +24,9 @@ namespace UCM.IAV.Movimiento
     public class Merodear : ComportamientoAgente
     {
         // ----
+        [SerializeField]
         private float wanderOffset = 3.0f; // forward offset of wander circle
+        [SerializeField]
         private float wanderRadius = 5.0f; // radius of wander circle
 
         [SerializeField]
@@ -33,8 +35,11 @@ namespace UCM.IAV.Movimiento
         [SerializeField]
         float tiempoMinimo = 1; // maximum rate of wanderers orientation change
 
-        float current = 0.0f;
-        float limit = 0.0f;
+        float currentTimeObjective = 0.0f;
+        float limitTimeObjective = 0.0f;
+
+        float currentTimeIdle = 0.0f;
+        float limitTimeIdle = 0.0f;
 
         private float wanderOrientation = 0.0f; 
 
@@ -44,18 +49,30 @@ namespace UCM.IAV.Movimiento
             {
                 objetivo = new GameObject();
             }
+            limitTimeIdle = Random.Range(tiempoMinimo, tiempoMaximo);
+            currentTimeIdle = limitTimeIdle;
         }
 
         public override ComportamientoDireccion GetComportamientoDireccion()
         {
+
             ComportamientoDireccion result = new ComportamientoDireccion();
 
-            current += Time.deltaTime;
-
-            if (current >= limit)
+            currentTimeIdle += Time.deltaTime;
+            if (currentTimeIdle < limitTimeIdle)
             {
-                current = 0;
-                limit = Random.Range(tiempoMinimo, tiempoMaximo);
+                return result;
+            }
+
+            currentTimeObjective += Time.deltaTime;
+
+            if (currentTimeObjective >= limitTimeObjective)
+            {
+                limitTimeIdle = Random.Range(tiempoMinimo, tiempoMaximo);
+                currentTimeIdle = 0.0f;
+
+                currentTimeObjective = 0;
+                limitTimeObjective = Random.Range(tiempoMinimo, tiempoMaximo);
 
                 // --- 1
                 // actualiza la direccion de merodeo

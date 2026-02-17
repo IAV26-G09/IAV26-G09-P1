@@ -65,7 +65,7 @@ namespace UCM.IAV.Movimiento
             { // Cogemos la direccion y nos congelamos en altura
                 direccion.lineal = hit.point - transform.position;
                 direccion.lineal.y = 0;
-                Debug.Log(hit.collider.name);   
+                //Debug.Log(hit.collider.name);   
             }
 
             // Si la colisión, aunque válida está en un radio cercano al jugador

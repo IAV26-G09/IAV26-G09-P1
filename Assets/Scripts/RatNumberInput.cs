@@ -11,6 +11,13 @@ public class RatNumberInput : MonoBehaviour
     [SerializeField]
     private float _delay = 0.2f;
 
+    private TMP_InputField _inputField;
+
+    private void Start()
+    {
+        _inputField = this.GetComponent<TMP_InputField>();
+    }
+
     // Recibe el numero modificado en el campo
     public void GetNumber()
     {
@@ -23,9 +30,9 @@ public class RatNumberInput : MonoBehaviour
         // calcula la diferencia entre las ratas que quieres y las que tienes
         int diff = Math.Abs(_ratNumberInput - GestorJuego.instance.getNumRats());
 
-        Debug.Log("Ratas act " + GestorJuego.instance.getNumRats());
-        Debug.Log("Ratas input " + _ratNumberInput);
-        Debug.Log("Diff " + diff);
+        //Debug.Log("Ratas act " + GestorJuego.instance.getNumRats());
+        //Debug.Log("Ratas input " + _ratNumberInput);
+        //Debug.Log("Diff " + diff);
 
         // quieres mas ratas de las que tienes -> te faltan ratas
         if (_ratNumberInput > GestorJuego.instance.getNumRats())
@@ -62,6 +69,13 @@ public class RatNumberInput : MonoBehaviour
         {
             GestorJuego.instance.DespawnRata();
             yield return new WaitForSeconds(_delay);
+        }
+    }
+    void Update()
+    {
+        if (Input.GetKeyUp(KeyCode.Return) && _inputField != null && _inputField.isFocused) 
+        {
+            ButtonClick(); 
         }
     }
 }
