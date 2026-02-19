@@ -159,8 +159,8 @@ MonoBehaviour:
   peso: 1
   prioridad: 2
   objetivo: {fileID: 0}
-  rObjetivo: 5
-  rRalentizado: 10
+  rObjetivo: 1
+  rRalentizado: 5
   distancia: 7
   fRalentizado: 0
   maxPrediction: 2
