@@ -26,11 +26,7 @@ namespace UCM.IAV.Movimiento
         public float rRalentizado;
 
         // El tiempo en el que conseguir la aceleracion objetivo
-        float timeToTarget = 0.1f;
-
-        public float distancia = 7.0f;
-
-        public float fRalentizado;
+        public float timeToTarget = 0.1f;
 
         /// <summary>
         /// Obtiene la dirección
@@ -43,7 +39,7 @@ namespace UCM.IAV.Movimiento
             // direccion hacia el objetivo
             Vector3 direccion = objetivo.transform.position - agente.transform.position;
             // distancia hacia el objetivo
-            distancia = direccion.magnitude;
+            float distancia = direccion.magnitude;
 
             // hemos llegado -> paramos
             if (distancia < rObjetivo)

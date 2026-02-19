@@ -160,10 +160,9 @@ MonoBehaviour:
   peso: 3
   prioridad: 1
   objetivo: {fileID: 0}
-  rObjetivo: 1
-  rRalentizado: 2
-  distancia: 7
-  fRalentizado: 1
+  rObjetivo: 5
+  rRalentizado: 3
+  timeToTarget: 0.1
 --- !u!1 &8741895683886266571
 GameObject:
   m_ObjectHideFlags: 0
