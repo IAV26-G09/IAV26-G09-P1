@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UCM.IAV.Movimiento;
+using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class DogTriggerArea : MonoBehaviour
@@ -19,7 +20,6 @@ public class DogTriggerArea : MonoBehaviour
         collidedRats.Clear();
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         persecucion = GetComponentInParent<Persecucion>();
@@ -53,7 +53,6 @@ public class DogTriggerArea : MonoBehaviour
             collidedRats.Remove(other);
     }
 
-    // Update is called once per frame
     void Update()
     {
         var rats = collidedRats.Count;

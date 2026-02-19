@@ -18,11 +18,6 @@ namespace UCM.IAV.Movimiento
 {
     public class Separacion : ComportamientoAgente
     {
-        /// <summary>
-        /// Separa al agente
-        /// </summary>
-        /// <returns></returns>
-
         // Entidades potenciales de las que huir
         public GameObject targEmpty; // se inicializa con el gameobject contenedor que contiene todas las ratas
 
@@ -35,23 +30,13 @@ namespace UCM.IAV.Movimiento
         [SerializeField]
         float decayCoefficient;
 
-        List<GameObject> targets = new List<GameObject>(); // lista de vecinos cercanos
-
-
-        void SetVecinosProximos()
-        {
-            // en cada update tenemos que comprobar cuales son los vecinos cercanos
-
-            // resetear 
-            targets.Clear();
-
-        }
-
+        /// <summary>
+        /// Separa al agente
+        /// </summary>
+        /// <returns></returns>
         public override ComportamientoDireccion GetComportamientoDireccion()
         {
             ComportamientoDireccion result = new ComportamientoDireccion();
-
-            SetVecinosProximos();
 
             foreach(Transform target in targEmpty.transform)
             {

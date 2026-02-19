@@ -16,6 +16,7 @@ namespace UCM.IAV.Movimiento
     public class Huir : ComportamientoAgente
     {
         public bool isFleeing = false;
+
         /// <summary>
         /// Obtiene la dirección
         /// </summary>

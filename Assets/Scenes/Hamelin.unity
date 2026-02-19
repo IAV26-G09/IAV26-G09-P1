@@ -6202,11 +6202,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae158f1095ff9d94ba5212019bf84115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radio: 5
   efectoParticulaSuelo: {fileID: 2993916035906271186, guid: a0e6008da080f9542870694a5f0d113e,
     type: 3}
   efectoParticulaAire: {fileID: 2490858613321908595, guid: b5071d196485d87429e23bf87c3888e8,
     type: 3}
+  TriggerRadius: 5
 --- !u!1001 &5977170052653439588
 PrefabInstance:
   m_ObjectHideFlags: 0

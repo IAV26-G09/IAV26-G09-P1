@@ -16,8 +16,6 @@ namespace UCM.IAV.Movimiento
 {
     public class TocarFlauta : MonoBehaviour
     {
-        public float radio = 5f;
-
         private List<GameObject> rats = new List<GameObject>();
 
         public GameObject efectoParticulaSuelo;
@@ -26,13 +24,12 @@ namespace UCM.IAV.Movimiento
         private GameObject particleAire = null;
 
         private SphereCollider trigger;
+        [SerializeField] private float TriggerRadius = 5f;
+
         bool isActive = false;
-        //[SerializeField]
-        //Separacion perroSepar;
 
         private AudioSource audioSource; // Se supone que ya hay un Component.audio que heredamos
 
-        // Start is called before the first frame update
         void Start()
         {
             audioSource = transform.gameObject.GetComponent<AudioSource>();
@@ -42,27 +39,30 @@ namespace UCM.IAV.Movimiento
             trigger = transform.gameObject.AddComponent<SphereCollider>();
             trigger.isTrigger = true;
             trigger.enabled = false;
-            trigger.radius = radio;
+            trigger.radius = TriggerRadius;
         }
 
         void Update()
         {
+            if(trigger.radius != TriggerRadius) trigger.radius = TriggerRadius;
+
             // --- si tocamos la flauta
             if (Input.GetKeyDown(KeyCode.Mouse1) && !isActive)
             {
+                Debug.Log(trigger.radius);
+
                 // activamos particulas
                 activateParticle(ref particleSuelo, ref efectoParticulaSuelo);               
                 activateParticle(ref particleAire, ref efectoParticulaAire);               
                 
                 // establecemos su escala y rotacion local
-                particleSuelo.transform.localScale = new Vector3(radio * 2, radio * 2, radio * 2);
+                particleSuelo.transform.localScale = new Vector3(TriggerRadius * 2, TriggerRadius * 2, TriggerRadius * 2);
                 particleSuelo.transform.localRotation = Quaternion.AngleAxis(90, new Vector3(1, 0, 0));
 
                 isActive = true; // activamos el trigger
                 trigger.enabled = true;
 
                 audioSource.Play(); // activamos sonido de flauta
-                Debug.Log("Tocar flauta");
             }
             // --- si dejamos de tocar la flauta
             else if (Input.GetKeyUp(KeyCode.Mouse1)) 
