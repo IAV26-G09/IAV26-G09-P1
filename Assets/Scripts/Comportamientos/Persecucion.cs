@@ -18,7 +18,7 @@ public class Persecucion : Llegada
         // direccion hacia el objetivo
         Vector3 direccion = objetivo.transform.position - agente.transform.position;
         // distancia hacia el objetivo
-        distancia = direccion.magnitude;
+        float distancia = direccion.magnitude;
 
         float speed = agente.velocidad.magnitude;
 
