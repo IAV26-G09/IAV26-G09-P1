@@ -36,7 +36,8 @@ namespace UCM.IAV.Movimiento
             audioSource.playOnAwake = false;
             audioSource.loop = true;
 
-            trigger = transform.gameObject.AddComponent<SphereCollider>();
+            //trigger = transform.gameObject.AddComponent<SphereCollider>();
+            trigger = transform.GetChild(0).gameObject.AddComponent<SphereCollider>();
             trigger.isTrigger = true;
             trigger.enabled = false;
             trigger.radius = TriggerRadius;
@@ -49,7 +50,7 @@ namespace UCM.IAV.Movimiento
             // --- si tocamos la flauta
             if (Input.GetKeyDown(KeyCode.Mouse1) && !isActive)
             {
-                Debug.Log(trigger.radius);
+                //Debug.Log(trigger.radius);
 
                 // activamos particulas
                 activateParticle(ref particleSuelo, ref efectoParticulaSuelo);               
