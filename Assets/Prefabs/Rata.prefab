@@ -53,9 +53,9 @@ MonoBehaviour:
   combinarPorPeso: 1
   combinarPorPrioridad: 0
   umbralPrioridad: 0.2
-  velocidadMax: 15
+  velocidadMax: 5
   rotacionMax: 5
-  aceleracionMax: 8
+  aceleracionMax: 7
   aceleracionAngularMax: 5
   velocidad: {x: 0, y: 0, z: 0}
   rotacion: 0
