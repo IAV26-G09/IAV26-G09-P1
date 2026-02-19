@@ -142,8 +142,7 @@ MonoBehaviour:
   objetivo: {fileID: 0}
   rObjetivo: 2
   rRalentizado: 10
-  distancia: 7
-  fRalentizado: 0
+  timeToTarget: 0.1
 --- !u!114 &3234765255228976112
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,10 +158,9 @@ MonoBehaviour:
   peso: 1
   prioridad: 2
   objetivo: {fileID: 0}
-  rObjetivo: 1
+  rObjetivo: 4
   rRalentizado: 5
-  distancia: 7
-  fRalentizado: 0
+  timeToTarget: 0.1
   maxPrediction: 2
   objetivoReal: {fileID: 0}
 --- !u!1 &5977170053187502081

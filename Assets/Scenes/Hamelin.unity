@@ -5401,6 +5401,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Rata
       objectReference: {fileID: 0}
+    - target: {fileID: 4131845400584305642, guid: 5175d5736886518439bf9a2956a122b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 6537174158311488314, guid: 5175d5736886518439bf9a2956a122b4,
         type: 3}
       propertyPath: m_Enabled
@@ -5411,6 +5416,11 @@ PrefabInstance:
       propertyPath: targEmpty
       value: 
       objectReference: {fileID: 870761176}
+    - target: {fileID: 8741895683886266571, guid: 5175d5736886518439bf9a2956a122b4,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -5477,7 +5487,7 @@ GameObject:
   - component: {fileID: 751997937}
   - component: {fileID: 751997938}
   - component: {fileID: 5866666021018392499}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Flautista
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -5593,7 +5603,7 @@ GameObject:
   - component: {fileID: 479537985934906649}
   - component: {fileID: 3533200165449751228}
   - component: {fileID: 1651842073901084278}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: character_barbarian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5746,7 +5756,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4763357650509276854}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: armRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5762,7 +5772,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8449507077426092338}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: handSlotRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5952,7 +5962,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6662217763637064128}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Head
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6206,7 +6216,7 @@ MonoBehaviour:
     type: 3}
   efectoParticulaAire: {fileID: 2490858613321908595, guid: b5071d196485d87429e23bf87c3888e8,
     type: 3}
-  TriggerRadius: 5
+  TriggerRadius: 8
 --- !u!1001 &5977170052653439588
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6458,7 +6468,7 @@ GameObject:
   - component: {fileID: 1277530876388701012}
   - component: {fileID: 4080512563215569614}
   - component: {fileID: 6312260694631773785}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: character_barbarianArmLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6476,7 +6486,7 @@ GameObject:
   - component: {fileID: 8032066830933943053}
   - component: {fileID: 2701272433272928765}
   - component: {fileID: 6144923307346085989}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: character_barbarianArmRight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6510,7 +6520,7 @@ GameObject:
   - component: {fileID: 2288340937964811865}
   - component: {fileID: 8768194832262048192}
   - component: {fileID: 2963479968081104756}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: character_barbarianHat
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6526,7 +6536,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8002992878384611261}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: armLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6563,7 +6573,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8634742145398582389}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6613,7 +6623,7 @@ GameObject:
   - component: {fileID: 5653959785379176860}
   - component: {fileID: 8288799226419123034}
   - component: {fileID: 6021100666521978446}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: character_barbarianHead
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6752,7 +6762,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7282027739714069262}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: handSlotLeft
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -6768,7 +6778,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3576309788841458648}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: KayKit Animated Character
   m_TagString: Untagged
   m_Icon: {fileID: 0}
