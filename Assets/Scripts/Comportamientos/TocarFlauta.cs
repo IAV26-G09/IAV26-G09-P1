@@ -50,8 +50,6 @@ namespace UCM.IAV.Movimiento
             // --- si tocamos la flauta
             if (Input.GetKeyDown(KeyCode.Mouse1) && !isActive)
             {
-                //Debug.Log(trigger.radius);
-
                 // activamos particulas
                 activateParticle(ref particleSuelo, ref efectoParticulaSuelo);               
                 activateParticle(ref particleAire, ref efectoParticulaAire);               
@@ -95,9 +93,14 @@ namespace UCM.IAV.Movimiento
             Merodear ratComp = ratColl.gameObject.GetComponent<Merodear>();
             if (isActive && ratComp != null && !rats.Contains(ratColl.gameObject))
             {
-                activateFollowing(ratColl.gameObject);
                 rats.Add(ratColl.gameObject);
+                activateFollowing(ratColl.gameObject);
             }
+        }
+
+        private void OnTriggerStay(Collider ratColl)
+        {
+            OnTriggerEnter(ratColl);
         }
 
         private void OnTriggerExit(Collider ratColl)
