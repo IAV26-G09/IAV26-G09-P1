@@ -160,7 +160,7 @@ MonoBehaviour:
   peso: 10
   prioridad: 1
   objetivo: {fileID: 0}
-  rObjetivo: 5
+  rObjetivo: 2
   rRalentizado: 3
   timeToTarget: 0.1
 --- !u!1 &8741895683886266571
