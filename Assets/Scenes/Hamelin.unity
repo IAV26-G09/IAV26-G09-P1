@@ -6305,7 +6305,7 @@ PrefabInstance:
     - target: {fileID: 3234765255228976112, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
       propertyPath: maxPrediction
-      value: 0.2
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3861295050334874256, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}

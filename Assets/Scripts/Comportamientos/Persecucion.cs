@@ -44,12 +44,12 @@ public class Persecucion : Llegada
             prediccion = distancia * speed;
         }
 
-        Vector3 posPredicha = objetivoReal.GetComponent<Agente>().velocidad * prediccion;
-        //objetivo.transform.position = objetivoReal.GetComponent<Agente>().transform.position;
+        objetivo.transform.position = objetivoReal.transform.position;
+        Vector3 posPredicha = objetivoReal.GetComponent<Rigidbody>().linearVelocity * prediccion;
         objetivo.transform.position += posPredicha;
 
-        //Debug.Log(objetivoReal.transform.position);
-        //Debug.Log(prediccion);
+        //Debug.Log("OBJETIVO REAL: " + objetivoReal.transform.position);
+        //Debug.Log("PREDICCION: " + prediccion);
 
         if (debugPrediction)
         {
