@@ -203,7 +203,7 @@ namespace UCM.IAV.Movimiento {
         }
 
         /// <summary>
-        /// En cada parte tardia del tick, hace tareas de correccion numerica 
+        /// En cada parte tard�a del tick, hace tareas de correcci�n num�rica 
         /// </summary>
         public virtual void LateUpdate()
         {
@@ -212,26 +212,20 @@ namespace UCM.IAV.Movimiento {
                 direccion = GetPrioridadComportamientoDireccion();
                 grupos.Clear();
             }
-            else if (combinarPorPeso)
-            {
-                direccion = GetPesoComportamientoDireccion();
-                grupos.Clear();
+
+            if (cuerpoRigido != null) {
+                return; // El movimiento ser� din�mico, controlado por la f�sica y FixedUpdate
             }
 
-            if (cuerpoRigido != null)
-            {
-                return; // El movimiento sera dinamico, controlado por la fisica y FixedUpdate
-            }
-
-            // Limitamos la aceleracion al maximo que acepta este agente (aunque normalmente vendra ya limitada)
+            // Limitamos la aceleraci�n al m�ximo que acepta este agente (aunque normalmente vendr� ya limitada)
             if (direccion.lineal.sqrMagnitude > aceleracionMax)
                 direccion.lineal = direccion.lineal.normalized * aceleracionMax;
 
-            // Limitamos la aceleracion angular al maximo que acepta este agente (aunque normalmente vendra ya limitada)
+            // Limitamos la aceleraci�n angular al m�ximo que acepta este agente (aunque normalmente vendr� ya limitada)
             if (direccion.angular > aceleracionAngularMax)
                 direccion.angular = aceleracionAngularMax;
 
-            // Aqu� se calcula la proxima velocidad y rotacion en funcion de las aceleraciones  
+            // Aqu� se calcula la pr�xima velocidad y rotaci�n en funci�n de las aceleraciones  
             velocidad += direccion.lineal * Time.deltaTime;
             rotacion += direccion.angular * Time.deltaTime;
 
@@ -241,10 +235,10 @@ namespace UCM.IAV.Movimiento {
             if (direccion.lineal.sqrMagnitude == 0.0f) 
                 velocidad = Vector3.zero; 
 
-            // En cada parte tardia del tick, encarar el agente (al menos para el avatar)... si es que queremos hacer este encaramiento
+            /// En cada parte tard�a del tick, encarar el agente (al menos para el avatar).... si es que queremos hacer este encaramiento
             transform.LookAt(transform.position + velocidad);
 
-            // Se deja la direccion vacia para el proximo fotograma
+            // Se deja la direcci�n vac�a para el pr�ximo fotograma
             direccion = new ComportamientoDireccion();
         }
 
@@ -283,7 +277,7 @@ namespace UCM.IAV.Movimiento {
         }
 
         /// <summary>
-        /// Devuelve el valor de direccion calculado por prioridad
+        /// Devuelve el valor de direcci�n calculado por prioridad
         /// </summary>
         /// <returns></returns>
         private ComportamientoDireccion GetPrioridadComportamientoDireccion()
@@ -313,56 +307,6 @@ namespace UCM.IAV.Movimiento {
             }
             return direccion;
         }
-
-        /// <summary>
-        /// Devuelve el valor de direccion calculado por peso
-        /// </summary>
-        /// <returns></returns>
-        private ComportamientoDireccion GetPesoComportamientoDireccion()
-        {
-            /*
-            function getSteering() -> SteeringOutput:
-                result = new SteeringOutput()
-
-                # Accumulate all accelerations.
-                for bin behaviors:
-                    result += b.weight b.behavior.getSteering()
-
-                # Crop the result and return.
-                result.linear = max(result.linear, maxAcceleration)
-                result.angular = max(result.angular, maxRotation)
-                return result
-            */
-
-            ComportamientoDireccion direccion = new ComportamientoDireccion();
-
-            List<int> gIdList = new List<int>(grupos.Keys);
-            gIdList.Sort();
-            foreach (int gid in gIdList)
-            {
-                ComportamientoDireccion direccionGrupo = new ComportamientoDireccion();
-                foreach (ComportamientoDireccion direccionIndividual in grupos[gid])
-                {
-                    // Dentro del grupo la mezcla deberia ser por peso
-                    direccionGrupo.lineal += direccionIndividual.lineal;
-                    direccionGrupo.angular += direccionIndividual.angular;
-                }
-
-                // Acumular la direccion del grupo
-                direccion.lineal += direccionGrupo.lineal;
-                direccion.angular += direccionGrupo.angular;
-            }
-
-            // result.linear = max(result.linear, maxAcceleration)
-            // result.angular = max(result.angular, maxRotation)
-
-            Vector3 aceleracionMaxVec = aceleracionMax * direccion.lineal.normalized;
-            direccion.lineal = Vector3.Max(direccion.lineal, aceleracionMaxVec);
-            direccion.angular = Mathf.Max(direccion.angular, aceleracionAngularMax);
-
-            return direccion;
-        }
-
 
         /// <summary>
         /// Calculates el Vector3 dado un cierto valor de orientaci�n
