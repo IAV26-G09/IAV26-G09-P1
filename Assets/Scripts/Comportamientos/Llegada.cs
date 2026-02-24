@@ -28,6 +28,8 @@ namespace UCM.IAV.Movimiento
         // El tiempo en el que conseguir la aceleracion objetivo
         public float timeToTarget = 0.1f;
 
+        private Rigidbody rb;
+
         /// <summary>
         /// Obtiene la dirección
         /// </summary>
@@ -42,9 +44,12 @@ namespace UCM.IAV.Movimiento
             float distancia = direccion.magnitude;
 
             // hemos llegado -> paramos
-            if (distancia < rObjetivo)
+            if (distancia <= rObjetivo)
             {
-                agente.transform.LookAt(objetivo.transform.position);
+                result.angular = 0.0f;
+                result.lineal = Vector3.zero;
+                rb.linearVelocity = Vector3.zero;
+                rb.angularVelocity = Vector3.zero;
                 return result; // intencion de detenerse
             }
 
@@ -79,6 +84,11 @@ namespace UCM.IAV.Movimiento
             result.angular = 0;
 
             return result;
+        }
+
+        private void Start()
+        {
+            rb = GetComponent<Rigidbody>();
         }
     }
 }

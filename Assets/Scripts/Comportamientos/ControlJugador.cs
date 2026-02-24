@@ -19,8 +19,8 @@ namespace UCM.IAV.Movimiento
     public class ControlJugador: ComportamientoAgente
     {
 
-        [SerializeField]
-        Transform transform;
+        //[SerializeField]
+        //Transform transform;
 
         [SerializeField]
         float minimuRadius = 3.0f; // radio alrededor del jugador en el que no moverse
@@ -33,7 +33,7 @@ namespace UCM.IAV.Movimiento
         private bool sprinting = false;
         private void Start()
         {
-            transform = GetComponent<Transform>();
+            //transform = GetComponent<Transform>();
             velocidadMaxNormal = agente.velocidadMax;
             velocidadMaxRapida = velocidadMaxNormal * 2;
 
