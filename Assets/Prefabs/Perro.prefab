@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6022587051812246147}
   - component: {fileID: 6212659157140617999}
   - component: {fileID: 3234765255228976112}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Perro
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -176,7 +176,7 @@ GameObject:
   - component: {fileID: 5977170053187502092}
   - component: {fileID: 5977170053187502083}
   - component: {fileID: 5977170053187502094}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Mesh
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 8578292951872440231}
   - component: {fileID: 2034827861324704205}
   - component: {fileID: 2799427645729626922}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: TriggerArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
