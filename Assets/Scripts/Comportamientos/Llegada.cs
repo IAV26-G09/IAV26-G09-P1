@@ -44,6 +44,7 @@ namespace UCM.IAV.Movimiento
             // hemos llegado -> paramos
             if (distancia < rObjetivo)
             {
+                agente.transform.LookAt(objetivo.transform.position);
                 return result; // intencion de detenerse
             }
 
@@ -76,8 +77,6 @@ namespace UCM.IAV.Movimiento
             }
 
             result.angular = 0;
-
-            agente.transform.LookAt(objetivo.transform.position);
 
             return result;
         }
