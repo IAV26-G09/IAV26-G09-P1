@@ -260,6 +260,10 @@ namespace UCM.IAV.Movimiento {
         {
             this.direccion.lineal += (peso * direccion.lineal);
             this.direccion.angular += (peso * direccion.angular);
+
+            Vector3 aceleracionMaxVec = aceleracionMax * direccion.lineal.normalized;
+            direccion.lineal = Vector3.Max(direccion.lineal, aceleracionMaxVec);
+            direccion.angular = Mathf.Max(direccion.angular, aceleracionAngularMax);
         }
 
         /// <summary>
