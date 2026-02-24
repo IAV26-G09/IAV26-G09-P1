@@ -41,7 +41,9 @@ namespace UCM.IAV.Movimiento
         float currentTimeIdle = 0.0f;
         float limitTimeIdle = 0.0f;
 
-        private float wanderOrientation = 0.0f; 
+        private float wanderOrientation = 0.0f;
+
+        [SerializeField] private bool debugMerodeo = false;
 
         private void Start()
         {
@@ -55,7 +57,6 @@ namespace UCM.IAV.Movimiento
 
         public override ComportamientoDireccion GetComportamientoDireccion()
         {
-
             ComportamientoDireccion result = new ComportamientoDireccion();
 
             currentTimeIdle += Time.deltaTime;
@@ -105,6 +106,11 @@ namespace UCM.IAV.Movimiento
                 // --- 3
                 // lineal = max aceleracion en la direccion de la orientacion
                 result.lineal = agente.aceleracionMax * direccion;
+
+                if (debugMerodeo)
+                {
+                    Debug.DrawLine(agente.transform.position, objetivo.transform.position, new Color(0, 0, 1), 0.2f);
+                }
             }
 
             return result;

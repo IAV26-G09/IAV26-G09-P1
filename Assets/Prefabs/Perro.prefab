@@ -163,6 +163,7 @@ MonoBehaviour:
   timeToTarget: 0.1
   maxPrediction: 2
   objetivoReal: {fileID: 0}
+  debugPrediction: 1
 --- !u!1 &5977170053187502081
 GameObject:
   m_ObjectHideFlags: 0

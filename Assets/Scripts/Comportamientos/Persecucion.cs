@@ -11,7 +11,17 @@ public class Persecucion : Llegada
     private float maxPrediction;
 
     [SerializeField]
-    public GameObject objetivoReal; // objetivo real, el del agente será el predicho
+    private GameObject objetivoReal; // aqui le pasas el flautista, en el objetivo del agente se mete un objetivo vacio a predecir en cada update
+
+    [SerializeField] private bool debugPrediction = false;
+
+    private void Start()
+    {
+        if (objetivoReal== null)
+        {
+            objetivoReal = new GameObject();
+        }
+    }
 
     public override ComportamientoDireccion GetComportamientoDireccion()
     {
@@ -22,6 +32,8 @@ public class Persecucion : Llegada
 
         float speed = agente.velocidad.magnitude;
 
+        float t = distancia * speed;
+
         float prediccion;
         if (speed <= distancia / maxPrediction)
         {
@@ -29,13 +41,20 @@ public class Persecucion : Llegada
         }
         else
         {
-            prediccion = distancia / speed;
+            prediccion = distancia * speed;
         }
 
-        GameObject objetivoPredicho = objetivoReal;
-        objetivoPredicho.transform.position += objetivo.GetComponent<Agente>().velocidad * prediccion;
+        Vector3 posPredicha = objetivoReal.GetComponent<Agente>().velocidad * prediccion;
+        //objetivo.transform.position = objetivoReal.GetComponent<Agente>().transform.position;
+        objetivo.transform.position += posPredicha;
 
-        objetivo = objetivoPredicho;
+        //Debug.Log(objetivoReal.transform.position);
+        //Debug.Log(prediccion);
+
+        if (debugPrediction)
+        {
+            Debug.DrawLine(agente.transform.position, objetivo.transform.position, new Color(1,0,0), 0.5f);
+        }
 
         return base.GetComportamientoDireccion();
     }

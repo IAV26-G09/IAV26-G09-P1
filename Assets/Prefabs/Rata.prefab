@@ -145,6 +145,7 @@ MonoBehaviour:
   wanderRadius: 2
   tiempoMaximo: 2
   tiempoMinimo: 1
+  debugMerodeo: 0
 --- !u!114 &5847726514314529056
 MonoBehaviour:
   m_ObjectHideFlags: 0

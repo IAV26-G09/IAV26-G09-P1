@@ -48,8 +48,12 @@ namespace UCM.IAV.Movimiento
             {
                 result.angular = 0.0f;
                 result.lineal = Vector3.zero;
-                rb.linearVelocity = Vector3.zero;
-                rb.angularVelocity = Vector3.zero;
+
+                if (rb != null)
+                {
+                    rb.linearVelocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero;
+                }
                 return result; // intencion de detenerse
             }
 

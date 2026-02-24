@@ -3620,6 +3620,37 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91afe50389f85ee4eac0bfaa17a9da07, type: 3}
+--- !u!1 &1157966936
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1157966937}
+  m_Layer: 0
+  m_Name: PredictedObj
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1157966937
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1157966936}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.8804107, y: -4.311884, z: 0.16355477}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1281889243
 GameObject:
   m_ObjectHideFlags: 0
@@ -6260,7 +6291,7 @@ PrefabInstance:
         type: 3}
       propertyPath: objetivo
       value: 
-      objectReference: {fileID: 919132148976998258}
+      objectReference: {fileID: 1157966936}
     - target: {fileID: 3234765255228976112, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
       propertyPath: m_Enabled
@@ -6271,6 +6302,11 @@ PrefabInstance:
       propertyPath: objetivoReal
       value: 
       objectReference: {fileID: 919132148976998258}
+    - target: {fileID: 3234765255228976112, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: maxPrediction
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 3861295050334874256, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
       propertyPath: m_Name
@@ -6836,3 +6872,4 @@ SceneRoots:
   - {fileID: 1452594629}
   - {fileID: 959480684}
   - {fileID: 1290001087}
+  - {fileID: 1157966937}
