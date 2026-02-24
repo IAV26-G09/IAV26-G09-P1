@@ -77,6 +77,8 @@ namespace UCM.IAV.Movimiento
 
             result.angular = 0;
 
+            agente.transform.LookAt(objetivo.transform.position);
+
             return result;
         }
     }
