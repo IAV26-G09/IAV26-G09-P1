@@ -471,7 +471,7 @@ Se han tomado las siguientes métricas:
 - En 3000, de 17 fps.
 - En 4000, de 3 fps.
 
-- En vista aérea, sin colisión entre ratas y e hipnotizándolas deja de haber 60 FPS estables al pasar las 250 ratas empieza a caer en picado.
+- En vista aérea, sin colisión entre ratas y e hipnotizándolas deja de haber 60 FPS estables al pasar las 250 ratas empieza a caer considerablemente.
 - Al llegar a 300, la media es de 45 fps.
 - Al llegar a 400, la media es de 30 fps.
 - Al llegar a 500, la media es de 19 fps.
@@ -481,12 +481,15 @@ Se han tomado las siguientes métricas:
 - Al llegar a 900, la media es de 6 fps.
 - Al llegar a 1000, la media es de 5 fps.
   
+En el siguiente gráfico, la línea azul representa la métrica de ratas sin hipnotizar y la línea verde la de ratas hipnotizadas.
+
 ```mermaid
 xychart-beta
 title "Ratas-FPS"
-x-axis "Ratas" [0, 1300, 1500, 1750, 2000, 2250, 2500, 3000, 4000]
-y-axis "FPS" 3 --> 60
-line [60, 59, 56, 47, 38, 30, 25, 17, 3]
+x-axis "Ratas" [100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1300, 1500, 1750, 2000, 2250, 2500, 3000, 4000]
+y-axis "FPS" 0 --> 60
+line [60, 60, 60, 60, 60, 60, 60, 60, 60, 60, 59, 56, 47, 38, 30, 25, 17, 3]
+line [60, 45, 30, 19, 13, 9, 7, 6, 5]
 ```
 
 ### Vídeo
