@@ -332,7 +332,8 @@ class Separation:
 Se recorren todos los agentes (obviándose al que esté ejecutando el script) y se calcula la distancia hasta estos, si el target está suficientemente cerca se aplica una fuerza de repulsión a la velocidad lineal usando la *Ley de la inversa del cuadrado*.
 
 ### Sobre los comportamientos coordinados
-Tanto el agente Perro como los agentes Rata combinan varios comportamientos de dirección, para ello se utiliza una arquitectura híbrida usando mezcla, por pesos en el caso de las ratas y por prioridades en el caso del perro, y arbitraje, cediendo el control en el momento de la huída del perro, y entre el merodeo y el seguimiento de las ratas.
+Tanto el agente Perro como los agentes Rata combinan varios comportamientos de dirección, para ello se utiliza una arquitectura híbrida usando mezcla, por pesos en el caso de las ratas y por prioridades en el caso del perro, y arbitraje, cediendo el control, en el momento de la huída del perro, y entre el merodeo y el seguimiento de las ratas.
+
 Los valores de pesos y prioridades de cada comportamiento pueden asignarse en el inspector. Para los agentes Rata se han establecido los siguientes pesos, según el criterio del enunciado de la práctica:
 | Comportamiento  |  Peso  |
 |:-:|:-:|
@@ -344,7 +345,7 @@ Para el agente Perro se han establecido las siguiente prioridades:
 | Comportamiento  |  Prioridad  |
 |:-:|:-:|
 | Huir | 1 |
-| PErsecución | 2 |
+| Persecución | 2 |
 
 ## Implementación
 **Tareas:**
