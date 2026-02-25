@@ -462,7 +462,7 @@ En un PC de estas características:
 
 Se han tomado las siguientes métricas:
 
-- En vista aérea y sin colisión entre ratas, deja de haber 60 FPS estables al pasar las 1300 ratas y se queda en una mediana de 59 fps.
+- En vista aérea, sin colisión entre ratas y sin hipnotizar deja de haber 60 FPS estables al pasar las 1300 ratas y se queda en una mediana de 59 fps.
 - Al llegar a 1500, la media es de 56 fps.
 - En 1750, de 47 fps.
 - En 2000, de 38 y fluctua entre 35 y 41 erráticamente.
@@ -470,6 +470,16 @@ Se han tomado las siguientes métricas:
 - En 2500, de 25 fps.
 - En 3000, de 17 fps.
 - En 4000, de 3 fps.
+
+- En vista aérea, sin colisión entre ratas y e hipnotizándolas deja de haber 60 FPS estables al pasar las 250 ratas empieza a caer en picado.
+- Al llegar a 300, la media es de 45 fps.
+- Al llegar a 400, la media es de 30 fps.
+- Al llegar a 500, la media es de 19 fps.
+- Al llegar a 600, la media es de 13 fps.
+- Al llegar a 700, la media es de 9 fps.
+- Al llegar a 800, la media es de 7 fps.
+- Al llegar a 900, la media es de 6 fps.
+- Al llegar a 1000, la media es de 6 fps.
   
 ```mermaid
 xychart-beta
@@ -478,8 +488,6 @@ x-axis "Ratas" [0, 1300, 1500, 1750, 2000, 2250, 2500, 3000, 4000]
 y-axis "FPS" 3 --> 60
 line [60, 59, 56, 47, 38, 30, 25, 17, 3]
 ```
-
-En este equipo probablemente lo más limitante haya sido el cálculo en CPU.
 
 ### Vídeo
 
