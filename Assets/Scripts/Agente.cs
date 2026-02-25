@@ -298,11 +298,11 @@ namespace UCM.IAV.Movimiento {
                     direccionGrupo.lineal += direccionIndividual.lineal;
                     direccionGrupo.angular += direccionIndividual.angular;
                 }
-                // Acumular la direcci�n del grupo
+                // Acumular la direccion del grupo
                 direccion.lineal += direccionGrupo.lineal;
                 direccion.angular += direccionGrupo.angular;
 
-                // S�lo si el resultado supera un umbral, entonces nos quedamos con esta salida y dejamos de mirar grupos con menos prioridad
+                // Solo si el resultado supera un umbral, entonces nos quedamos con esta salida y dejamos de mirar grupos con menos prioridad
                 if (direccion.lineal.magnitude > umbralPrioridad
                      || Mathf.Abs(direccion.angular) > umbralPrioridad)
                 {

@@ -11,9 +11,11 @@ public class Persecucion : Llegada
     private float maxPrediction;
 
     [SerializeField]
-    private GameObject objetivoReal; // aqui le pasas el flautista, en el objetivo del agente se mete un objetivo vacio a predecir en cada update
+    private GameObject objetivoReal; // Aqui le pasas el flautista,
+                                     // en el objetivo del agente se le pasa un gameobject vacio
+                                     // con posicion a predecir en cada update
 
-    [SerializeField] private bool debugPrediction = false;
+    [SerializeField] private bool debugPrediction = false; // Para mostrar una linea desde el agente hasta el objetivo predicho
 
     private void Start()
     {
@@ -25,9 +27,9 @@ public class Persecucion : Llegada
 
     public override ComportamientoDireccion GetComportamientoDireccion()
     {
-        // direccion hacia el objetivo
+        // direccion hacia el objetivo predicho
         Vector3 direccion = objetivo.transform.position - agente.transform.position;
-        // distancia hacia el objetivo
+        // distancia hacia el objetivo predicho
         float distancia = direccion.magnitude;
 
         float speed = agente.velocidad.magnitude;
@@ -39,18 +41,22 @@ public class Persecucion : Llegada
         }
         else
         {
+            // tiempo predicho que se tardaria en recorrer esa distancia
             prediccion = distancia * speed;
         }
 
+        // copiamos los datos del objetivo real y lo traducimos a su prediccion
         objetivo.transform.position = objetivoReal.transform.position;
         Vector3 posPredicha = objetivoReal.GetComponent<Agente>().getVelocidadLinealReal() * prediccion;
         objetivo.transform.position += posPredicha;
 
+        // Debug
         if (debugPrediction)
         {
             Debug.DrawLine(agente.transform.position, objetivo.transform.position, new Color(1,0,0), 0.5f);
         }
 
+        // se realiza la llegada
         return base.GetComportamientoDireccion();
     }
 }

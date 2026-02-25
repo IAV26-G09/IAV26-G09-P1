@@ -11,7 +11,6 @@
 using System.Collections;
 using System;
 using System.Collections.Generic;
-using System.Numerics;
 using UnityEngine;
 
 namespace UCM.IAV.Movimiento
@@ -40,10 +39,11 @@ namespace UCM.IAV.Movimiento
 
             foreach(Transform target in targEmpty.transform)
             {
-                if (target == this.transform)
+                if (target == this.transform) // no cuenta al GameObject contenedor
                     continue;
 
-                UnityEngine.Vector3 direction = agente.transform.position - target.position;
+                // Direccion en el sentido contrario al target
+                Vector3 direction = agente.transform.position - target.position;
                 float distance = direction.magnitude;
 
                 if (distance < 0.0001f)

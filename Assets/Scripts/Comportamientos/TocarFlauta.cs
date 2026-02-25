@@ -36,7 +36,6 @@ namespace UCM.IAV.Movimiento
             audioSource.playOnAwake = false;
             audioSource.loop = true;
 
-            //trigger = transform.gameObject.AddComponent<SphereCollider>();
             trigger = transform.GetChild(0).gameObject.AddComponent<SphereCollider>();
             trigger.isTrigger = true;
             trigger.enabled = false;
@@ -133,8 +132,6 @@ namespace UCM.IAV.Movimiento
         {
             // Activamos o desactivamos los comportamientos que ocurren si no se toca la flauta
             rat.GetComponent<Merodear>().enabled = true;
-
-            //rat.GetComponent<Llegada>().enabled = false;
             rat.GetComponent<Separacion>().enabled = false;
 
             Llegada l = rat.GetComponent<Llegada>();
@@ -155,7 +152,7 @@ namespace UCM.IAV.Movimiento
         private void destroyParticle(ref GameObject particle)
         {
             if (particle != null)
-            { // desactivamos las part�culas
+            { // desactivamos las particulas
                 particle.transform.parent = null;
                 Destroy(particle);
                 particle = null;

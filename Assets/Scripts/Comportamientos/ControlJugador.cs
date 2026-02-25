@@ -50,7 +50,7 @@ namespace UCM.IAV.Movimiento
         {
             ComportamientoDireccion direccion = new ComportamientoDireccion();
             
-            //Direccion actual
+            // Direccion actual
             // Control por teclado
             direccion.lineal.x = Input.GetAxis("Horizontal");
             direccion.lineal.z = Input.GetAxis("Vertical");
@@ -88,7 +88,7 @@ namespace UCM.IAV.Movimiento
                 agente.velocidadMax = velocidadMaxNormal;
             }
 
-            //Resto de cálculo de movimiento
+            // Resto de cálculo de movimiento
             direccion.lineal.Normalize();
             direccion.lineal *= agente.aceleracionMax;
 

@@ -436,8 +436,8 @@ Se adjuntan los scripts con el código fuente que implementan las principales ca
 |:-:|:-:|
 | Huida del agente acompañante (perro) | [Huir](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Huir.cs) |
 | Movimiento del avatar con input de ratón y teclado | [ControlJugador](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/ControlJugador.cs) |
-| Seguimiento del agente acompañante (perro) | [LLegada](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Llegada.cs) |
-| Seguimiento del agente acompañante (perro) | [Persecución](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Persecucion.cs) |
+| Seguimiento del agente acompañante (perro) y bandada (ratas)| [LLegada](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Llegada.cs) |
+| Persecución con predicción del agente acompañante (perro) | [Persecucion](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Persecucion.cs) |
 | Merodeo de los agentes de la bandada (ratas) | [Merodear](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Merodear.cs) |
 | Hipnosis de los agentes de la bandada (ratas) | [Separacion](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Separacion.cs) |
 | Hipnosis de los agentes de la bandada (ratas) | [TocarFlauta](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/TocarFlauta.cs) |
@@ -447,6 +447,7 @@ Se adjuntan los scripts con el código fuente que implementan las principales ca
 | GameManager (gestiona estados, entidades y cámaras) | [GestorJuego](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/GestorJuego.cs) |
 | Control de spawn/despawn por corrutina | [RatNumberInput](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/RatNumberInput.cs) |
 | Botón de reinicio en interfaz | [ReiniciarButton](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/ReiniciarButton.cs) |
+| Control de agentes en el area de trigger del agente perro | [DogTriggerArea](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/DogTriggerArea.cs) |
 
 ## Pruebas y métricas
 Serie corta y rápida posible de pruebas que pueden realizarse para verificar que se cumplen las características requeridas:
@@ -496,5 +497,11 @@ Narratech [*Física y animación*](https://narratech.com/es/inteligencia-artific
 Narratech [*Comportamiento de dirección*](https://narratech.com/es/inteligencia-artificial-para-videojuegos/percepcion-y-movimiento/comportamiento-de-direccion/)
 
 Narratech [*Desplazamiento en grupo*](https://narratech.com/es/inteligencia-artificial-para-videojuegos/percepcion-y-movimiento/desplazamiento-en-grupo/)
+
+Yannakakis, G., Togelius, J. (2025). *Artificial Inteligence and Games*. (2nd ed.) Springer.
+
+Shiffman, D. (2024). *Autonomous Agents*. [Nature of Code](https://natureofcode.com/).
+
+Shiffman, D. (2026). *Flocking Simulation*. [The Coding Train](https://thecodingtrain.com/challenges/124-flocking-simulation).
 
 Schwab, B. (2009). *AI game engine programming* (2nd ed.). Course Technology Cengage Learning.

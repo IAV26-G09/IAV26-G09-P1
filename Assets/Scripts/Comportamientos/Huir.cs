@@ -25,13 +25,14 @@ namespace UCM.IAV.Movimiento
         {
             ComportamientoDireccion result = new ComportamientoDireccion();
 
+            // Si esta en el estado de huida
             if (isFleeing)
             {
                 // direccion en sentido contrario al target
                 result.lineal = agente.transform.position - objetivo.transform.position;
 
                 result.lineal.Normalize();
-                result.lineal *= agente.aceleracionMax;
+                result.lineal *= agente.aceleracionMax; // aceleracion maxima en el sentido contrario al target
 
                 result.angular = 0;
             }

@@ -38,12 +38,6 @@ namespace UCM.IAV.Movimiento
         [SerializeField]
         float tiempoMinimo = 1.0f; // maximum rate of wanderers orientation change
 
-        //float currentTimeObjective = 0.0f;
-        //float limitTimeObjective = 0.0f;
-
-        //float currentTimeIdle = 0.0f;
-        //float limitTimeIdle = 0.0f;
-
         private bool idle = false;
         private float timer = 0.0f;
         private float duration = 0.0f;
@@ -112,6 +106,7 @@ namespace UCM.IAV.Movimiento
             // lineal = max aceleracion en la direccion de la orientacion
             result.lineal = agente.aceleracionMax * direccion;
 
+            // Debug
             if (debugMerodeo)
             {
                 Debug.DrawLine(agente.transform.position, objetivo.transform.position, new Color(0, 0, 1), 0.2f);

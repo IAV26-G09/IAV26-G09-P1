@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class DogTriggerArea : MonoBehaviour
 {
-    [SerializeField] private float TriggerRadius = 1.5f;
-    [SerializeField] private int ratsToFlee = 3; // n ratas para huir
+    [SerializeField] private float TriggerRadius = 1.5f; // radio de trigger del perro
+    [SerializeField] private int ratsToFlee = 3; // numero de ratas en trigger para huir
 
     private SphereCollider triggerArea;
     private Persecucion persecucion;
@@ -57,6 +57,8 @@ public class DogTriggerArea : MonoBehaviour
     {
         var rats = collidedRats.Count;
 
+        // Establecer el estado del perro en funcion de las ratas que 
+        // tenga a TriggerRadius de distancia
         if (rats >= ratsToFlee)
         {
             huir.isFleeing = true;
