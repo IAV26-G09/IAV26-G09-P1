@@ -1,7 +1,10 @@
 # Inteligencia Artificial para Videojuegos - Práctica 1: Plaga de Ratas
 
 > [!NOTE]
-> Versión: 1
+> Versión: 2
+
+> [!IMPORTANT]
+> Changelog:
 
 ## Índice
 1. [Autores](#autores)
@@ -380,11 +383,14 @@ Las tareas y el esfuerzo ha sido repartido de manera equitativa entre las autora
 | ✔ | Botón de reinicio en interfaz | 8-2-2026 |
 | ✔ | Seguimiento del agente acompañante (perro) | 8-2-2026 |
 | ✔ | Merodeo de los agentes de la bandada (ratas) | 10-2-2026 |
-| ✖ | Movimiento del avatar con input de ratón | ... |
-| ✖ | Huida del agente acompañante (perro) | ... |
-| ✖ | Hipnosis de los agentes de la bandada (ratas) | ... |
+| ✔ | Movimiento del avatar con input de ratón | 12-2-2026 |
+| ✔ | Huida del agente acompañante (perro) | 12-2-2026 |
+| ✔ | Hipnosis de los agentes de la bandada (ratas) | 17-2-2016 |
+| ✔ | Separación de los agentes de la bandada (ratas) | 17-2-2016 |
+| ✔ | Mejoras en la predicción de persecución | 17-2-2016 |
+| ✔ | Separación de los agentes de la bandada (ratas) | 24-2-2016 |
 |  | AMPLIACIONES |  |
-|  | ... |  |
+| ✔ | Estado *Idle* de los agentes (ratas) durante el merodeo  | 24-2-2016 |
 
 <br>
 
@@ -442,13 +448,6 @@ Se adjuntan los scripts con el código fuente que implementan las principales ca
 | Control de spawn/despawn por corrutina | [RatNumberInput](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/RatNumberInput.cs) |
 | Botón de reinicio en interfaz | [ReiniciarButton](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/ReiniciarButton.cs) |
 
-<!-- 
-## Ampliaciones
-Si se han realizado ampliaciones explicarlo: se han realizado las siguientes ampliaciones
-
-- Los obstáculos del escenario se colocan...
--->
-
 ## Pruebas y métricas
 Serie corta y rápida posible de pruebas que pueden realizarse para verificar que se cumplen las características requeridas:
 
@@ -467,11 +466,14 @@ Serie corta y rápida posible de pruebas que pueden realizarse para verificar qu
 
 - [Vídeo demostración](https://www.youtube.com/watch?v=wdlJquAlGWI)
 
-## Conclusiones
+## Ampliaciones
 Dado que el desarrollo de la práctica se halla en su ecuador, es demasiado pronto como para sacar conclusiones del aprendizaje, pero se han planteado para ir más allá del aprendizaje en el futuro estas posibles ampliaciones:
 * Que las ratas tengan un momento estático entre movimiento y movimento.
 * Que las ratas tengan un ángulo mínimo con respecto a su último movimiento sobre el que girar.
 * Detección de obstáculos en los algoritmos de todos los agentes.
+
+## Conclusiones
+
 
 ## Licencia
 Nieves Alonso Gilsanz y Cynthia Tristán Álvarez, con el permiso de Federico Peinado, autores de la documentación, código y recursos de este trabajo, concedemos permiso permanente para utilizar este material, con sus comentarios y evaluaciones, con fines educativos o de investigación; ya sea para obtener datos agregados de forma anónima como para utilizarlo total o parcialmente reconociendo expresamente nuestra autoría. 
@@ -486,3 +488,13 @@ Lousberg, K. (s. f.). [*Kaykit dungeon*](https://kaylousberg.itch.io/kaykit-dung
 Lousberg, K. (s. f.). [*Kaykit medieval builder pack*](https://kaylousberg.itch.io/kaykit-medieval-builder-pack)
 
 Millington, I. (2019). *AI for games* (3rd ed.). CRC Press.
+
+Narratech [*Plaga de Ratas*](https://narratech.com/es/inteligencia-artificial-para-videojuegos/percepcion-y-movimiento/plaga-de-ratas/)
+
+Narratech [*Física y animación*](https://narratech.com/es/inteligencia-artificial-para-videojuegos/percepcion-y-movimiento/fisica-y-animacion/)
+
+Narratech [*Comportamiento de dirección*](https://narratech.com/es/inteligencia-artificial-para-videojuegos/percepcion-y-movimiento/comportamiento-de-direccion/)
+
+Narratech [*Desplazamiento en grupo*](https://narratech.com/es/inteligencia-artificial-para-videojuegos/percepcion-y-movimiento/desplazamiento-en-grupo/)
+
+Schwab, B. (2009). *AI game engine programming* (2nd ed.). Course Technology Cengage Learning.
