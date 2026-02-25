@@ -144,8 +144,8 @@ MonoBehaviour:
   wanderOffset: 1
   wanderRadius: 10
   debugMerodeo: 1
-  tiempoMaximoMovimiento: 8
-  tiempoMinimoMovimiento: 4
+  tiempoMaximoMovimiento: 2
+  tiempoMinimoMovimiento: 1
   tiempoMaximoIdle: 2
   tiempoMinimoIdle: 1
   idleTimer: 0
@@ -153,6 +153,7 @@ MonoBehaviour:
   moveTimer: 0
   moveDuration: 0
   timeToTarget: 0.1
+  targetRadius: 0.5
 --- !u!114 &5847726514314529056
 MonoBehaviour:
   m_ObjectHideFlags: 0

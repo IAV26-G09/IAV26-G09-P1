@@ -69,9 +69,19 @@ public class DogTriggerArea : MonoBehaviour
             huir.isFleeing = true;
 
             Vector3 suma = Vector3.zero;
+            Vector3 dogPos = transform.position;
 
             foreach (Collider c in collidedRats)
-                suma += c.transform.position;
+            {
+                Vector3 ratPos = c.transform.position;
+                float distance = Vector3.Distance(dogPos, ratPos);
+
+                distance = Mathf.Clamp(distance, 0.01f, distance);
+
+                float peso = 1f / distance; // todo 
+
+                suma += ratPos * peso;
+            }
 
             Vector3 centroide = suma / rats;
             centroidObject.transform.position = centroide;

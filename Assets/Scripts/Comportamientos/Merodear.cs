@@ -96,6 +96,11 @@ namespace UCM.IAV.Movimiento
                     moveDuration = Random.Range(tiempoMinimoMovimiento, tiempoMaximoMovimiento);
                 }
                 // si estamos en idle no hacemos nada
+                if (rb != null)
+                {
+                    rb.linearVelocity = Vector3.zero;
+                    rb.angularVelocity = Vector3.zero;
+                }
                 return result;
             }
 
