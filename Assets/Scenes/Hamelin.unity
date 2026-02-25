@@ -2464,7 +2464,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919132148976998258}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e27b1398245256a4aa176c4cad05e629, type: 3}
   m_Name: 
@@ -5417,6 +5417,21 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 870761177}
     m_Modifications:
+    - target: {fileID: 2890227307740488764, guid: 5175d5736886518439bf9a2956a122b4,
+        type: 3}
+      propertyPath: debugMerodeo
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890227307740488764, guid: 5175d5736886518439bf9a2956a122b4,
+        type: 3}
+      propertyPath: tiempoMaximo
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2890227307740488764, guid: 5175d5736886518439bf9a2956a122b4,
+        type: 3}
+      propertyPath: tiempoMinimo
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 3610922820614807888, guid: 5175d5736886518439bf9a2956a122b4,
         type: 3}
       propertyPath: m_RootOrder
@@ -5466,6 +5481,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Layer
       value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847726514314529056, guid: 5175d5736886518439bf9a2956a122b4,
+        type: 3}
+      propertyPath: peso
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5847726514314529056, guid: 5175d5736886518439bf9a2956a122b4,
+        type: 3}
+      propertyPath: timeToTarget
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6537174158311488314, guid: 5175d5736886518439bf9a2956a122b4,
         type: 3}
@@ -6304,8 +6329,13 @@ PrefabInstance:
       objectReference: {fileID: 919132148976998258}
     - target: {fileID: 3234765255228976112, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
+      propertyPath: rRalentizado
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234765255228976112, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
       propertyPath: maxPrediction
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3861295050334874256, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
@@ -6315,6 +6345,21 @@ PrefabInstance:
     - target: {fileID: 3861295050334874256, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
       propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861295050334874259, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: m_Drag
+      value: 2e+9
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861295050334874259, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: m_ImplicitCom
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861295050334874259, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: m_ImplicitTensor
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4529992095953285162, guid: 5ff744207c6a5044ab297c8fc4814fc0,

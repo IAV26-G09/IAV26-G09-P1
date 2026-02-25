@@ -30,6 +30,11 @@ namespace UCM.IAV.Movimiento
 
         private Rigidbody rb;
 
+        private void Start()
+        {
+            rb = GetComponent<Rigidbody>();
+        }
+
         /// <summary>
         /// Obtiene la dirección
         /// </summary>
@@ -75,7 +80,7 @@ namespace UCM.IAV.Movimiento
             targetVelocity *= targetSpeed;
 
             // la aceleracion escala hasta la velocidad deseada
-            result.lineal = targetVelocity - agente.velocidad;
+            result.lineal = targetVelocity - agente.getVelocidadLinealReal();
             result.lineal /= timeToTarget;
 
             // comprueba si la aceleracion es demasiado rapida
@@ -88,11 +93,6 @@ namespace UCM.IAV.Movimiento
             result.angular = 0;
 
             return result;
-        }
-
-        private void Start()
-        {
-            rb = GetComponent<Rigidbody>();
         }
     }
 }

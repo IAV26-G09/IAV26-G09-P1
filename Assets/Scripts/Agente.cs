@@ -338,6 +338,9 @@ namespace UCM.IAV.Movimiento {
             }
         }
 
-        
+        public Vector3 getVelocidadLinealReal() // dado que la velocidad se aplica el el LateUpdate no podemos acceder a la velocidad y siempre es 0 cuando implementamos métodos de comportamientos, esto nos devuelve la velocidad real que tiene el rigidbody en el momento dado
+        {
+            return (cuerpoRigido != null && !cuerpoRigido.isKinematic) ? cuerpoRigido.linearVelocity : velocidad;
+        }
     }
 }

@@ -32,8 +32,6 @@ public class Persecucion : Llegada
 
         float speed = agente.velocidad.magnitude;
 
-        float t = distancia * speed;
-
         float prediccion;
         if (speed <= distancia / maxPrediction)
         {
@@ -45,11 +43,8 @@ public class Persecucion : Llegada
         }
 
         objetivo.transform.position = objetivoReal.transform.position;
-        Vector3 posPredicha = objetivoReal.GetComponent<Rigidbody>().linearVelocity * prediccion;
+        Vector3 posPredicha = objetivoReal.GetComponent<Agente>().getVelocidadLinealReal() * prediccion;
         objetivo.transform.position += posPredicha;
-
-        //Debug.Log("OBJETIVO REAL: " + objetivoReal.transform.position);
-        //Debug.Log("PREDICCION: " + prediccion);
 
         if (debugPrediction)
         {
