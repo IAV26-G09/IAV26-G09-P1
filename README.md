@@ -26,18 +26,18 @@
 
 ## Índice
 1. [Autores](#autores)
-1. [Resumen](#resumen)
-1. [Instalación y uso](#instalación-y-uso)
-1. [Introducción](#introducción)
-1. [Punto de partida](#punto-de-partida)
-1. [Planteamiento del problema](#planteamiento-del-problema)
-1. [Diseño de la solución](#diseño-de-la-solución)
-1. [Implementación](#implementación)
-1. [Pruebas y métricas](#pruebas-y-métricas)
-1. [Ampliaciones](#ampliaciones)
-1. [Conclusiones](#conclusiones)
-1. [Licencia](#licencia)
-1. [Referencias](#referencias)
+2. [Resumen](#resumen)
+3. [Instalación y uso](#instalación-y-uso)
+4. [Introducción](#introducción)
+5. [Punto de partida](#punto-de-partida)
+6. [Planteamiento del problema](#planteamiento-del-problema)
+7. [Diseño de la solución](#diseño-de-la-solución)
+8. [Implementación](#implementación)
+9. [Pruebas y métricas](#pruebas-y-métricas)
+10. [Ampliaciones](#ampliaciones)
+11. [Conclusiones](#conclusiones)
+12. [Licencia](#licencia)
+13. [Referencias](#referencias)
 
 
 ## Autores
