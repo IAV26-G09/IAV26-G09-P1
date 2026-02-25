@@ -5,18 +5,21 @@
 
 > [!IMPORTANT]
 > Changelog: 
->> [Diseño de la solución](#diseño-de-la-solución) 
->> blabla
->> [Implementación](#implementación) ...
->> blabla
->> [Pruebas y métricas](#pruebas-y-métricas)
->> blabla
->> [Ampliaciones](#ampliaciones)
->> blabla
->> [Conclusiones](#conclusiones)
->> blabla
->> [Referencias](#referencias) ...
->> blabla
+- [Diseño de la solución](#diseño-de-la-solución) 
+    - 
+- [Implementación](#implementación)
+    - 
+- [Pruebas y métricas](#pruebas-y-métricas)
+    - Se ha reescrito el plan de pruebas, ordenado por e indicando la característica que comprueban.
+    - Se han añadido valores de métricas de FPS a raíz de varios tests en un mismo PC.
+- [Ampliaciones](#ampliaciones)
+    - Creada la sección
+    - Se han detallado las ampliaciones realizadas.
+- [Conclusiones](#conclusiones)
+    - Se ha reescrito el apartado, formulándose como una conclusión real.
+- [Referencias](#referencias)
+    - Se han buscado referencias nuevas.
+    - Se ha detallado de qué han servido las referencias nuevas y sus aportes.
 
 ## Índice
 1. [Autores](#autores)
@@ -405,6 +408,8 @@ Se adjuntan los *scripts* con el código fuente que implementan las principales 
 | C | Control de agentes en el area de trigger del agente perro | [DogTriggerArea](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/DogTriggerArea.cs) |
 
 ## Pruebas y métricas
+
+### Plan de pruebas
 Serie corta y rápida posible de pruebas que pueden realizarse para verificar que se cumplen las características requeridas:
 
 * **1. Característica: A.** Arrancar el juego y observar el mundo compuesto por varios agentes (jugador -> flautista, acompañante -> perro, miembro de bandadada -> rata) y los obstáculos.
@@ -426,29 +431,53 @@ Serie corta y rápida posible de pruebas que pueden realizarse para verificar qu
 * **17. Característica: E.** Repetir los últimos tres pasos con un número alto de ratas y observar el cambio en los FPS.
 ecayda us
 
+### Métricas tomadas:
+En un PC de estas características:
+- **CPU:** Intel Core i5-12600KF a 3.70 GHz
+- **GPU:** NVIDIA GeForce RTX 5070 Ti con 16 GB
+- **RAM:** 32 GB (16x2) de 4800 MT/s
+- **SO:** Windows 11
+Se han tomado las siguientes métricas:
+    - En vista aérea y sin colisión entre ratas, deja de haber 60 FPS estables al pasar las 1300 ratas y se queda en una mediana de 59 fps.
+    - Al llegar a 1500, la media es de 56 fps.
+    - En 1750, de 47 fps.
+    - En 2000, de 38 y fluctua entre 35 y 41 erráticamente.
+    - Una vez se pasa de 2250 se baja de 30 fps.
+    - En 2500, de 25 fps.
+    - En 3000, de 17 fps.
+    - En 4000, de 3 fps.
+
+En este equipo probablemente lo más limitante haya sido el cálculo en CPU.
+
+### Vídeo
+
 - [Vídeo demostración]()
 
 ## Ampliaciones
 Se ha desarrollado una ampliación relacionada con el *Merodeo* detallada en el apartado de *Diseño de la solución* referido al [merodeo](#explicación-sobre-su-implementación-en-el-proyecto-3), esta se basa en que las ratas tengan un momento estático entre movimiento y movimento a modo de "descanso", logrando así un comportamiento más realista.
 
 ## Conclusiones
+El desarrollo de esta práctica ha permitido asentar las bases de algoritmos clásicos de movimiento y sirve de  primer acercamiento a la inteligencia artificial orientada a videojuegos en agentes como individuos y como grupos. 
 
+De igual manera ha servido como comprobación de que algoritmos relativamente simples dan lugar a resultados creíbles e interesantes, especialmente cuando combinados adecuadamente dentro de un entorno con cierto grado de interactividad.
+
+Queda recalcada la importancia de la modularidad de los comportamientos según el estado del agente, combinándose entre sí con distintos tipos de sistemas que los gestionen, y la importancia de la escalabilidad de los algoritmos por agente de cara a la optimización y el rendimiento en hardware.
 
 ## Licencia
 Nieves Alonso Gilsanz y Cynthia Tristán Álvarez, con el permiso de Federico Peinado, autores de la documentación, código y recursos de este trabajo, concedemos permiso permanente para utilizar este material, con sus comentarios y evaluaciones, con fines educativos o de investigación; ya sea para obtener datos agregados de forma anónima como para utilizarlo total o parcialmente reconociendo expresamente nuestra autoría. 
 
 ## Referencias
-A continuación se detallan todas las referencias bibliográficas, lúdicas o de otro tipo utilizdas para realizar este prototipo. Los recursos de terceros que se han utilizados son de uso público[^1][^2][^3]:
+A continuación se detallan todas las referencias bibliográficas, lúdicas o de otro tipo utilizdas para realizar este prototipo. Los recursos de terceros que se han utilizados son de uso público[^1][^2][^3].
+
+El diseño e implementación de los algoritmos aquí desarrollados se ha apoyado principalmente en *Millington*[^4], referenciado ampliamente a lo largo del contenido del curso en Narratech[^5][^6][^7][^8], que ha proporcionado la base teórica para los comportamientos de *Llegada*, *Persecución*, *Huida*, *Merodeo* y *Separación*, además de los mecanismos de combinación por peso o prioridades.
+
+Los artículos de *Reynolds*[^9][^10] son la base histórica y clásica del comportamiento de agentes en grupo implementados en *Separación*. Las aportaciones de *Shiffman*[^11] y *Yannakakis y Togelius*[^12] sirven de referencia complementaria para entender los sistemas de agentes autónomos con visión más actualizada y contemporánea.
 
 [^1]: Lousberg, K. (s. f.). [*Kaykit animations*](https://kaylousberg.itch.io/kaykit-animations)
 
 [^2]: Lousberg, K. (s. f.). [*Kaykit dungeon*](https://kaylousberg.itch.io/kaykit-dungeon)
 
 [^3]: Lousberg, K. (s. f.). [*Kaykit medieval builder pack*](https://kaylousberg.itch.io/kaykit-medieval-builder-pack)
-
-El diseño e implementación de los algoritmos aquí desarrollados se ha apoyado principalmente en *Millington*[^4], referenciado ampliamente a lo largo del contenido del curso en Narratech[^5][^6][^7][^8], que ha proporcionado la base teórica para los comportamientos de *Llegada*, *Persecución*, *Huida*, *Merodeo* y *Separación*, además de los mecanismos de combinación por peso o prioridades.
-
-Los artículos de *Reynolds*[^9][^10] son la base histórica y clásica del comportamiento de agentes en grupo implementados en *Separación*. Las aportaciones de *Shiffman*[^11] y *Yannakakis y Togelius*[^12] sirven de referencia complementaria para entender los sistemas de agentes autónomos con visión más actualizada y contemporánea.
 
 [^4]: Millington, I. (2019). *AI for games* (3rd ed.). CRC Press.
 
