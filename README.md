@@ -199,7 +199,7 @@ Se calcula la dirección y distancia desde el agente hasta el objetivo, si se ha
 
 ### Huída
 #### Explicación sobre su [*implementación*](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Huir.cs) en el proyecto:
-Se calcula la dirección en sentido contrario al objetivo y se aplica una velocidad lineal en esa dirección con velocidad máxima.
+Se calcula el centroide entre las posiciones de las ratas colindantes a través de pesos en función de la distancia a cada rata. Ese centroide pasa a ser el objetivo del agente, se calcula la dirección en sentido contrario y se aplica una velocidad lineal en esa dirección con velocidad máxima.
 Este comportamiento solo se activará cuando se detecten un número de ratas determinado a una distancia determinada del agente, esta comprobación se realiza en el script [*DogTriggerArea*](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/DogTriggerArea.cs) del objeto hijo del Perro *TriggerArea*.
 
 ### Persecución
@@ -367,9 +367,10 @@ Las tareas y el esfuerzo ha sido repartido de manera equitativa entre las autora
 | ✔ | Separación de los agentes de la bandada (ratas) | 17-2-2026 |
 | ✔ | Mejoras en la predicción de persecución | 17-2-2026 |
 | ✔ | Separación de los agentes de la bandada (ratas) | 24-2-2026 |
-| ✔ | Acceso a la velocidad real del agente desde *Agente*  | 24-2-2026 |
+| ✔ | Acceso a la velocidad real del agente desde *Agente* | 24-2-2026 |
 |  | AMPLIACIONES |  |
 | ✔ | Estado *Idle* de los agentes (ratas) durante el merodeo  | 24-2-2026 |
+| ✔ | Cálculo del centroide en *Huida* por pesos según distancia al agente  | 25-2-2026 |
 
 <br>
 
@@ -485,7 +486,9 @@ En este equipo probablemente lo más limitante haya sido el cálculo en CPU.
 - [Vídeo demostración]()
 
 ## Ampliaciones
-Se ha desarrollado una ampliación relacionada con el *Merodeo* detallada en el apartado de *Diseño de la solución* referido al [merodeo](#explicación-sobre-su-implementación-en-el-proyecto-3), esta se basa en que las ratas tengan un momento estático entre movimiento y movimento a modo de "descanso", logrando así un comportamiento más realista.
+Se han desarrollado dos ampliaciones, ambas detalladas en el apartado de [*Diseño de la solución*](#diseño-de-la-solución): 
+1. Una relacionada con el [*Merodeo*](#explicación-sobre-su-implementación-en-el-proyecto-3), esta se basa en que las ratas tengan un momento estático entre movimiento y movimento a modo de "descanso", logrando así un comportamiento más realista.
+2. Otra relacionada con la [*Huida*](#explicación-sobre-su-implementación-en-el-proyecto-3), pesando las distancias a las ratas para calcular un centroide más preciso y hacer que el agente que huye huya más fuerte de la más cercana.
 
 ## Conclusiones
 El desarrollo de esta práctica ha permitido asentar las bases de algoritmos clásicos de movimiento y sirve de  primer acercamiento a la inteligencia artificial orientada a videojuegos en agentes como individuos y como grupos. 
