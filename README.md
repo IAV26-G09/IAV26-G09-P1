@@ -4,7 +4,19 @@
 > Versión: 2
 
 > [!IMPORTANT]
-> Changelog:
+> Changelog: 
+>> [Diseño de la solución](#diseño-de-la-solución) 
+>> blabla
+>> [Implementación](#implementación) ...
+>> blabla
+>> [Pruebas y métricas](#pruebas-y-métricas)
+>> blabla
+>> [Ampliaciones](#ampliaciones)
+>> blabla
+>> [Conclusiones](#conclusiones)
+>> blabla
+>> [Referencias](#referencias) ...
+>> blabla
 
 ## Índice
 1. [Autores](#autores)
@@ -16,6 +28,7 @@
 1. [Diseño de la solución](#diseño-de-la-solución)
 1. [Implementación](#implementación)
 1. [Pruebas y métricas](#pruebas-y-métricas)
+1. [Ampliaciones](#ampliaciones)
 1. [Conclusiones](#conclusiones)
 1. [Licencia](#licencia)
 1. [Referencias](#referencias)
@@ -112,9 +125,9 @@ graph TD;
 
 Lo distintos algoritmos usados han sido para cada agente de IA:
 * **Perro**: 
-    * Persecución y evasión, que hereda de:
-        * Seguimiento
-    * Llegada dentro
+    * Seguimiento con llegada dentro
+    * Persecución, que hereda de:
+        * Seguimiento con llegada dentro
     * Huida
 * **Ratas**: 
     * Merodeo, que hereda de:
@@ -123,45 +136,7 @@ Lo distintos algoritmos usados han sido para cada agente de IA:
     * Seguimiento con llegada dentro
     * Separación
 
-### Persecución y evasión 
-```
-class Pursue extends Seek:
-    # The maximum prediction time.
-    maxPrediction: float
-
-    # OVERRIDES the target data in seek (in other words this class has
-    # two bits of data called target: Seek.target is the superclass
-    # target which will be automatically calculated and shouldn't be set,
-    # and Pursue.target is the target we're pursuing).
-    target: Kinematic
-
-    # ... Other data is derived from the superclass...
-
-    function getSteering()-> SteeringOutput:
-        # 1. Calculate the target to delegate to seek
-        # Work out the distance to target.
-        direction = target.position - character.position
-        distance = direction.length()
-
-        # Work out our current speed.
-        speed = character.velocity.length()
-
-        # Check if speed gives a reasonable prediction time.
-        if speed <= distance / maxPrediction:
-            prediction maxPrediction
-        # Otherwise calculate the prediction time.
-        else:
-            prediction = distance / speed
-
-        # Put the target together.
-        Seek.target = explicitTarget
-        Seek.target.position += target.velocity * prediction
-
-        # 2. Delegate to seek.
-        return Seek.getSteering()
-```
-
-### Seguimiento y huida con llegada dentro 
+### Seguimiento con llegada dentro 
 ```
 class Arrive:
     character: Kinematic
@@ -214,84 +189,57 @@ class Arrive:
         result.angular = 0
         return result
 ```
+#### Explicación sobre su [*implementación*](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Llegada.cs) en el proyecto:
+Se calcula la dirección y distancia desde el agente hasta el objetivo, si se ha entrado en el radio objetivo el agente para, si aún no se ha llegado pero el agente se encuentra en el radio de realentizado se calcula la velocidad escalada en la que acercarse al objetivo y en caso contrario avanza a máxima velocidad en la dirección calculada.
 
-### Alineamiento
+### Huída
+#### Explicación sobre su [*implementación*](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Huir.cs) en el proyecto:
+Se calcula la dirección en sentido contrario al objetivo y se aplica una velocidad lineal en esa dirección con velocidad máxima.
+
+### Persecución
+#### Pseudocódigo:
 ```
-class Align:
-    character: Kinematic
+class Pursue extends Seek:
+    # The maximum prediction time.
+    maxPrediction: float
+
+    # OVERRIDES the target data in seek (in other words this class has
+    # two bits of data called target: Seek.target is the superclass
+    # target which will be automatically calculated and shouldn't be set,
+    # and Pursue.target is the target we're pursuing).
     target: Kinematic
 
-    maxAngularAcceleration: float
-    maxSpeed: float
+    # ... Other data is derived from the superclass...
 
-    # The radius for arriving at the target.
-    targetRadius: float
-
-    # The radius for beginning to slow down.
-    slowRadius: float
-
-    # The time over which to achieve target speed.
-    timeToTarget: float = 0.1
-    
-    function getSteering() -> SteeringOutput:
-        result = new SteeringOutput()
-        
-        # Get the naive direction to the target.
-        rotation = target.orientation - character.orientation
-
-        # Map result to the (-pi, pi) interval.
-        rotation = mapToRange(rotation)
-        rotationSize = abs(rotation)
-
-        # Check if que are there, return no steering.
-        if rotationSize < targetRadius:
-            return null
-
-        # If we are outside the slowRadius, then use maximum rotation.
-        if rotationSize > slowRadius:
-            targetRotation = maxRotation
-        # Otherwise calculate a scaled rotation.
-        else:
-            targetRotation = maxRotation * rotationSize / slowRadius
-        
-        # The final target rotation combines speed (already in the variable) and direction.
-        targetRotation *= rotation / rotationSize
-
-        # Acceleration tries to get to the target rotation.
-        result.angular = targetRotation - character.rotation
-        result.angular /= timeToTarget
-
-        # Check if the acceleration is too great.
-        angularAcceleration = abs(result.angular)
-        if angularAcceleration > maxAngularAcceleration:
-            result.angular /= angularAcceleration
-            result.angular *= maxAngularAcceleration
-
-        result.linear = 0
-        return result
-```
-
-### Encaramiento
-```
-class Face extends Align:
-    # ... Other data is derived from the superclass ...
-    function getSteering() -> SteeringOutput:
-        # 1. Calculate the target to delegate to align
-        # Work out the direction to target.
+    function getSteering()-> SteeringOutput:
+        # 1. Calculate the target to delegate to seek
+        # Work out the distance to target.
         direction = target.position - character.position
+        distance = direction.length()
 
-        # Check for a zero direction, and make no change if so.
-        if direction.length() == 0:
-            return target
+        # Work out our current speed.
+        speed = character.velocity.length()
 
-        # 2. Delegate to align.
-        Align.target = explicitTarget
-        Align.target.orientation = atan2(-direction.x, direction.z)
-        return Align.getSteering()
-        
+        # Check if speed gives a reasonable prediction time.
+        if speed <= distance / maxPrediction:
+            prediction maxPrediction
+        # Otherwise calculate the prediction time.
+        else:
+            prediction = distance / speed
+
+        # Put the target together.
+        Seek.target = explicitTarget
+        Seek.target.position += target.velocity * prediction
+
+        # 2. Delegate to seek.
+        return Seek.getSteering()
 ```
+#### Explicación sobre su [*implementación*](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Persecucion.cs) en el proyecto:
+Se calcula la dirección y distancia desde el agente hasta el objetivo predicho, que será un GameObject vacío distinto al objetivoReal que guardará el objetivo al que realmente quieres seguir. Se calcula si la velocidad que necesitarías para recorrer esa distancia en el tiempo maxPrediction dado es razonable teniendo en cuenta la velocidad que tenga el agente, si no lo es usas maxPrediction para calcular la posición predicha y si sí lo es se calcula el tiempo predicho que se tardaria en recorrer esa distancia.
+Con este tiempo se calcula la posición predicha que perseguirá el perro en función de la posición del objetivo real, para conseguir simular una predicción.
 
 ### Merodeo
+#### Pseudocódigo:
 ```
 class Wander extends Face:
     # The radius and forward offset of the wander circle.
@@ -332,8 +280,13 @@ class Wander extends Face:
         # Return it.
         return result
 ```
+#### Explicación sobre su [*implementación*](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Merodear.cs) en el proyecto:
+El merodeo se divide en tres estados: *Idle*, *Nuevo Objetivo*, *Movimiento* con el objetivo de hacerlo más realista. Las ratas no buscan constantemente el siguiente objetivo si no que se paran a descansar un tiempo determinado antes de buscarlo. 
+Cundo acaban de descansar empiezan a buscar el siguiente objetivo, para ello se calcula una dirección aleatoria hacia la que avanzará a continuación y en esa dirección se calcula la posición que tendrá el GameObject vacío que representa el objetivo al que quieres llegar. 
+Una vez conoce su siguiente objetivo se empieza a mover hacia él a máxima velocidad, y no parará a volver a descansar hasta que se llegue al radio objetivo o se vuelva a cansar pasado un tiempo determinado. 
 
 ### Separación
+#### Pseudocódigo:
 ```
 class Separation:
     character: Kinematic
@@ -367,7 +320,8 @@ class Separation:
         
         return result
 ```
-
+#### Explicación sobre su [*implementación*](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Separacion.cs) en el proyecto:
+Se recorren todos los agentes (obviándose al que esté ejecutando el script) y se calcula la distancia hasta estos, si el target está suficientemente cerca se aplica una fuerza de repulsión a la velocidad lineal usando la Ley de la inversa del cuadrado. 
 
 ## Implementación
 **Tareas:**
@@ -385,12 +339,12 @@ Las tareas y el esfuerzo ha sido repartido de manera equitativa entre las autora
 | ✔ | Merodeo de los agentes de la bandada (ratas) | 10-2-2026 |
 | ✔ | Movimiento del avatar con input de ratón | 12-2-2026 |
 | ✔ | Huida del agente acompañante (perro) | 12-2-2026 |
-| ✔ | Hipnosis de los agentes de la bandada (ratas) | 17-2-2016 |
-| ✔ | Separación de los agentes de la bandada (ratas) | 17-2-2016 |
-| ✔ | Mejoras en la predicción de persecución | 17-2-2016 |
-| ✔ | Separación de los agentes de la bandada (ratas) | 24-2-2016 |
+| ✔ | Hipnosis de los agentes de la bandada (ratas) | 17-2-2026 |
+| ✔ | Separación de los agentes de la bandada (ratas) | 17-2-2026 |
+| ✔ | Mejoras en la predicción de persecución | 17-2-2026 |
+| ✔ | Separación de los agentes de la bandada (ratas) | 24-2-2026 |
 |  | AMPLIACIONES |  |
-| ✔ | Estado *Idle* de los agentes (ratas) durante el merodeo  | 24-2-2016 |
+| ✔ | Estado *Idle* de los agentes (ratas) durante el merodeo  | 24-2-2026 |
 
 <br>
 
@@ -430,7 +384,7 @@ classDiagram
 <br>
 
 **Implementación:**
-Se adjuntan los scripts con el código fuente que implementan las principales características.
+Se adjuntan los *scripts* con el código fuente que implementan las principales características. Los *scripts* están documentados para mayor claridad y detalle sobre su implementación.
 
 | Característica del prototipo | Script |
 |:-:|:-:|
@@ -452,9 +406,8 @@ Se adjuntan los scripts con el código fuente que implementan las principales ca
 ## Pruebas y métricas
 Serie corta y rápida posible de pruebas que pueden realizarse para verificar que se cumplen las características requeridas:
 
-* **1.** Arrancar el juego y comprobar el control del avatar moviendo y clicando con el ratón a lo largo del pueblo.
+<!-- 
 * **2.** Comprobar seguimiento del perro cuando se está moviendo el avatar.
-* **3.** Comprobar los distintos tipos de cámaras pulsando N: cámara fija, cámara que sigue al jugador y cámara que sigue al perro, moviendo al avatar mientras se realiza este paso.
 * **4.** Instanciar una cantidad de ratas X, introduciendo un número mayor a 1 con el campo de entrada en la parte inferior izquierda de la interfaz a través del teclado y haciendo a clic en el botón contiguo "Ratear".
 * **5.** Observar el patrón de movimiento errático, merodeo, de las ratas instanciadas.
 * **6.** Destruir una cantidad de ratas Y, introduciendo un número menor al de ratas actuales y mayor o igual que 0 en el campo de entrada de la interfaz a través del teclado y haciendo clic en el botón contiguo "Ratear".
@@ -463,9 +416,27 @@ Serie corta y rápida posible de pruebas que pueden realizarse para verificar qu
 * **9.** Comprobar movimiento en bandada de las ratas hipnotizadas.
 * **10.** Comprobar huida del perro cuando se encuentra cerca de 3 o más ratas, y seguimiento de nuevo al avatar cuando no.
 * **11.** Hacer clic en el botón "Reiniciar" de la interfaz para comenzar de nuevo la simulación con la configuración inicial.
-* **12.** Repetir cualquier paso.
+* **12.** Repetir cualquier paso. -->
+* **1. Característica: A.** Arrancar el juego y observar el mundo compuesto por varios agentes (jugador -> flautista, acompañante -> perro, miembro de bandadada -> rata) y los obstáculos.
+* **2. Característica: A.** Hacer clic en el botón "Reiniciar" de la interfaz para comenzar de nuevo la simulación con la configuración inicial.
+* **3. Característica: A.** Comprobar los distintos tipos de cámaras pulsando N: cámara fija, cámara que sigue al jugador y cámara que sigue al perro, moviendo al avatar mientras se realiza este paso.
+* **4. Característica: A.** Instanciar una cantidad de ratas X, introduciendo un número mayor a 1 con el campo de entrada en la parte inferior izquierda de la interfaz a través del teclado y haciendo a clic en el botón contiguo "Ratear".
+* **5. Característica: A.** Destruir una cantidad de ratas Y, introduciendo un número menor al de ratas actuales y mayor o igual que 0 en el campo de entrada de la interfaz a través del teclado y haciendo clic en el botón contiguo "Ratear".
+* **6. Característica: B.** Comprobar el control de movimiento del avatar moviendo dentro y fuera del radio alrededor del avatar. 
+* **6. Característica: B.** Comprobar el control de velocidad del avatar clicando con el ratón a lo largo del pueblo.
+* **6. Característica: B.** Comprobar el control de la flauta tocándola con el clic derecho. Comprobarlo también moviendo al jugador y sin moverlo.
+* **6. Característica: C.** Observar seguimiento del acompañante cuando el jugador se está moviendo.
+* **6. Característica: C.** Observar encarado del acompañante en función de su movimiento.
+* **6. Característica: C.** Observar control de llegada del acompañante cuando el jugador deja de moverse.
+* **6. Característica: B.** Situar al jugador y por
+ led ortnec led acrec etnañapmoca la otnat
+* **6. Característica: B.** 
+* **6. Característica: B.** 
+* **6. Característica: B.** 
+* **6. Característica: B.** 
+* **6. Característica: B.** 
 
-- [Vídeo demostración](https://www.youtube.com/watch?v=wdlJquAlGWI)
+- [Vídeo demostración]()
 
 ## Ampliaciones
 Dado que el desarrollo de la práctica se halla en su ecuador, es demasiado pronto como para sacar conclusiones del aprendizaje, pero se han planteado para ir más allá del aprendizaje en el futuro estas posibles ampliaciones:
@@ -480,28 +451,32 @@ Dado que el desarrollo de la práctica se halla en su ecuador, es demasiado pron
 Nieves Alonso Gilsanz y Cynthia Tristán Álvarez, con el permiso de Federico Peinado, autores de la documentación, código y recursos de este trabajo, concedemos permiso permanente para utilizar este material, con sus comentarios y evaluaciones, con fines educativos o de investigación; ya sea para obtener datos agregados de forma anónima como para utilizarlo total o parcialmente reconociendo expresamente nuestra autoría. 
 
 ## Referencias
-A continuación se detallan todas las referencias bibliográficas, lúdicas o de otro tipo utilizdas para realizar este prototipo. Los recursos de terceros que se han utilizados son de uso público.
+A continuación se detallan todas las referencias bibliográficas, lúdicas o de otro tipo utilizdas para realizar este prototipo. Los recursos de terceros que se han utilizados son de uso público[^1][^2][^3]:
 
-Lousberg, K. (s. f.). [*Kaykit animations*](https://kaylousberg.itch.io/kaykit-animations)
+[^1]: Lousberg, K. (s. f.). [*Kaykit animations*](https://kaylousberg.itch.io/kaykit-animations)
 
-Lousberg, K. (s. f.). [*Kaykit dungeon*](https://kaylousberg.itch.io/kaykit-dungeon)
+[^2]: Lousberg, K. (s. f.). [*Kaykit dungeon*](https://kaylousberg.itch.io/kaykit-dungeon)
 
-Lousberg, K. (s. f.). [*Kaykit medieval builder pack*](https://kaylousberg.itch.io/kaykit-medieval-builder-pack)
+[^3]: Lousberg, K. (s. f.). [*Kaykit medieval builder pack*](https://kaylousberg.itch.io/kaykit-medieval-builder-pack)
 
-Millington, I. (2019). *AI for games* (3rd ed.). CRC Press.
+El diseño e implementación de los algoritmos aquí desarrollados se ha apoyado principalmente en *Millington*[^4], referenciado ampliamente a lo largo del contenido del curso en Narratech[^5][^6][^7][^8], que ha proporcionado la base teórica para los comportamientos de *Llegada*, *Persecución*, *Huida*, *Merodeo* y *Separación*, además de los mecanismos de combinación por peso o prioridades.
 
-Narratech [*Plaga de Ratas*](https://narratech.com/es/inteligencia-artificial-para-videojuegos/percepcion-y-movimiento/plaga-de-ratas/)
+Los artículos de *Reynolds*[^9][^10] son la base histórica y clásica del comportamiento de agentes en grupo implementados en *Separación*. Las aportaciones de *Shiffman*[^11] y *Yannakakis y Togelius*[^12] sirven de referencia complementaria para entender los sistemas de agentes autónomos con visión más actualizada y contemporánea.
 
-Narratech [*Física y animación*](https://narratech.com/es/inteligencia-artificial-para-videojuegos/percepcion-y-movimiento/fisica-y-animacion/)
+[^4]: Millington, I. (2019). *AI for games* (3rd ed.). CRC Press.
 
-Narratech [*Comportamiento de dirección*](https://narratech.com/es/inteligencia-artificial-para-videojuegos/percepcion-y-movimiento/comportamiento-de-direccion/)
+[^5]: Narratech [*Plaga de Ratas*](https://narratech.com/es/inteligencia-artificial-para-videojuegos/percepcion-y-movimiento/plaga-de-ratas/)
 
-Narratech [*Desplazamiento en grupo*](https://narratech.com/es/inteligencia-artificial-para-videojuegos/percepcion-y-movimiento/desplazamiento-en-grupo/)
+[^6]: Narratech [*Física y animación*](https://narratech.com/es/inteligencia-artificial-para-videojuegos/percepcion-y-movimiento/fisica-y-animacion/)
 
-Yannakakis, G., Togelius, J. (2025). *Artificial Inteligence and Games*. (2nd ed.) Springer.
+[^7]: Narratech [*Comportamiento de dirección*](https://narratech.com/es/inteligencia-artificial-para-videojuegos/percepcion-y-movimiento/comportamiento-de-direccion/)
 
-Shiffman, D. (2024). *Autonomous Agents*. [Nature of Code](https://natureofcode.com/).
+[^8]: Narratech [*Desplazamiento en grupo*](https://narratech.com/es/inteligencia-artificial-para-videojuegos/percepcion-y-movimiento/desplazamiento-en-grupo/)
 
-Shiffman, D. (2026). *Flocking Simulation*. [The Coding Train](https://thecodingtrain.com/challenges/124-flocking-simulation).
+[^9]: Reynolds, C. (1995). [*Boids*](https://www.red3d.com/cwr/boids/).
 
-Schwab, B. (2009). *AI game engine programming* (2nd ed.). Course Technology Cengage Learning.
+[^10]: Reynolds, C. (1999). [*Steering Behaviors For Autonomous Characters*](https://www.red3d.com/cwr/steer/gdc99/)
+
+[^11]: Shiffman, D. (2024). *Autonomous Agents*. [Nature of Code](https://natureofcode.com/).
+ 
+[^12]: Yannakakis, G., Togelius, J. (2025). *Artificial Inteligence and Games*. (2nd ed.) Springer.
