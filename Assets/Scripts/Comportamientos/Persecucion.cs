@@ -42,7 +42,7 @@ public class Persecucion : Llegada
         else
         {
             // tiempo predicho que se tardaria en recorrer esa distancia
-            prediccion = distancia * speed;
+            prediccion = distancia / speed;
         }
 
         // copiamos los datos del objetivo real y lo traducimos a su prediccion

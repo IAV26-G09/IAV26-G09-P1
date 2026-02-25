@@ -31,6 +31,7 @@ namespace UCM.IAV.Movimiento
         private float aceleracionRapida;
 
         private bool sprinting = false;
+        private bool able = false;
         private void Start()
         {
             //transform = GetComponent<Transform>();
@@ -41,6 +42,15 @@ namespace UCM.IAV.Movimiento
             aceleracionRapida = aceleracionNormal * 2;
         }
 
+        public override void Update()
+        {
+            base.Update();
+            if (Input.GetKeyDown(KeyCode.M))
+            {
+                able = !able;
+            }
+        }
+
         /// <summary>
         /// Obtiene la dirección
         /// </summary>
@@ -49,7 +59,8 @@ namespace UCM.IAV.Movimiento
         public override ComportamientoDireccion GetComportamientoDireccion()
         {
             ComportamientoDireccion direccion = new ComportamientoDireccion();
-            
+            if (!able) 
+                return direccion;
             // Direccion actual
             // Control por teclado
             direccion.lineal.x = Input.GetAxis("Horizontal");
