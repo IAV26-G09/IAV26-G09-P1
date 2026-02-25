@@ -63,27 +63,27 @@ namespace UCM.IAV.Movimiento
                 audioSource.Play(); // activamos sonido de flauta
             }
             // --- si dejamos de tocar la flauta
-            //else if (Input.GetKeyUp(KeyCode.Mouse1)) 
-            //{
-            //    isActive = false; // activamos el trigger
-            //    trigger.enabled = false;
+            else if (Input.GetKeyUp(KeyCode.Mouse1)) 
+            {
+                isActive = false; // activamos el trigger
+                trigger.enabled = false;
 
-            //    destroyParticle(ref particleAire);
-            //    destroyParticle(ref particleSuelo);
+                destroyParticle(ref particleAire);
+                destroyParticle(ref particleSuelo);
 
-            //    // limpiamos la lista de ratas a las que le afecta el seguir al flautista
-            //    foreach (GameObject rat in rats)
-            //    {
-            //        if (rat != null)
-            //        {
-            //            deactivateFollowing(rat);
-            //        }
-            //    }
+                // limpiamos la lista de ratas a las que le afecta el seguir al flautista
+                foreach (GameObject rat in rats)
+                {
+                    if (rat != null)
+                    {
+                        deactivateFollowing(rat);
+                    }
+                }
                     
-            //    rats.Clear();
+                rats.Clear();
 
-            //    audioSource.Pause(); // paramos sonido de flauta
-            //}
+                audioSource.Pause(); // paramos sonido de flauta
+            }
         }
 
         private void OnTriggerEnter(Collider ratColl)
