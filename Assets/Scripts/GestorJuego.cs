@@ -88,6 +88,7 @@ namespace UCM.IAV.Movimiento
             fRText = GameObject.Find("RatioNumero").GetComponent<Text>();
             numRats = rataGO.transform.childCount;
             ratText.text = numRats.ToString();
+            cameraPerspective = CameraPosition.FLAUTIST;
         }
 
         // Se llama para poner en marcha el gestor
