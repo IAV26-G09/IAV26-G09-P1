@@ -6,19 +6,22 @@
 > [!IMPORTANT]
 > Changelog: 
 - [Diseño de la solución](#diseño-de-la-solución) 
-    - 
+    - Se ha añadido una explicación al pseudocódigo basada en la implementación del mismo en la práctica.
+    - Se enlaza el código, documentado, al que referencia cada algoritmo.
+    - Se completa y corrige la información que faltaba al no estar acabado el desarrollo de la práctica.
 - [Implementación](#implementación)
-    - 
+    - Se ha completado la tabla de tareas.
+    - Se completa y corrige la información que faltaba al no estar acabado el desarrollo de la práctica.
 - [Pruebas y métricas](#pruebas-y-métricas)
-    - Se ha reescrito el plan de pruebas, ordenado por e indicando la característica que comprueban.
+    - Se ha reescrito el plan de pruebas, ordenando e indicando la característica que comprueban.
     - Se han añadido valores de métricas de FPS a raíz de varios tests en un mismo PC.
 - [Ampliaciones](#ampliaciones)
-    - Creada la sección
+    - Creada la sección.
     - Se han detallado las ampliaciones realizadas.
 - [Conclusiones](#conclusiones)
     - Se ha reescrito el apartado, formulándose como una conclusión real.
 - [Referencias](#referencias)
-    - Se han buscado referencias nuevas.
+    - Se han buscado y usado referencias nuevas.
     - Se ha detallado de qué han servido las referencias nuevas y sus aportes.
 
 ## Índice
@@ -108,6 +111,7 @@ La manera recomendada de realizar las pruebas está descrita en [Pruebas y Métr
 - **Ratas**:
 ```mermaid
 graph TD;
+  DESCANSANDO<-- Tiempo determinado -->MERODEANDO
   MERODEANDO-- Flautista tocando la flauta cerca -->HIPNOTIZADA
   HIPNOTIZADA-- Flautista deja de tocar la flauta -->MERODEANDO;
 ```
@@ -133,9 +137,7 @@ Lo distintos algoritmos usados han sido para cada agente de IA:
         * Seguimiento con llegada dentro
     * Huida
 * **Ratas**: 
-    * Merodeo, que hereda de:
-        * Encaramiento, que hereda de:
-            * Alineamiento
+    * Merodeo
     * Seguimiento con llegada dentro
     * Separación
 
@@ -285,8 +287,8 @@ class Wander extends Face:
 ```
 #### Explicación sobre su [*implementación*](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Merodear.cs) en el proyecto:
 El merodeo se divide en tres estados: *Idle*, *Nuevo Objetivo*, *Movimiento* con el objetivo de hacerlo más realista. Las ratas no buscan constantemente el siguiente objetivo si no que se paran a descansar un tiempo determinado antes de buscarlo. 
-Cundo acaban de descansar empiezan a buscar el siguiente objetivo, para ello se calcula una dirección aleatoria hacia la que avanzará a continuación y en esa dirección se calcula la posición que tendrá el GameObject vacío que representa el objetivo al que quieres llegar. 
-Una vez conoce su siguiente objetivo se empieza a mover hacia él a máxima velocidad, y no parará a volver a descansar hasta que se llegue al radio objetivo o se vuelva a cansar pasado un tiempo determinado. 
+Cuando acaban de descansar empiezan a buscar el siguiente objetivo, para ello se calcula una dirección aleatoria hacia la que avanzará a continuación y en esa dirección se calcula la posición que tendrá el GameObject vacío que representa el objetivo al que quieres llegar. 
+Una vez conoce su siguiente objetivo se empieza a mover hacia él a máxima velocidad, y no parará a volver a descansar hasta que se llegue al radio objetivo o se vuelva a cansar pasado un tiempo determinado.
 
 ### Separación
 #### Pseudocódigo:
@@ -348,6 +350,7 @@ Las tareas y el esfuerzo ha sido repartido de manera equitativa entre las autora
 | ✔ | Mejoras en la predicción de persecución | 17-2-2026 |
 | ✔ | Separación de los agentes de la bandada (ratas) | 24-2-2026 |
 |  | AMPLIACIONES |  |
+| ✔ | Acceso a la velocidad real del agente desde *Agente*  | 24-2-2026 |
 | ✔ | Estado *Idle* de los agentes (ratas) durante el merodeo  | 24-2-2026 |
 
 <br>
@@ -364,7 +367,7 @@ classDiagram
       RatNumberInput <|-- MonoBehaviour
       ReiniciarButton <|-- MonoBehaviour
       DogTriggerArea <|-- MonoBehaviour
-      
+
       class ComportamientoDireccion
 
       ControlJugador <|-- ComportamientoAgente
