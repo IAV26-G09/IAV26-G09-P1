@@ -15,6 +15,8 @@ public class DogTriggerArea : MonoBehaviour
 
     List<Collider> collidedRats = new List<Collider>();
     private GameObject centroidObject;
+    [SerializeField] private bool debugCentroide = true; // para dibujar línea entre el centroide calculado 
+
     void FixedUpdate()
     {
         collidedRats.Clear();
@@ -70,7 +72,7 @@ public class DogTriggerArea : MonoBehaviour
 
             Vector3 suma = Vector3.zero;
             Vector3 dogPos = transform.position;
-
+            float pesoTotal = 0f;
             foreach (Collider c in collidedRats)
             {
                 Vector3 ratPos = c.transform.position;
@@ -78,14 +80,20 @@ public class DogTriggerArea : MonoBehaviour
 
                 distance = Mathf.Clamp(distance, 0.01f, distance);
 
-                float peso = 1f / distance; // todo 
-
+                //float peso = (1f - (1f / distance));
+                float peso = ((1f / distance));
+                pesoTotal += peso;
                 suma += ratPos * peso;
             }
 
-            Vector3 centroide = suma / rats;
+            Vector3 centroide = suma / pesoTotal;
             centroidObject.transform.position = centroide;
             huir.objetivo = centroidObject;
+
+            if (debugCentroide)
+            {
+                Debug.DrawLine(transform.position, centroidObject.transform.position, new Color(1, 1, 0), 0.5f);
+            }
         }
         else
         {
