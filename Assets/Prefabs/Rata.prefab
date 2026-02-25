@@ -53,7 +53,7 @@ MonoBehaviour:
   combinarPorPeso: 1
   combinarPorPrioridad: 0
   umbralPrioridad: 0.2
-  velocidadMax: 7
+  velocidadMax: 5
   rotacionMax: 5
   aceleracionMax: 7
   aceleracionAngularMax: 5
@@ -143,9 +143,9 @@ MonoBehaviour:
   objetivo: {fileID: 0}
   wanderOffset: 1
   wanderRadius: 2
-  debugMerodeo: 0
   tiempoMaximo: 2
   tiempoMinimo: 1
+  debugMerodeo: 0
 --- !u!114 &5847726514314529056
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -158,12 +158,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6fc0c5073ef546042b3ba1dd5b02498a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  peso: 1
+  peso: 2
   prioridad: 1
   objetivo: {fileID: 0}
   rObjetivo: 2
   rRalentizado: 3
-  timeToTarget: 0.5
+  timeToTarget: 0.1
 --- !u!1 &8741895683886266571
 GameObject:
   m_ObjectHideFlags: 0
