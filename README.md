@@ -465,7 +465,7 @@ Se han tomado las siguientes métricas:
 - En vista aérea, sin colisión entre ratas y sin hipnotizar deja de haber 60 FPS estables al pasar las 1300 ratas y se queda en una mediana de 59 fps.
 - Al llegar a 1500, la media es de 56 fps.
 - En 1750, de 47 fps.
-- En 2000, de 38 y fluctua entre 35 y 41 erráticamente.
+- En 2000, de 38 fps.
 - Una vez se pasa de 2250 se baja de 30 fps.
 - En 2500, de 25 fps.
 - En 3000, de 17 fps.
@@ -479,7 +479,7 @@ Se han tomado las siguientes métricas:
 - Al llegar a 700, la media es de 9 fps.
 - Al llegar a 800, la media es de 7 fps.
 - Al llegar a 900, la media es de 6 fps.
-- Al llegar a 1000, la media es de 6 fps.
+- Al llegar a 1000, la media es de 5 fps.
   
 ```mermaid
 xychart-beta
