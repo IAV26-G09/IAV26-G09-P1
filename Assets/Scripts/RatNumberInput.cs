@@ -30,30 +30,19 @@ public class RatNumberInput : MonoBehaviour
         // calcula la diferencia entre las ratas que quieres y las que tienes
         int diff = Math.Abs(_ratNumberInput - GestorJuego.instance.getNumRats());
 
-        //Debug.Log("Ratas act " + GestorJuego.instance.getNumRats());
-        //Debug.Log("Ratas input " + _ratNumberInput);
-        //Debug.Log("Diff " + diff);
-
-        // quieres mas ratas de las que tienes -> te faltan ratas
+        // quieres mas ratas de las que tienes -> te faltan ratas (spawn)
         if (_ratNumberInput > GestorJuego.instance.getNumRats())
         {
-            //for (int i = 0; i < diff; i++)
-            //{
-            //    GestorJuego.instance.SpawnRata(); // spawnea las ratas que te faltan
-            //}
             StartCoroutine(SpawnRatsWithDelay(diff));
         }
-        // quieres menos ratas de las que tienes -> te sobran ratas
+        // quieres menos ratas de las que tienes -> te sobran ratas (despawn)
         else if (_ratNumberInput < GestorJuego.instance.getNumRats())
         {
-            //for (int i = 0; i < diff; i++)
-            //{
-            //    GestorJuego.instance.DespawnRata(); // despawnea las ratas que te sobran
-            //}
             StartCoroutine(DespawnRatsWithDelay(diff));
         }
     }
 
+    // --- corrutinas de spawn y despawn
     private System.Collections.IEnumerator SpawnRatsWithDelay(int amount)
     {
         for (int i = 0; i < amount; i++)
@@ -62,7 +51,6 @@ public class RatNumberInput : MonoBehaviour
             yield return new WaitForSeconds(_delay);
         }
     }
-
     private System.Collections.IEnumerator DespawnRatsWithDelay(int amount)
     {
         for (int i = 0; i < amount; i++)
@@ -73,6 +61,7 @@ public class RatNumberInput : MonoBehaviour
     }
     void Update()
     {
+        // input con enter
         if (Input.GetKeyUp(KeyCode.Return) && _inputField != null && _inputField.isFocused) 
         {
             ButtonClick(); 

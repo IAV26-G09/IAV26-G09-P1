@@ -7,5 +7,4 @@ public class ReiniciarButton : MonoBehaviour
     {
         GestorJuego.instance.Restart();
     }
-
 }

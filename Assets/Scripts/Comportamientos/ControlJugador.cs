@@ -18,10 +18,6 @@ namespace UCM.IAV.Movimiento
     /// </summary>
     public class ControlJugador: ComportamientoAgente
     {
-
-        //[SerializeField]
-        //Transform transform;
-
         [SerializeField]
         float minimuRadius = 3.0f; // radio alrededor del jugador en el que no moverse
 
@@ -34,7 +30,6 @@ namespace UCM.IAV.Movimiento
         private bool able = true;
         private void Start()
         {
-            //transform = GetComponent<Transform>();
             velocidadMaxNormal = agente.velocidadMax;
             velocidadMaxRapida = velocidadMaxNormal * 2;
 
@@ -55,7 +50,6 @@ namespace UCM.IAV.Movimiento
         /// Obtiene la dirección
         /// </summary>
         /// <returns></returns>
-
         public override ComportamientoDireccion GetComportamientoDireccion()
         {
             ComportamientoDireccion direccion = new ComportamientoDireccion();
@@ -76,7 +70,6 @@ namespace UCM.IAV.Movimiento
             { // Cogemos la direccion y nos congelamos en altura
                 direccion.lineal = hit.point - transform.position;
                 direccion.lineal.y = 0;
-                //Debug.Log(hit.collider.name);   
             }
 
             // Si la colisión, aunque válida está en un radio cercano al jugador

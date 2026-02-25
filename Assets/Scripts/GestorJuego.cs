@@ -51,7 +51,7 @@ namespace UCM.IAV.Movimiento
 
         private int numRats;
 
-        public int getNumRats()
+        public int getNumRats() // devuelve el numero de ratas activas en el juego
         {
             return numRats;
         }
@@ -75,10 +75,6 @@ namespace UCM.IAV.Movimiento
         // Lo primero que se llama al activarse (tras el Awake)
         void OnEnable()
         {
-
-            // No necesito este delegado
-            //SceneManager.activeSceneChanged += OnSceneWasSwitched;
-
             SceneManager.sceneLoaded += OnSceneLoaded;
         }
 
@@ -166,7 +162,6 @@ namespace UCM.IAV.Movimiento
         {
             if (rataPrefab == null || rataGO == null)
                 return;
-
  
             GameObject nuevaRata = Instantiate(rataPrefab, rataGO.transform);
             Separacion separacion = nuevaRata.GetComponent<Separacion>();
@@ -193,9 +188,6 @@ namespace UCM.IAV.Movimiento
 
             numRats--;
             ratText.text = numRats.ToString();
-
-            Debug.Log("Despawn");
-
         }
 
         private void ChangeFrameRate()
@@ -212,22 +204,27 @@ namespace UCM.IAV.Movimiento
             }
         }
 
+        // Para cambiar la vista de la camara
         private void ChangeCameraView()
         {
             SeguimientoCamara cam = Camera.main.GetComponent<SeguimientoCamara>();
-            cameraPerspective = (CameraPosition) (((int) cameraPerspective + 1.0f) % 3);
+            cameraPerspective = (CameraPosition) (((int) cameraPerspective + 1.0f) % 3); // cambio ciclico
 
+            // Cambia la camara
             switch (cameraPerspective)
             {
+                // sigue al agente flautista
                 case CameraPosition.FLAUTIST:
                     cam.offset = new Vector3(0, 7, -10);
                     cam.lookAt = true;
                     cam.SetTarget(cam.flautistTarget);
                     break;
+                // camara fija en vista de pajaro
                 case CameraPosition.FIXED:
                     cam.offset = new Vector3(0, 15, -2);
                     cam.lookAt = false;
                     break;
+                // sigue al agente perro
                 case CameraPosition.DOG:
                     cam.offset = new Vector3(0, 7, -10);
                     cam.lookAt = true;
