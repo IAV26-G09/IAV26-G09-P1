@@ -387,22 +387,22 @@ classDiagram
 **Implementación:**
 Se adjuntan los *scripts* con el código fuente que implementan las principales características. Los *scripts* están documentados para mayor claridad y detalle sobre su implementación.
 
-| Característica del prototipo | Script |
-|:-:|:-:|
-| Huida del agente acompañante (perro) | [Huir](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Huir.cs) |
-| Movimiento del avatar con input de ratón y teclado | [ControlJugador](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/ControlJugador.cs) |
-| Seguimiento del agente acompañante (perro) y bandada (ratas)| [LLegada](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Llegada.cs) |
-| Persecución con predicción del agente acompañante (perro) | [Persecucion](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Persecucion.cs) |
-| Merodeo de los agentes de la bandada (ratas) | [Merodear](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Merodear.cs) |
-| Hipnosis de los agentes de la bandada (ratas) | [Separacion](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Separacion.cs) |
-| Hipnosis de los agentes de la bandada (ratas) | [TocarFlauta](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/TocarFlauta.cs) |
-| Gestión de comportamientos asociados a los agentes | [Agente](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Agente.cs) |
-| Plantilla para los comportamientos de los agentes (se han implementado GetSteeringSeek, GetSteeringAlign, GetSteeringFace) | [ComportamientoAgente](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/ComportamientoAgente.cs) |
-| Clase auxiliar para representar el comportamiento de dirección | [ComportamientoDireccion](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/ComportamientoDireccion.cs) |
-| GameManager (gestiona estados, entidades y cámaras) | [GestorJuego](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/GestorJuego.cs) |
-| Control de spawn/despawn por corrutina | [RatNumberInput](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/RatNumberInput.cs) |
-| Botón de reinicio en interfaz | [ReiniciarButton](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/ReiniciarButton.cs) |
-| Control de agentes en el area de trigger del agente perro | [DogTriggerArea](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/DogTriggerArea.cs) |
+| Característica del prototipo | Descripción de la característica | Script |
+|:-:|:-:|:-:|
+| C | Huida del agente acompañante (perro) | [Huir](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Huir.cs) |
+| B | Movimiento del avatar con input de ratón y teclado | [ControlJugador](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/ControlJugador.cs) |
+| C y E | Seguimiento del agente acompañante (perro) y bandada (ratas)| [LLegada](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Llegada.cs) |
+| C | Persecución con predicción del agente acompañante (perro) | [Persecucion](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Persecucion.cs) |
+| D | Merodeo de los agentes de la bandada (ratas) | [Merodear](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Merodear.cs) |
+| E | Hipnosis de los agentes de la bandada (ratas) | [Separacion](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Separacion.cs) |
+| B y E | Hipnosis de los agentes de la bandada (ratas) | [TocarFlauta](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/TocarFlauta.cs) |
+| General | Gestión de comportamientos asociados a los agentes | [Agente](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Agente.cs) |
+| General | Plantilla para los comportamientos de los agentes | [ComportamientoAgente](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/ComportamientoAgente.cs) |
+| General | Clase auxiliar para representar el comportamiento de dirección | [ComportamientoDireccion](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/ComportamientoDireccion.cs) |
+| A | GameManager (gestiona estados, entidades y cámaras) | [GestorJuego](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/GestorJuego.cs) |
+| A | Control de spawn/despawn por corrutina | [RatNumberInput](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/RatNumberInput.cs) |
+| A | Botón de reinicio en interfaz | [ReiniciarButton](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/ReiniciarButton.cs) |
+| C | Control de agentes en el area de trigger del agente perro | [DogTriggerArea](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/DogTriggerArea.cs) |
 
 ## Pruebas y métricas
 Serie corta y rápida posible de pruebas que pueden realizarse para verificar que se cumplen las características requeridas:
@@ -429,10 +429,7 @@ ecayda us
 - [Vídeo demostración]()
 
 ## Ampliaciones
-Dado que el desarrollo de la práctica se halla en su ecuador, es demasiado pronto como para sacar conclusiones del aprendizaje, pero se han planteado para ir más allá del aprendizaje en el futuro estas posibles ampliaciones:
-* Que las ratas tengan un momento estático entre movimiento y movimento.
-* Que las ratas tengan un ángulo mínimo con respecto a su último movimiento sobre el que girar.
-* Detección de obstáculos en los algoritmos de todos los agentes.
+Se ha desarrollado una ampliación relacionada con el *Merodeo* detallada en el apartado de *Diseño de la solución* referido al [merodeo](#explicación-sobre-su-implementación-en-el-proyecto-3), esta se basa en que las ratas tengan un momento estático entre movimiento y movimento a modo de "descanso", logrando así un comportamiento más realista.
 
 ## Conclusiones
 
