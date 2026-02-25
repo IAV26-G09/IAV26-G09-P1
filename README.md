@@ -328,7 +328,22 @@ class Separation:
         return result
 ```
 #### Explicación sobre su [*implementación*](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Separacion.cs) en el proyecto:
-Se recorren todos los agentes (obviándose al que esté ejecutando el script) y se calcula la distancia hasta estos, si el target está suficientemente cerca se aplica una fuerza de repulsión a la velocidad lineal usando la Ley de la inversa del cuadrado. 
+Se recorren todos los agentes (obviándose al que esté ejecutando el script) y se calcula la distancia hasta estos, si el target está suficientemente cerca se aplica una fuerza de repulsión a la velocidad lineal usando la *Ley de la inversa del cuadrado*.
+
+### Sobre los comportamientos coordinados
+Tanto el agente Perro como los agentes Rata combinan varios comportamientos de dirección, para ello se utiliza una arquitectura híbrida usando mezcla, por pesos en el caso de las ratas y por prioridades en el caso del perro, y arbitraje, cediendo el control en el momento de la huída del perro, y entre el merodeo y el seguimiento de las ratas.
+Los valores de pesos y prioridades de cada comportamiento pueden asignarse en el inspector. Para los agentes Rata se han establecido los siguientes pesos, según el criterio del enunciado de la práctica:
+| Comportamiento  |  Peso  |
+|:-:|:-:|
+| Separación | 1 |
+| Merodeo | 2 |
+| Llegada | 10 |
+
+Para el agente Perro se han establecido las siguiente prioridades:
+| Comportamiento  |  Prioridad  |
+|:-:|:-:|
+| Huir | 1 |
+| PErsecución | 2 |
 
 ## Implementación
 **Tareas:**
@@ -435,7 +450,7 @@ Serie corta y rápida posible de pruebas que pueden realizarse para verificar qu
 * **17. Característica: E.** Repetir los últimos tres pasos con un número alto de ratas y observar el cambio en los FPS.
 ecayda us
 
-### Métricas tomadas:
+### Métricas tomadas
 En un PC de estas características:
 - **CPU:** Intel Core i5-12600KF a 3.70 GHz
 - **GPU:** NVIDIA GeForce RTX 5070 Ti con 16 GB
