@@ -27,11 +27,6 @@ public class DogTriggerArea : MonoBehaviour
         persecucion = GetComponentInParent<Persecucion>();
         huir = GetComponentInParent<Huir>();
 
-        if (huir != null)
-            huir.enabled = true;
-        
-        if (persecucion != null)
-            persecucion.enabled = true;
         centroidObject = new GameObject();
 
         triggerArea = GetComponent<SphereCollider>();
