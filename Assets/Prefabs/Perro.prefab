@@ -158,10 +158,10 @@ MonoBehaviour:
   peso: 1
   prioridad: 2
   objetivo: {fileID: 0}
-  rObjetivo: 4
-  rRalentizado: 5
+  rObjetivo: 5
+  rRalentizado: 8
   timeToTarget: 0.1
-  maxPrediction: 2
+  maxPrediction: 1
   objetivoReal: {fileID: 0}
   debugPrediction: 0
 --- !u!1 &5977170053187502081

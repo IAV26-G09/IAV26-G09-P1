@@ -89,7 +89,6 @@ namespace UCM.IAV.Movimiento
             numRats = rataGO.transform.childCount;
             ratText.text = numRats.ToString();
             cameraPerspective = CameraPosition.FLAUTIST;
-            ChangeCameraView();
         }
 
         // Se llama para poner en marcha el gestor

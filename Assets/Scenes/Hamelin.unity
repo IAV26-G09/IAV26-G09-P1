@@ -4055,7 +4055,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1452594626
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5419,17 +5419,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2890227307740488764, guid: 5175d5736886518439bf9a2956a122b4,
         type: 3}
-      propertyPath: peso
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2890227307740488764, guid: 5175d5736886518439bf9a2956a122b4,
-        type: 3}
       propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2890227307740488764, guid: 5175d5736886518439bf9a2956a122b4,
-        type: 3}
-      propertyPath: prioridad
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3610922820614807888, guid: 5175d5736886518439bf9a2956a122b4,
@@ -5482,14 +5472,9 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 9
       objectReference: {fileID: 0}
-    - target: {fileID: 5847726514314529056, guid: 5175d5736886518439bf9a2956a122b4,
+    - target: {fileID: 4131845400584305642, guid: 5175d5736886518439bf9a2956a122b4,
         type: 3}
-      propertyPath: peso
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6537174158311488314, guid: 5175d5736886518439bf9a2956a122b4,
-        type: 3}
-      propertyPath: peso
+      propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6537174158311488314, guid: 5175d5736886518439bf9a2956a122b4,
@@ -6312,6 +6297,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2799427645729626922, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: debugCentroide
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3234765255228976112, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
       propertyPath: objetivo
@@ -6324,24 +6314,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3234765255228976112, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
-      propertyPath: rObjetivo
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 3234765255228976112, guid: 5ff744207c6a5044ab297c8fc4814fc0,
-        type: 3}
       propertyPath: objetivoReal
       value: 
       objectReference: {fileID: 919132148976998258}
-    - target: {fileID: 3234765255228976112, guid: 5ff744207c6a5044ab297c8fc4814fc0,
-        type: 3}
-      propertyPath: rRalentizado
-      value: 8
-      objectReference: {fileID: 0}
-    - target: {fileID: 3234765255228976112, guid: 5ff744207c6a5044ab297c8fc4814fc0,
-        type: 3}
-      propertyPath: maxPrediction
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 3861295050334874256, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
       propertyPath: m_Name
