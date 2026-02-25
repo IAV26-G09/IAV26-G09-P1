@@ -31,7 +31,7 @@ namespace UCM.IAV.Movimiento
         private float aceleracionRapida;
 
         private bool sprinting = false;
-        private bool able = false;
+        private bool able = true;
         private void Start()
         {
             //transform = GetComponent<Transform>();

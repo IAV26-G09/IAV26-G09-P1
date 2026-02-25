@@ -299,7 +299,7 @@ GameObject:
   - component: {fileID: 8578292951872440231}
   - component: {fileID: 2034827861324704205}
   - component: {fileID: 2799427645729626922}
-  m_Layer: 11
+  m_Layer: 0
   m_Name: TriggerArea
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -354,5 +354,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9afb64932d8b9f74987a1fc1ad946cbf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  TriggerRadius: 1.5
+  TriggerRadius: 5
   ratsToFlee: 3

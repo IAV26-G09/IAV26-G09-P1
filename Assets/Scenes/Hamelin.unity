@@ -4358,7 +4358,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 0
+  m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -6299,9 +6299,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3234765255228976112, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
+      propertyPath: rObjetivo
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3234765255228976112, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
       propertyPath: objetivoReal
       value: 
       objectReference: {fileID: 919132148976998258}
+    - target: {fileID: 3234765255228976112, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: rRalentizado
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 3234765255228976112, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}
       propertyPath: maxPrediction
@@ -6316,6 +6326,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861295050334874258, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: velocidadMax
+      value: 14
+      objectReference: {fileID: 0}
+    - target: {fileID: 3861295050334874258, guid: 5ff744207c6a5044ab297c8fc4814fc0,
+        type: 3}
+      propertyPath: aceleracionMax
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 4529992095953285162, guid: 5ff744207c6a5044ab297c8fc4814fc0,
         type: 3}

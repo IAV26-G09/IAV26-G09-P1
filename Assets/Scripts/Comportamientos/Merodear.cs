@@ -54,6 +54,7 @@ namespace UCM.IAV.Movimiento
         private float moveDuration = 0.0f;
         public float timeToTarget = 0.1f;
 
+        [SerializeField] float targetRadius = 0.5f;   // cuando parar
         private Rigidbody rb;
         private void Start()
         {
@@ -106,7 +107,7 @@ namespace UCM.IAV.Movimiento
             // distancia hacia el objetivo
             float distancia = direccion.magnitude;
 
-            if (moveTimer >= moveDuration || distancia < wanderRadius) // si ha pasado suficiente tiempo o ha llegado al radio objetivo
+            if (moveTimer >= moveDuration || distancia < targetRadius) // si ha pasado suficiente tiempo o ha llegado al radio objetivo
             {
                 idle = true;
 
