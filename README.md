@@ -323,6 +323,7 @@ class Separation:
 #### Explicación sobre su [*implementación*](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Separacion.cs) en el proyecto:
 Se recorren todos los agentes (obviándose al que esté ejecutando el script) y se calcula la distancia hasta estos, si el target está suficientemente cerca se aplica una fuerza de repulsión a la velocidad lineal usando la Ley de la inversa del cuadrado. 
 
+
 ## Implementación
 **Tareas:**
 Las tareas y el esfuerzo ha sido repartido de manera equitativa entre las autoras.
@@ -406,35 +407,24 @@ Se adjuntan los *scripts* con el código fuente que implementan las principales 
 ## Pruebas y métricas
 Serie corta y rápida posible de pruebas que pueden realizarse para verificar que se cumplen las características requeridas:
 
-<!-- 
-* **2.** Comprobar seguimiento del perro cuando se está moviendo el avatar.
-* **4.** Instanciar una cantidad de ratas X, introduciendo un número mayor a 1 con el campo de entrada en la parte inferior izquierda de la interfaz a través del teclado y haciendo a clic en el botón contiguo "Ratear".
-* **5.** Observar el patrón de movimiento errático, merodeo, de las ratas instanciadas.
-* **6.** Destruir una cantidad de ratas Y, introduciendo un número menor al de ratas actuales y mayor o igual que 0 en el campo de entrada de la interfaz a través del teclado y haciendo clic en el botón contiguo "Ratear".
-* **7.** Tocar la flauta con el clic derecho.
-* **8.** Hipnotizar ratas tocando la flauta cerca de ellas.
-* **9.** Comprobar movimiento en bandada de las ratas hipnotizadas.
-* **10.** Comprobar huida del perro cuando se encuentra cerca de 3 o más ratas, y seguimiento de nuevo al avatar cuando no.
-* **11.** Hacer clic en el botón "Reiniciar" de la interfaz para comenzar de nuevo la simulación con la configuración inicial.
-* **12.** Repetir cualquier paso. -->
 * **1. Característica: A.** Arrancar el juego y observar el mundo compuesto por varios agentes (jugador -> flautista, acompañante -> perro, miembro de bandadada -> rata) y los obstáculos.
 * **2. Característica: A.** Hacer clic en el botón "Reiniciar" de la interfaz para comenzar de nuevo la simulación con la configuración inicial.
 * **3. Característica: A.** Comprobar los distintos tipos de cámaras pulsando N: cámara fija, cámara que sigue al jugador y cámara que sigue al perro, moviendo al avatar mientras se realiza este paso.
 * **4. Característica: A.** Instanciar una cantidad de ratas X, introduciendo un número mayor a 1 con el campo de entrada en la parte inferior izquierda de la interfaz a través del teclado y haciendo a clic en el botón contiguo "Ratear".
 * **5. Característica: A.** Destruir una cantidad de ratas Y, introduciendo un número menor al de ratas actuales y mayor o igual que 0 en el campo de entrada de la interfaz a través del teclado y haciendo clic en el botón contiguo "Ratear".
 * **6. Característica: B.** Comprobar el control de movimiento del avatar moviendo dentro y fuera del radio alrededor del avatar. 
-* **6. Característica: B.** Comprobar el control de velocidad del avatar clicando con el ratón a lo largo del pueblo.
-* **6. Característica: B.** Comprobar el control de la flauta tocándola con el clic derecho. Comprobarlo también moviendo al jugador y sin moverlo.
-* **6. Característica: C.** Observar seguimiento del acompañante cuando el jugador se está moviendo.
-* **6. Característica: C.** Observar encarado del acompañante en función de su movimiento.
-* **6. Característica: C.** Observar control de llegada del acompañante cuando el jugador deja de moverse.
-* **6. Característica: B.** Situar al jugador y por
- led ortnec led acrec etnañapmoca la otnat
-* **6. Característica: B.** 
-* **6. Característica: B.** 
-* **6. Característica: B.** 
-* **6. Característica: B.** 
-* **6. Característica: B.** 
+* **7. Característica: B.** Comprobar el control de velocidad del avatar clicando con el ratón a lo largo del pueblo.
+* **8. Característica: B.** Comprobar el control de la flauta tocándola con el clic derecho. Comprobarlo también moviendo al jugador y sin moverlo.
+* **9. Característica: C.** Observar seguimiento del acompañante cuando el jugador se está moviendo.
+* **10. Característica: C.** Observar encarado del acompañante en función de su movimiento.
+* **11. Característica: C.** Ya que se mueve prediciendo un objetivo enfrente del jugador en función de la velocidad de este, observar también encarado del acompañante a través de la velocidad del jugador, manteniendo pulsado el clic izquierdo al moverse o no. 
+* **12. Característica: C.** Observar control de llegada del acompañante cuando el jugador deja de moverse.
+* **13. Característica: C.** Situar al jugador y por tanto al acompañante cerca del centro del mundo y e instanciar un numero considerable de ratas más. Observar que el acompañante huye en dirección contraria al detectar tres o más ratas en su adyacencia.
+* **14. Característica: D.** Si no hay, instanciar un número considerable de ratas. Observar su patrón de movimiento errático y desordenado.
+* **15. Característica: E.** Mantener clic derecho pulsado y moverse a lo largo del escenario intentando acercarse a ratas.
+* **16. Característica: E.** Acercarse a un número considerable de ratas y observar la "hipnosis" y movimiento en bandada de las ratas, que siguen al jugador mientras estén dentro del radio de sonido de la flauta alrededor del jugador intentando no estar muy cerca unas de otras.
+* **17. Característica: E.** Repetir los últimos tres pasos con un número alto de ratas y observar el cambio en los FPS.
+ecayda us
 
 - [Vídeo demostración]()
 
