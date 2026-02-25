@@ -143,7 +143,7 @@ MonoBehaviour:
   objetivo: {fileID: 0}
   wanderOffset: 2
   wanderRadius: 5
-  debugMerodeo: 0
+  debugMerodeo: 1
   tiempoMaximoMovimiento: 5
   tiempoMinimoMovimiento: 3
   tiempoMaximoIdle: 2

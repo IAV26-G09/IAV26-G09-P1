@@ -42,7 +42,7 @@ namespace UCM.IAV.Movimiento
         [SerializeField]
         float tiempoMinimoIdle = 1.0f; // maximum rate of wanderers orientation change
 
-        private bool idle = false;
+        private bool idle = true;
         [SerializeField]
         private float idleTimer = 0.0f;
         [SerializeField]
@@ -88,7 +88,7 @@ namespace UCM.IAV.Movimiento
 
                     // posicion del target
                     objetivo.transform.position += wanderRadius * agente.OriToVec(targetOrientation);
-
+                    objetivo.transform.position = new Vector3(objetivo.transform.position.x, 0, objetivo.transform.position.z);
                     // salir del idle
                     idle = false;
                     idleTimer = 0f;

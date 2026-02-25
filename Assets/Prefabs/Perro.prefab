@@ -163,7 +163,7 @@ MonoBehaviour:
   timeToTarget: 0.1
   maxPrediction: 2
   objetivoReal: {fileID: 0}
-  debugPrediction: 1
+  debugPrediction: 0
 --- !u!1 &5977170053187502081
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,3 +356,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   TriggerRadius: 5
   ratsToFlee: 3
+  debugCentroide: 0
