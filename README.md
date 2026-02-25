@@ -446,6 +446,14 @@ Se han tomado las siguientes métricas:
     - En 2500, de 25 fps.
     - En 3000, de 17 fps.
     - En 4000, de 3 fps.
+  
+```mermaid
+xychart-beta
+title "Ratas-FPS"
+x-axis "Ratas" [0, 1300, 1500, 1750, 2000, 2250, 2500, 3000, 4000]
+y-axis "FPS" 3 --> 60
+line [60, 59, 56, 47, 38, 30, 25, 17, 3]
+```
 
 En este equipo probablemente lo más limitante haya sido el cálculo en CPU.
 
