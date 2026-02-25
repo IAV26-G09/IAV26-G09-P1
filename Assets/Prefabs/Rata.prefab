@@ -53,7 +53,7 @@ MonoBehaviour:
   combinarPorPeso: 1
   combinarPorPrioridad: 0
   umbralPrioridad: 0.2
-  velocidadMax: 5
+  velocidadMax: 6
   rotacionMax: 5
   aceleracionMax: 7
   aceleracionAngularMax: 5
@@ -142,10 +142,17 @@ MonoBehaviour:
   prioridad: 1
   objetivo: {fileID: 0}
   wanderOffset: 1
-  wanderRadius: 2
-  tiempoMaximo: 2
-  tiempoMinimo: 1
-  debugMerodeo: 0
+  wanderRadius: 10
+  debugMerodeo: 1
+  tiempoMaximoMovimiento: 8
+  tiempoMinimoMovimiento: 4
+  tiempoMaximoIdle: 2
+  tiempoMinimoIdle: 1
+  idleTimer: 0
+  idleDuration: 0
+  moveTimer: 0
+  moveDuration: 0
+  timeToTarget: 0.1
 --- !u!114 &5847726514314529056
 MonoBehaviour:
   m_ObjectHideFlags: 0

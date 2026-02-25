@@ -34,32 +34,46 @@ namespace UCM.IAV.Movimiento
         [SerializeField] private bool debugMerodeo = false;
 
         [SerializeField]
-        float tiempoMaximo = 2.0f; // maximum rate of wanderers orientation change
+        float tiempoMaximoMovimiento = 2.0f; // maximum rate of wanderers orientation change
         [SerializeField]
-        float tiempoMinimo = 1.0f; // maximum rate of wanderers orientation change
+        float tiempoMinimoMovimiento = 1.0f; // maximum rate of wanderers orientation change
+        [SerializeField]
+        float tiempoMaximoIdle = 2.0f; // maximum rate of wanderers orientation change
+        [SerializeField]
+        float tiempoMinimoIdle = 1.0f; // maximum rate of wanderers orientation change
 
         private bool idle = false;
-        private float timer = 0.0f;
-        private float duration = 0.0f;
+        [SerializeField]
+        private float idleTimer = 0.0f;
+        [SerializeField]
+        private float idleDuration = 0.0f;
 
+        [SerializeField]
+        private float moveTimer = 0.0f;
+        [SerializeField]
+        private float moveDuration = 0.0f;
+        public float timeToTarget = 0.1f;
+
+        private Rigidbody rb;
         private void Start()
         {
             if (objetivo == null)
-            {
                 objetivo = new GameObject();
-            }
-            duration = Random.Range(tiempoMinimo, tiempoMaximo);
+
+            rb = GetComponent<Rigidbody>();
+
+            idle = true;
+            idleDuration = Random.Range(tiempoMinimoIdle, tiempoMaximoIdle);
         }
 
         public override ComportamientoDireccion GetComportamientoDireccion()
         {
             ComportamientoDireccion result = new ComportamientoDireccion();
 
-            timer += Time.deltaTime;
-
             if (idle)
             { // si estamos en estado de idle
-                if (timer >= duration) // si se ha de acabar el idle
+                idleTimer += Time.deltaTime;
+                if (idleTimer >= idleDuration)
                 {
                     // --- 1: NUEVO OBJETIVO
                     // actualiza la direccion de merodeo
@@ -76,24 +90,29 @@ namespace UCM.IAV.Movimiento
 
                     // salir del idle
                     idle = false;
-                    timer = 0f;
+                    idleTimer = 0f;
+                    moveTimer = 0f;
+                    moveDuration = Random.Range(tiempoMinimoIdle, tiempoMaximoIdle);
                 }
                 // si estamos en idle no hacemos nada
                 return result;
             }
 
-            // --- 2: CÁLCULO HASTA EL OBJETIVO
-            // direccion hacia el objetivo
-            Vector3 direccion = objetivo.transform.position - agente.transform.position;
+            moveTimer += Time.deltaTime;
+
+            Vector3 direccion =
+                objetivo.transform.position - agente.transform.position;
 
             // distancia hacia el objetivo
             float distancia = direccion.magnitude;
 
-            if (timer >= duration || distancia < wanderRadius) // si ha pasado suficiente tiempo o ha llegado al radio objetivo
+            if (moveTimer >= moveDuration || distancia < wanderRadius) // si ha pasado suficiente tiempo o ha llegado al radio objetivo
             {
                 idle = true;
-                timer = 0f;
-                duration = Random.Range(tiempoMinimo, tiempoMaximo);
+
+                moveTimer = 0f;
+                idleTimer = 0f;
+                idleDuration = Random.Range(tiempoMinimoIdle, tiempoMaximoIdle);
 
                 return result;
             }
