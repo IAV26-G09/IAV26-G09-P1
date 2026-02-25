@@ -241,7 +241,8 @@ class Pursue extends Seek:
         return Seek.getSteering()
 ```
 #### Explicación sobre su [*implementación*](https://github.com/IAV26-G09/IAV26-G09-P1/blob/main/Assets/Scripts/Comportamientos/Persecucion.cs) en el proyecto:
-Se calcula la dirección y distancia desde el agente hasta el objetivo predicho, que será un GameObject vacío asignado en el inspector a Objetivo (del script *ComportamientoAgente*), distinto a objetivoReal (del script *Persecución*) al que se asignará el objetivo al que realmente quieres seguir, en este caso al Flautista. 
+Se calcula la dirección y distancia desde el agente hasta el objetivo predicho, que será un GameObject vacío asignado en el inspector a Objetivo (del script *ComportamientoAgente*), distinto a objetivoReal (del script *Persecución*) al que se asignará el objetivo al que realmente quieres seguir, en este caso al Flautista.
+
 Se calcula si la velocidad que necesitarías para recorrer la distancia ya mencionada en el tiempo maxPrediction dado es razonable teniendo en cuenta la velocidad que tenga el agente, si no lo es usas maxPrediction para calcular la posición predicha y si sí lo es se calcula el tiempo predicho que se tardaria en recorrer esa distancia.
 Con este tiempo se calcula la posición predicha que perseguirá el perro en función de la posición del objetivo real, para conseguir simular una predicción.
 
