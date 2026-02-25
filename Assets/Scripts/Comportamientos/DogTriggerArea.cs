@@ -14,7 +14,7 @@ public class DogTriggerArea : MonoBehaviour
     private Huir huir;
 
     List<Collider> collidedRats = new List<Collider>();
-
+    private GameObject centroidObject;
     void FixedUpdate()
     {
         collidedRats.Clear();
@@ -25,11 +25,16 @@ public class DogTriggerArea : MonoBehaviour
         persecucion = GetComponentInParent<Persecucion>();
         huir = GetComponentInParent<Huir>();
 
-        huir.enabled = true;
-        persecucion.enabled = true;
+        if (huir != null)
+            huir.enabled = true;
+        
+        if (persecucion != null)
+            persecucion.enabled = true;
+        centroidObject = new GameObject();
 
         triggerArea = GetComponent<SphereCollider>();
-        triggerArea.radius = TriggerRadius; // valor dado a la que las ratas triggerean la huida del perro
+        if (triggerArea != null)
+            triggerArea.radius = TriggerRadius; // valor dado a la que las ratas triggerean la huida del perro
     }
 
     void OnTriggerStay(Collider other)
@@ -62,10 +67,20 @@ public class DogTriggerArea : MonoBehaviour
         if (rats >= ratsToFlee)
         {
             huir.isFleeing = true;
+
+            Vector3 suma = Vector3.zero;
+
+            foreach (Collider c in collidedRats)
+                suma += c.transform.position;
+
+            Vector3 centroide = suma / rats;
+            centroidObject.transform.position = centroide;
+            huir.objetivo = centroidObject;
         }
         else
         {
             huir.isFleeing = false;
+            huir.objetivo = persecucion.objetivo;
         }
     }
 }

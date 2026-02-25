@@ -93,7 +93,7 @@ namespace UCM.IAV.Movimiento
                     idle = false;
                     idleTimer = 0f;
                     moveTimer = 0f;
-                    moveDuration = Random.Range(tiempoMinimoIdle, tiempoMaximoIdle);
+                    moveDuration = Random.Range(tiempoMinimoMovimiento, tiempoMaximoMovimiento);
                 }
                 // si estamos en idle no hacemos nada
                 return result;

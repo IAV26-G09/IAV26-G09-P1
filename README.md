@@ -3,7 +3,7 @@
 > [!NOTE]
 > Versión: 2
 
-> [!IMPORTANT]
+> [!NOTE]
 > Changelog: 
 - [Diseño de la solución](#diseño-de-la-solución) 
     - Se ha añadido una explicación al pseudocódigo basada en la implementación del mismo en la práctica.
@@ -367,8 +367,8 @@ Las tareas y el esfuerzo ha sido repartido de manera equitativa entre las autora
 | ✔ | Separación de los agentes de la bandada (ratas) | 17-2-2026 |
 | ✔ | Mejoras en la predicción de persecución | 17-2-2026 |
 | ✔ | Separación de los agentes de la bandada (ratas) | 24-2-2026 |
-|  | AMPLIACIONES |  |
 | ✔ | Acceso a la velocidad real del agente desde *Agente*  | 24-2-2026 |
+|  | AMPLIACIONES |  |
 | ✔ | Estado *Idle* de los agentes (ratas) durante el merodeo  | 24-2-2026 |
 
 <br>
@@ -433,24 +433,23 @@ Se adjuntan los *scripts* con el código fuente que implementan las principales 
 ### Plan de pruebas
 Serie corta y rápida posible de pruebas que pueden realizarse para verificar que se cumplen las características requeridas:
 
-* **1. Característica: A.** Arrancar el juego y observar el mundo compuesto por varios agentes (jugador -> flautista, acompañante -> perro, miembro de bandadada -> rata) y los obstáculos.
-* **2. Característica: A.** Hacer clic en el botón "Reiniciar" de la interfaz para comenzar de nuevo la simulación con la configuración inicial.
-* **3. Característica: A.** Comprobar los distintos tipos de cámaras pulsando N: cámara fija, cámara que sigue al jugador y cámara que sigue al perro, moviendo al avatar mientras se realiza este paso.
-* **4. Característica: A.** Instanciar una cantidad de ratas X, introduciendo un número mayor a 1 con el campo de entrada en la parte inferior izquierda de la interfaz a través del teclado y haciendo a clic en el botón contiguo "Ratear".
-* **5. Característica: A.** Destruir una cantidad de ratas Y, introduciendo un número menor al de ratas actuales y mayor o igual que 0 en el campo de entrada de la interfaz a través del teclado y haciendo clic en el botón contiguo "Ratear".
-* **6. Característica: B.** Comprobar el control de movimiento del avatar moviendo dentro y fuera del radio alrededor del avatar. 
-* **7. Característica: B.** Comprobar el control de velocidad del avatar clicando con el ratón a lo largo del pueblo.
-* **8. Característica: B.** Comprobar el control de la flauta tocándola con el clic derecho. Comprobarlo también moviendo al jugador y sin moverlo.
-* **9. Característica: C.** Observar seguimiento del acompañante cuando el jugador se está moviendo.
-* **10. Característica: C.** Observar encarado del acompañante en función de su movimiento.
-* **11. Característica: C.** Ya que se mueve prediciendo un objetivo enfrente del jugador en función de la velocidad de este, observar también encarado del acompañante a través de la velocidad del jugador, manteniendo pulsado el clic izquierdo al moverse o no. 
-* **12. Característica: C.** Observar control de llegada del acompañante cuando el jugador deja de moverse.
-* **13. Característica: C.** Situar al jugador y por tanto al acompañante cerca del centro del mundo y e instanciar un numero considerable de ratas más. Observar que el acompañante huye en dirección contraria al detectar tres o más ratas en su adyacencia.
-* **14. Característica: D.** Si no hay, instanciar un número considerable de ratas. Observar su patrón de movimiento errático y desordenado.
-* **15. Característica: E.** Mantener clic derecho pulsado y moverse a lo largo del escenario intentando acercarse a ratas.
-* **16. Característica: E.** Acercarse a un número considerable de ratas y observar la "hipnosis" y movimiento en bandada de las ratas, que siguen al jugador mientras estén dentro del radio de sonido de la flauta alrededor del jugador intentando no estar muy cerca unas de otras.
-* **17. Característica: E.** Repetir los últimos tres pasos con un número alto de ratas y observar el cambio en los FPS.
-ecayda us
+* **1. (A).** Arrancar el juego y observar el mundo compuesto por varios agentes (jugador -> flautista, acompañante -> perro, miembro de bandadada -> rata) y los obstáculos.
+* **2. (A).** Hacer clic en el botón "Reiniciar" de la interfaz para comenzar de nuevo la simulación con la configuración inicial.
+* **3. (A).** Comprobar los distintos tipos de cámaras pulsando N: cámara fija, cámara que sigue al jugador y cámara que sigue al perro, moviendo al avatar mientras se realiza este paso.
+* **4. (A).** Instanciar una cantidad de ratas X, introduciendo un número mayor a 1 con el campo de entrada en la parte inferior izquierda de la interfaz a través del teclado y haciendo a clic en el botón contiguo "Ratear".
+* **5. (A).** Destruir una cantidad de ratas Y, introduciendo un número menor al de ratas actuales y mayor o igual que 0 en el campo de entrada de la interfaz a través del teclado y haciendo clic en el botón contiguo "Ratear".
+* **6. (B).** Comprobar el control de movimiento del avatar moviendo dentro y fuera del radio alrededor del avatar. 
+* **7. (B).** Comprobar el control de velocidad del avatar clicando con el ratón a lo largo del pueblo.
+* **8. (B).** Comprobar el control de la flauta tocándola con el clic derecho. Comprobarlo también moviendo al jugador y sin moverlo.
+* **9. (C).** Observar seguimiento del acompañante cuando el jugador se está moviendo.
+* **10. (C).** Observar encarado del acompañante en función de su movimiento.
+* **11. (C).** Ya que se mueve prediciendo un objetivo enfrente del jugador en función de la velocidad de este, observar también encarado del acompañante a través de la velocidad del jugador, manteniendo pulsado el clic izquierdo al moverse o no. 
+* **12. (C).** Observar control de llegada del acompañante cuando el jugador deja de moverse.
+* **13. (C).** Situar al jugador y por tanto al acompañante cerca del centro del mundo y e instanciar un numero considerable de ratas más. Observar que el acompañante huye en dirección contraria al detectar tres o más ratas en su adyacencia.
+* **14. (D).** Si no hay, instanciar un número considerable de ratas. Observar su patrón de movimiento errático y desordenado.
+* **15. (E).** Mantener clic derecho pulsado y moverse a lo largo del escenario intentando acercarse a ratas.
+* **16. (E).** Acercarse a un número considerable de ratas y observar la "hipnosis" y movimiento en bandada de las ratas, que siguen al jugador mientras estén dentro del radio de sonido de la flauta alrededor del jugador intentando no estar muy cerca unas de otras.
+* **17. (E).** Repetir los últimos tres pasos con un número alto de ratas y observar el cambio en los FPS.
 
 ### Métricas tomadas
 En un PC de estas características:
@@ -458,15 +457,18 @@ En un PC de estas características:
 - **GPU:** NVIDIA GeForce RTX 5070 Ti con 16 GB
 - **RAM:** 32 GB (16x2) de 4800 MT/s
 - **SO:** Windows 11
+- **Versión de Unity:** 6000.0.66f2
+
 Se han tomado las siguientes métricas:
-    - En vista aérea y sin colisión entre ratas, deja de haber 60 FPS estables al pasar las 1300 ratas y se queda en una mediana de 59 fps.
-    - Al llegar a 1500, la media es de 56 fps.
-    - En 1750, de 47 fps.
-    - En 2000, de 38 y fluctua entre 35 y 41 erráticamente.
-    - Una vez se pasa de 2250 se baja de 30 fps.
-    - En 2500, de 25 fps.
-    - En 3000, de 17 fps.
-    - En 4000, de 3 fps.
+
+- En vista aérea y sin colisión entre ratas, deja de haber 60 FPS estables al pasar las 1300 ratas y se queda en una mediana de 59 fps.
+- Al llegar a 1500, la media es de 56 fps.
+- En 1750, de 47 fps.
+- En 2000, de 38 y fluctua entre 35 y 41 erráticamente.
+- Una vez se pasa de 2250 se baja de 30 fps.
+- En 2500, de 25 fps.
+- En 3000, de 17 fps.
+- En 4000, de 3 fps.
   
 ```mermaid
 xychart-beta
