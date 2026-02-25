@@ -76,7 +76,7 @@ namespace UCM.IAV.Movimiento
                 idleTimer += Time.deltaTime;
                 if (idleTimer >= idleDuration)
                 {
-                    // --- 1: NUEVO OBJETIVO
+                    // --- Calcula el nuevo objetivo
                     // actualiza la direccion de merodeo
                     wanderOrientation = Random.Range(.0f, 360f);
 
@@ -106,19 +106,18 @@ namespace UCM.IAV.Movimiento
 
             moveTimer += Time.deltaTime;
 
-            Vector3 direccion =
-                objetivo.transform.position - agente.transform.position;
-
-            // distancia hacia el objetivo
+            // Se dirige hacia el nuevo objetivo
+            Vector3 direccion = objetivo.transform.position - agente.transform.position;
             float distancia = direccion.magnitude;
 
-            if (moveTimer >= moveDuration || distancia < targetRadius) // si ha pasado suficiente tiempo o ha llegado al radio objetivo
+            // si ha pasado suficiente tiempo o ha llegado al radio objetivo
+            if (moveTimer >= moveDuration || distancia < targetRadius) 
             {
                 idle = true;
 
                 moveTimer = 0f;
                 idleTimer = 0f;
-                idleDuration = Random.Range(tiempoMinimoIdle, tiempoMaximoIdle);
+                idleDuration = Random.Range(tiempoMinimoIdle, tiempoMaximoIdle); // nueva duracion del idle
 
                 return result;
             }
@@ -127,7 +126,6 @@ namespace UCM.IAV.Movimiento
 
             result.angular = 0;
 
-            // --- 3
             // lineal = max aceleracion en la direccion de la orientacion
             result.lineal = agente.aceleracionMax * direccion;
 

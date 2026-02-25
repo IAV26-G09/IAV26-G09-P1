@@ -106,7 +106,8 @@ namespace UCM.IAV.Movimiento
             return vector.normalized;
         }
 
-        
+
+        // --- Align, Seek y Face
         public ComportamientoDireccion GetSteeringSeek()
         {
             ComportamientoDireccion result = new ComportamientoDireccion();
@@ -154,7 +155,6 @@ namespace UCM.IAV.Movimiento
             if (rotationSize > rRalentizado)
             {
                 targetRotation = agente.rotacionMax;
-                //objetivo.
             }
             else // si no calculamos la escalada
             {

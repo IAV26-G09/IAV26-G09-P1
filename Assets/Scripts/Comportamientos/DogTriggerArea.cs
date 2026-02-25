@@ -13,9 +13,10 @@ public class DogTriggerArea : MonoBehaviour
     private Persecucion persecucion;
     private Huir huir;
 
-    List<Collider> collidedRats = new List<Collider>();
-    private GameObject centroidObject;
-    [SerializeField] private bool debugCentroide = true; // para dibujar línea entre el centroide calculado 
+    List<Collider> collidedRats = new List<Collider>(); // para ir comprobando cuantas ratas tiene el agente cerca
+
+    private GameObject centroidObject; // objeto vacio para calcular el centroide, sera el objetivo del que huir
+    [SerializeField] private bool debugCentroide = true; // para dibujar lï¿½nea entre el centroide calculado 
 
     void FixedUpdate()
     {
@@ -45,46 +46,50 @@ public class DogTriggerArea : MonoBehaviour
         if (!collidedRats.Contains(other) &&
             other.gameObject.tag.Equals("Rat")) // solo registrar las ratas
         {
-            collidedRats.Add(other);
+            collidedRats.Add(other); // la mete en la lista
         }
     }
 
     void OnTriggerExit(Collider other)
     {
         if (other.CompareTag("Rat"))
-            collidedRats.Remove(other);
+            collidedRats.Remove(other); // la saca de la lista
     }
 
     void Update()
     {
-        var rats = collidedRats.Count;
+        var rats = collidedRats.Count; // las ratas que haya en ese momento en la lista
 
         // Establecer el estado del perro en funcion de las ratas que 
         // tenga a TriggerRadius de distancia
         if (rats >= ratsToFlee)
         {
-            huir.isFleeing = true;
+            huir.isFleeing = true; // activa el comportamiento de huida
 
             Vector3 suma = Vector3.zero;
             Vector3 dogPos = transform.position;
             float pesoTotal = 0f;
+
             foreach (Collider c in collidedRats)
             {
-                Vector3 ratPos = c.transform.position;
-                float distance = Vector3.Distance(dogPos, ratPos);
+                Vector3 ratPos = c.transform.position; // posicion de la rata que estamos calculando
+                float distance = Vector3.Distance(dogPos, ratPos); // distancia a esa rata
 
-                distance = Mathf.Clamp(distance, 0.01f, distance);
+                distance = Mathf.Clamp(distance, 0.01f, distance); // para que la distancia nunca sea 0
 
-                //float peso = (1f - (1f / distance));
-                float peso = ((1f / distance));
+                float peso = ((1f / distance)); // calcula su peso en funcion de la distancia 
+                // de esta forma el centroide se acercara mas a las ratas con mayor peso simulando 
+                // una mayor alteracion del perro a menor distancia
+
                 pesoTotal += peso;
-                suma += ratPos * peso;
+                suma += ratPos * peso; // va sumando todas las posiciones
             }
 
-            Vector3 centroide = suma / pesoTotal;
-            centroidObject.transform.position = centroide;
-            huir.objetivo = centroidObject;
+            Vector3 centroide = suma / pesoTotal; // se calcula el centroide ajustandolo para que los pesos esten en el rango [0-1]
+            centroidObject.transform.position = centroide; // se cambia la posicion del gameobject centroide
+            huir.objetivo = centroidObject; // se establece ese centroide como objetivo de huida
 
+            // Debug
             if (debugCentroide)
             {
                 Debug.DrawLine(transform.position, centroidObject.transform.position, new Color(1, 1, 0), 0.5f);
@@ -92,7 +97,7 @@ public class DogTriggerArea : MonoBehaviour
         }
         else
         {
-            huir.isFleeing = false;
+            huir.isFleeing = false; // desactiva el comportamiento de huida
             huir.objetivo = persecucion.objetivo;
         }
     }

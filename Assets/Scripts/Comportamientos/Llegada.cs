@@ -87,7 +87,7 @@ namespace UCM.IAV.Movimiento
             if (result.lineal.magnitude > agente.aceleracionMax)
             {
                 result.lineal.Normalize();
-                result.lineal *= agente.aceleracionMax;
+                result.lineal *= agente.aceleracionMax; // lo ajusta a la aceleracion max
             }
 
             result.angular = 0;
