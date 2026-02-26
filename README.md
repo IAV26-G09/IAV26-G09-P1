@@ -48,11 +48,9 @@
 El proyecto consiste en un prototipo de videojuego que sirve de demostración técnica de algoritmos estándar de inteligencia artificial en NPCs en un entorno virtual 3D que representa el pueblo de Hamelín, un personaje controlable por el jugador que es el flautista de Hamelín y un perro compañero y un montón de ratas controlados con IA.
 
 ## Instalación y uso
-Todo el contenido del proyecto está disponible en este repositorio, con **Unity 6000.0.66f2** o posterior siendo capaces de bajar todos los paquetes necesarios.
+Todo el contenido del proyecto está disponible en este repositorio, con **Unity 6000.0.66f2** o posterior siendo capaces de bajar todos los paquetes necesarios y editar el proyecto.
 
-Al no estar publicada todavía ninguna versión ejecutable del prototipo, ni enlazado ningún video con las pruebas realizadas, es necesario abrir el proyecto en Unity y usarlo desde allí.
-
-Próximamente se publicará un release con la etiqueta `release-x`, siendo *x* la versión del proyecto.
+El release de la build más reciente está disponible para descarga [aquí](https://github.com/IAV26-G09/IAV26-G09-P1/releases/latest).
 
 ## Introducción  
 Este proyecto es una práctica de la asignatura de Inteligencia Artificial para Videojuegos del Grado en Desarrollo de Videojuegos de la UCM, cuyo enunciado original es este: [Plaga de Ratas](https://narratech.com/es/inteligencia-artificial-para-videojuegos/percepcion-y-movimiento/plaga-de-ratas/).
