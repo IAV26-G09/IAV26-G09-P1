@@ -1,10 +1,12 @@
 # Inteligencia Artificial para Videojuegos - Práctica 1: Plaga de Ratas
 
 > [!NOTE]
-> Versión: 2
+> Versión: 3
 
 > [!NOTE]
 > Changelog: 
+- [Instalación y uso](#instalación-y-uso)
+    - Re-redactada sección y listada nueva build v1.
 - [Diseño de la solución](#diseño-de-la-solución) 
     - Se ha añadido una explicación al pseudocódigo basada en la implementación del mismo en la práctica.
     - Se enlaza el código, documentado, al que referencia cada algoritmo.
