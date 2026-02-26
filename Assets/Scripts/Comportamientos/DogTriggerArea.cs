@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using UCM.IAV.Movimiento;
-using UnityEditor.Experimental.GraphView;
+//using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class DogTriggerArea : MonoBehaviour
@@ -9,9 +9,9 @@ public class DogTriggerArea : MonoBehaviour
     [SerializeField] private float TriggerRadius = 1.5f; // radio de trigger del perro
     [SerializeField] private int ratsToFlee = 3; // numero de ratas en trigger para huir
 
-    private SphereCollider triggerArea;
-    private Persecucion persecucion;
-    private Huir huir;
+    private SphereCollider triggerArea; // area de colision
+    private Persecucion persecucion; // comportamiento de persecucion
+    private Huir huir; //comportamiento de huida
 
     List<Collider> collidedRats = new List<Collider>(); // para ir comprobando cuantas ratas tiene el agente cerca
 

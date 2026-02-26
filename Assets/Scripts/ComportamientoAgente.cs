@@ -15,7 +15,7 @@ namespace UCM.IAV.Movimiento
 {
 
     using UnityEngine;
-    using static UnityEditor.FilePathAttribute;
+    //using static UnityEditor.FilePathAttribute;
 
     /// <summary>
     /// Clase abstracta que funciona como plantilla para todos los comportamientos de agente

@@ -34,24 +34,26 @@ namespace UCM.IAV.Movimiento
         [SerializeField] private bool debugMerodeo = false;
 
         [SerializeField]
-        float tiempoMaximoMovimiento = 2.0f; // maximum rate of wanderers orientation change
+        float tiempoMaximoMovimiento = 2.0f; // tiempo maximo que una rata puede estar moviendoses
         [SerializeField]
-        float tiempoMinimoMovimiento = 1.0f; // maximum rate of wanderers orientation change
+        float tiempoMinimoMovimiento = 1.0f; // tiempo minimo que una rata puede estar moviendose
         [SerializeField]
-        float tiempoMaximoIdle = 2.0f; // maximum rate of wanderers orientation change
+        float tiempoMaximoIdle = 2.0f; // tiempo maximo que una rata puede estar descnasando
         [SerializeField]
-        float tiempoMinimoIdle = 1.0f; // maximum rate of wanderers orientation change
+        float tiempoMinimoIdle = 1.0f; // tiempo minimo que una rata puede estar descansando
 
+        // estado ocioso
         private bool idle = true;
         [SerializeField]
-        private float idleTimer = 0.0f;
+        private float idleTimer = 0.0f; // contador
         [SerializeField]
-        private float idleDuration = 0.0f;
+        private float idleDuration = 0.0f; // tiempo determinado
 
+        // estado movimiento
         [SerializeField]
-        private float moveTimer = 0.0f;
+        private float moveTimer = 0.0f; // contador
         [SerializeField]
-        private float moveDuration = 0.0f;
+        private float moveDuration = 0.0f; // tiempo determinado
         public float timeToTarget = 0.1f;
 
         [SerializeField] float targetRadius = 0.5f;   // cuando parar
