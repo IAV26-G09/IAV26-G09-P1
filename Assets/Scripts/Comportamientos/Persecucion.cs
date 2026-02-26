@@ -32,7 +32,7 @@ public class Persecucion : Llegada
         // distancia hacia el objetivo predicho
         float distancia = direccion.magnitude;
 
-        float speed = agente.velocidad.magnitude;
+        float speed = agente.getVelocidadLinealReal().magnitude;
 
         float prediccion;
         if (speed <= distancia / maxPrediction)
