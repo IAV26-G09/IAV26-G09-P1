@@ -494,7 +494,7 @@ line [60, 45, 30, 19, 13, 9, 7, 6, 5]
 
 ### Vídeo
 
-- [Vídeo demostración](https://www.youtube.com/watch?v=CRdi2IxwevY)
+- [Vídeo demostración](https://youtu.be/HxN5z2ei1y8)
 
 ## Ampliaciones
 Se han desarrollado dos ampliaciones, ambas detalladas en el apartado de [*Diseño de la solución*](#diseño-de-la-solución): 
